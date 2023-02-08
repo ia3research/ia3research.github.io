@@ -10,6 +10,10 @@
 * 	Template Style 
 *
 * ======================================================= */
+html {
+  height: 100%;
+}
+
 body {
   font-family: "Inconsolata", Arial, sans-serif;
   font-weight: 400;
@@ -17,6 +21,36 @@ body {
   line-height: 1.7;
   color: #333333;
   background: #fff;
+  height: 100%;
+}
+
+.home-center {
+  height: 85vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-center {
+  height: 85vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.title-center {
+  height: 60vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
 #page {
