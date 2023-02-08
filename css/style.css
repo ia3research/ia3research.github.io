@@ -19,6 +19,21 @@ body {
   background: #fff;
 }
 
+.home-center {
+  height: 85vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-center {
+  height: 60vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
 #page {
   position: relative;
   overflow-x: hidden;
