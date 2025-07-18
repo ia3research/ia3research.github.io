@@ -3,6 +3,7 @@ export interface Publication {
   slug: string;
   year: number;
   quarter: string;
+  doi: string;
 }
 
 export interface TimelineProps {
@@ -46,6 +47,7 @@ years.forEach((year) => {
       return {
         slug: pub.slug,
         color: getQuartileColor(pub.quarter),
+        doi: pub.doi,
       };
     });
 });
@@ -62,10 +64,13 @@ console.log("Grid columns:", gridCols);
         <h2 class='text-xl font-bold mb-4 text-center'>{year}</h2>
         <div class='grid grid-cols-1 gap-2 place-items-center place-content-end flex-1'>
           {journalsData[year].map((pub: any) => (
-            <p
-              class={`text-xs rounded-sm ${pub.color} font-semibold p-2 border w-full text-center`}>
+            <a
+              href={`${pub.doi}`}
+              target='_blank'
+              rel='noopener noreferrer'
+              class={`text-xs rounded-sm ${pub.color} font-semibold p-2 border w-full text-center select-none cursor-pointer`}>
               {pub.slug}
-            </p>
+            </a>
           ))}
         </div>
       </div>
