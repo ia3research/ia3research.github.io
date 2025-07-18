@@ -41,7 +41,7 @@ const isActiveMobile = (item: string) => {
 
     <div
       class='text-3xl font-bold decoration-none relative flex items-center justify-between w-full md:hidden'>
-      <a href='/ia3-prop/'>IA³</a>
+      <a href='/'>IA³</a>
       <button
         id='mobile-menu-button'
         class='md:hidden flex flex-col justify-center items-center space-y-1.5 cursor-pointer z-[60]'>
@@ -64,7 +64,7 @@ const isActiveMobile = (item: string) => {
           navItems.map((item) => (
             <li class='hover:bg-blue-100 py-0.5 rounded-sm transition-all duration-300 ease-in-out'>
               <a
-                href={`/ia3-prop/${item.slug === "home" ? "" : item.slug}`}
+                href={`/${item.slug === "home" ? "" : item.slug}`}
                 class={`text-base relative nav-link px-2 py-1 rounded-sm transition-all duration-300 ease-in-out ${isActiveWeb(item.slug)}`}>
                 {item.name}
               </a>
@@ -89,7 +89,7 @@ const isActiveMobile = (item: string) => {
         navItems.map((item) => (
           <li class='hover:bg-blue-100 py-1 px-2 rounded-sm transition-all duration-300 ease-in-out'>
             <a
-              href={`/ia3-prop/${item.slug === "home" ? "" : item.slug}`}
+              href={`/${item.slug === "home" ? "" : item.slug}`}
               class={`text-base block relative nav-link transition-all duration-300 ease-in-out ${isActiveMobile(item.slug)}`}>
               {item.name}
             </a>
