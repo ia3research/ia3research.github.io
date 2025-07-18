@@ -1,0 +1,67 @@
+---
+import Header from "../components/Header.astro";
+import PublicationCard from "../components/PublicationCard.astro";
+import PublicationTable from "../components/PublicationTable.astro";
+import Layout from "../layouts/Layout.astro";
+import { PUBLICATIONS } from "../lib/publications";
+
+const currentYear = new Date().getFullYear();
+const YEAR_RANGE = 5;
+
+const publicationsFiltered = PUBLICATIONS.filter(
+  (publication) => publication.year >= currentYear - YEAR_RANGE
+);
+
+const journalPublications = publicationsFiltered.filter(
+  (publication) => publication.type === "Journal"
+);
+
+const conferencePublications = publicationsFiltered.filter(
+  (publication) => publication.type === "Conference"
+);
+---
+
+<Layout>
+  <Header currentPage='publications' />
+  <main
+    class='w-full flex flex-col items-center justify-center md:py-12 md:px-56 py-4 px-10'>
+    <div class='mt-8 max-w-6xl hidden md:block'>
+      <PublicationTable
+        publications={journalPublications}
+        yearRange={YEAR_RANGE}
+        currentYear={currentYear}
+      />
+    </div>
+    <div class='mt-8 max-w-6xl hidden md:block'>
+      <PublicationTable
+        publications={conferencePublications}
+        yearRange={YEAR_RANGE}
+        currentYear={currentYear}
+      />
+    </div>
+    <h1 class='text-2xl text-center md:mt-12'>Group Research Publications</h1>
+    <div class='grid md:grid-cols-3 grid-cols-1 gap-8 mt-8 max-w-6xl'>
+      {
+        publicationsFiltered.map((publication) => (
+          <PublicationCard
+            year={publication.year}
+            title={publication.title}
+            authors={publication.authors}
+            publisher={publication.publisher}
+            doi={publication.doi}
+            quarter={publication.quarter}
+            type={publication.type}
+          />
+        ))
+      }
+    </div>
+    <h1 class='text-2xl mt-12 text-center'>Previous Publications</h1>
+    <a
+      href='https://www.uji.es/serveis/ocit/base/grupsinvestigacio/detall/?urlRedirect=https://www.uji.es/serveis/ocit/base/grupsinvestigacio/detall/&url=/serveis/ocit/base/grupsinvestigacio/detall&p_grupo_id=329&p_seccion=publicacionsTesis&p_antiguedad=999'
+      target='_blank'
+      rel='noopener noreferrer'
+      class='text-blue-500 hover:underline mt-4 text-xl'
+      >Click here to see all our publications</a
+    >
+  </main>
+</Layout>

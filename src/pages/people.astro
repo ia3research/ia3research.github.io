@@ -1,0 +1,73 @@
+---
+import Header from "../components/Header.astro";
+import Scholar from "../icons/Scholar.astro";
+import Orcid from "../icons/Orcid.astro";
+import Web from "../icons/Web.astro";
+import Layout from "../layouts/Layout.astro";
+
+import { TEAM, PAST_MEMBERS } from "../lib/team.ts";
+---
+
+<Layout>
+  <Header currentPage='people' />
+  <main
+    class='w-full flex flex-col items-center justify-center md:py-12 md:px-56 py-4 px-10'>
+    <h1 class='text-2xl text-center'>Our Team</h1>
+    <div class='grid md:grid-cols-3 grid-cols-1 gap-8 mt-8 max-w-6xl'>
+      {
+        TEAM.map((member) => (
+          <div class='rounded-lg shadow-lg px-6 py-4 bg-white flex flex-col items-center'>
+            <img
+              src={`/ia3-prop/team/${member.image}`}
+              alt={`${member.name}'s profile picture`}
+              class='size-40 rounded-full object-cover'
+            />
+            <h2 class='text-lg font-semibold mt-4'>{`${member.address} ${member.name}`}</h2>
+            <p class='text-lg text-gray-500'>{member.role}</p>
+            <div class='flex flex-row gap-2.5 justify-center items-center mt-3'>
+              {member.socials.scholar && (
+                <a
+                  href={member.socials.scholar}
+                  target='_blank'
+                  rel='noopener noreferrer'>
+                  <Scholar class='size-6 transition-all hover:scale-110 duration-300' />
+                </a>
+              )}
+              {member.socials.orcid && (
+                <a
+                  href={member.socials.orcid}
+                  target='_blank'
+                  rel='noopener noreferrer'>
+                  <Orcid class='size-6 transition-all hover:scale-110 duration-300' />
+                </a>
+              )}
+              {member.socials.web && (
+                <a
+                  href={member.socials.web}
+                  target='_blank'
+                  rel='noopener noreferrer'>
+                  <Web class='size-6 transition-all hover:scale-110 duration-300 text-blue-900' />
+                </a>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <h1 class='text-2xl mt-12 text-center'>Past Members</h1>
+    <div class='grid md:grid-cols-4 grid-cols-1 gap-8 mt-8 max-w-6xl'>
+      {
+        PAST_MEMBERS.map((member) => (
+          <div class='rounded-lg shadow-lg px-6 py-4 bg-white flex flex-col items-center'>
+            <img
+              src={`/ia3-prop/team/${member.image}`}
+              alt={`${member.name}'s profile picture`}
+              class='size-32 rounded-full object-cover'
+            />
+            <h2 class='text-lg font-semibold mt-4'>{`${member.name}`}</h2>
+          </div>
+        ))
+      }
+    </div>
+  </main>
+</Layout>

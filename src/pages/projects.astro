@@ -1,0 +1,106 @@
+---
+import Header from "../components/Header.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import Timeline, { type Project } from "../components/Timeline.astro";
+import Layout from "../layouts/Layout.astro";
+import { PROJECTS, PAST_PROJECTS, FUNDERS } from "../lib/projects";
+
+// Establecer el rango de años para filtrar los proyectos
+const currentYear = new Date().getFullYear();
+const startYear = currentYear - 5; // Start year for the timeline
+const endYear = currentYear + 4; // End year for the timeline
+const currentMonth = new Date().getMonth() + 1; // Months are 0-indexed
+
+// Convertir y combinar las listas de proyectos
+let timelineProjects = PROJECTS.map((project, index) => ({
+  id: index,
+  call: project.shortname,
+  name: project.name,
+  funder: project.funder,
+  startYear: +project.startdate.split("-")[2],
+  startMonth: +project.startdate.split("-")[1],
+  endYear: +project.enddate.split("-")[2],
+  endMonth: +project.enddate.split("-")[1],
+}));
+
+const length = timelineProjects.length;
+
+// Combinar correctamente los proyectos actuales y pasados en una sola lista
+timelineProjects = timelineProjects.concat(
+  PAST_PROJECTS.map((project, index) => ({
+    id: index + length,
+    call: project.shortname,
+    name: project.name,
+    funder: project.funder,
+    startYear: +project.startdate.split("-")[2],
+    startMonth: +project.startdate.split("-")[1],
+    endYear: +project.enddate.split("-")[2],
+    endMonth: +project.enddate.split("-")[1],
+  }))
+);
+
+// Filtrar proyectos por fecha de finalización dentro del rango de años especificado
+timelineProjects = timelineProjects.filter(
+  (project) => project.endYear >= startYear && project.endYear <= endYear
+);
+
+// Order timelineProjects by funder and startYear
+timelineProjects.sort((a, b) => {
+  if (a.funder === b.funder) {
+    return a.startYear - b.startYear || a.startMonth - b.startMonth;
+  }
+  return a.funder.localeCompare(b.funder);
+});
+---
+
+<Layout>
+  <Header currentPage='projects' />
+  <main
+    class='w-full flex flex-col items-center justify-center md:py-12 md:px-56 py-4 px-10'>
+    <div class='mt-8 max-w-6xl hidden md:block'>
+      <Timeline
+        projects={timelineProjects}
+        funders={FUNDERS}
+        startYear={startYear}
+        endYear={endYear}
+        currentYear={currentYear}
+        currentMonth={currentMonth}
+      />
+    </div>
+
+    <h1 class='text-2xl md:mt-12 text-center'>Research Projects</h1>
+    <div class='grid md:grid-cols-3 grid-cols-1 gap-8 mt-8 max-w-6xl'>
+      {
+        PROJECTS.map((project) => (
+          <ProjectCard
+            endDate={project.enddate}
+            startDate={project.startdate}
+            call={project.call}
+            shortName={project.shortname}
+            name={project.name}
+            grant={project.grant}
+            link={project.link}
+            image={project.image}
+          />
+        ))
+      }
+    </div>
+    <h1 class='text-2xl mt-12 text-center'>Past Research Projects</h1>
+    <div class='grid md:grid-cols-3 grid-cols-1 gap-8 mt-8 max-w-6xl'>
+      {
+        PAST_PROJECTS.map((project) => (
+          <ProjectCard
+            endDate={project.enddate}
+            startDate={project.startdate}
+            call={project.call}
+            shortName={project.shortname}
+            name={project.name}
+            grant={project.grant}
+            link={project.link}
+            image={project.image}
+          />
+        ))
+      }
+    </div>
+  </main>
+</Layout>

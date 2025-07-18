@@ -1,0 +1,56 @@
+---
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang='en' class='bg-zinc-50 text-neutral- w-full h-full m-0'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/ia3-prop/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <title>IA³ Research Group</title>
+  </head>
+  <body class='bg-zinc-50 text-neutral- w-full h-full m-0 selection:bg-blue-300/70'>
+    <slot />
+    <div
+      id='back-top'
+      class='fixed bottom-4 right-4 size-12 bg-blue-400 rounded-lg items-center justify-center cursor-pointer shadow-md z-50 hidden'>
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        class='h-6 w-6'
+        fill='none'
+        viewBox='0 0 24 24'
+        stroke='white'>
+        <path
+          stroke-linecap='round'
+          stroke-linejoin='round'
+          stroke-width='2'
+          d='M5 15l7-7 7 7'></path>
+      </svg>
+    </div>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    font-family: Inconsolata, monospace;
+  }
+</style>
+
+<script defer>
+  const backTop = document.getElementById("back-top");
+  backTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 40) {
+      backTop.classList.remove("hidden");
+      backTop.classList.add("flex");
+    } else {
+      backTop.classList.add("hidden");
+      backTop.classList.remove("flex");
+    }
+  });
+</script>

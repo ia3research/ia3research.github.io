@@ -1,0 +1,59 @@
+---
+import Link from "../icons/Link.astro";
+
+export interface ProjectCardProps {
+  endDate?: string;
+  startDate?: string;
+  call?: string;
+  shortName?: string;
+  name?: string;
+  grant?: number;
+  link?: string;
+  image?: string;
+}
+
+const { endDate, startDate, call, name, shortName, grant, link, image } =
+  Astro.props;
+
+let [day, month, year] = startDate.split("-").map(Number);
+const formattedStartDate = new Date(year, month - 1, day).toLocaleDateString(
+  "en",
+  {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }
+);
+
+[day, month, year] = endDate.split("-").map(Number);
+const formattedEndDate = new Date(year, month - 1, day).toLocaleDateString(
+  "en",
+  {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }
+);
+---
+
+<div
+  class='hover:shadow-lg transition-shadow duration-300 p-3 bg-white rounded-2xl shadow-md flex flex-col justify-between gap-3 max-w-80'>
+  <img
+    class='aspect-square rounded-sm overflow-hidden object-cover'
+    src={`/ia3-prop/projects/${image}`}
+  />
+  <h3 class='text-xs'>
+    {formattedStartDate} - {formattedEndDate}
+  </h3>
+  <h1 class='text-xl'>{call}</h1>
+  <h2 class='text-base flex-1'>{shortName}: {name}</h2>
+  <h2 class='text-lg'>{grant} €</h2>
+  <a
+    href={link}
+    target='_blank'
+    rel='noopener noreferrer'
+    class='border border-blue-800 rounded-sm px-4 py-2 hover:bg-blue-200 transition-all duration-300 cursor-pointer text-center flex items-center justify-center gap-2'>
+    <Link class='size-4' />
+    More information
+  </a>
+</div>

@@ -1,0 +1,58 @@
+---
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+
+import { RESEARCH } from "../lib/research";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <Header currentPage='research' />
+  <main
+    class='w-full flex flex-col items-center justify-center md:py-12 md:px-56 py-4 px-10'>
+    <h1 class='text-2xl text-center'>Research Lines</h1>
+    <div class='grid md:grid-cols-2 grid-cols-1 gap-8 mt-8 max-w-6xl'>
+      {
+        RESEARCH.map((line) => (
+          <div class='hover:shadow-lg transition-shadow duration-300 px-6 py-3 bg-white rounded-lg shadow-md flex flex-col justify-between'>
+            <div class='flex justify-between items-start mb-2 gap-4'>
+              <div class='text-lg font-semibold text-gray-900 leading-tight'>
+                {line.title}
+              </div>
+              <div class='shrink-0 border border-gray-300 rounded-full px-2 py-0.5 text-xs text-gray-600 select-none'>
+                {line.startYear}
+              </div>
+            </div>
+
+            <div>
+              <div class='grid grid-cols-2 gap-4 pt-4 border-t'>
+                <div class='text-center'>
+                  <div class='flex items-center justify-center mb-1'>
+                    <span class='text-sm font-medium text-gray-700'>
+                      Projects
+                    </span>
+                  </div>
+                  <div class='text-lg font-semibold text-blue-600'>
+                    {line.projects}
+                  </div>
+                </div>
+                <div class='text-center'>
+                  <div class='flex items-center justify-center mb-1'>
+                    <span class='text-sm font-medium text-gray-700'>
+                      Publications
+                    </span>
+                  </div>
+                  <div class='text-lg font-semibold text-green-600'>
+                    {line.publications}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </main>
+</Layout>

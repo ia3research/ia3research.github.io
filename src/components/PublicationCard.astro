@@ -1,0 +1,85 @@
+---
+import Link from "../icons/Link.astro";
+import Authors from "../icons/Authors.astro";
+import Calendar from "../icons/Calendar.astro";
+import Journal from "../icons/Journal.astro";
+
+export interface ProjectCardProps {
+  year?: number;
+  title?: string;
+  authors?: string;
+  publisher?: string;
+  doi?: string;
+  quarter?: string;
+  type?: string;
+}
+
+const { year, title, authors, publisher, doi, quarter, type } = Astro.props;
+
+const getQuartileColor = (quartile: string) => {
+  switch (quartile) {
+    case "Q1":
+      return "bg-blue-300 text-black border-blue-500"; // más oscuro
+    case "Q2":
+      return "bg-blue-200 text-black border-blue-400";
+    case "Q3":
+      return "bg-blue-100 text-black border-blue-300";
+    case "Q4":
+      return "bg-blue-50 text-black border-blue-200"; // más claro
+    case "International":
+      return "bg-green-300 text-black border-green-400";
+    case "National":
+      return "bg-green-100 text-black border-green-200";
+    default:
+      return "bg-gray-100 text-black border-gray-200";
+  }
+};
+---
+
+<article
+  class='h-full transition-shadow duration-300 p-4 px-6 bg-white rounded-lg hover:shadow-lg flex flex-col justify-between shadow-md'>
+  <div class='mb-4'>
+    <div class='flex items-start justify-between gap-2 mb-4'>
+      <div class='flex items-center text-md'>
+        <Calendar class='size-4 mr-2' />
+        {year}
+      </div>
+      <div
+        class={`${getQuartileColor(quarter)} font-semibold px-2 rounded-md select-none`}>
+        {quarter}
+      </div>
+    </div>
+    <div class='text-lg leading-tight'>{title}</div>
+  </div>
+
+  <div class='flex flex-col'>
+    <div class='space-y-3 flex flex-col justify-between'>
+      <div class='flex items-start gap-2 flex-col'>
+        <div class='flex flex-row gap-2 justify-center items-center'>
+          <Authors class='size-4 mt-0.5' />
+          <span class='font-medium'>Authors:</span>
+        </div>
+        <div class='mt-1 text-sm'>{authors}</div>
+      </div>
+
+      <div class='flex items-start gap-2 flex-col'>
+        <div class='flex flex-row gap-2 justify-center items-center'>
+          <Journal class='size-4 mt-0.5' />
+          <span class='font-medium'>Publisher:</span>
+        </div>
+        <div class='mt-1 text-sm'>{publisher}</div>
+      </div>
+
+      <div class='w-full mt-4'>
+        <a
+          href={doi}
+          target='_blank'
+          rel='noopener noreferrer'
+          class='border border-blue-800 rounded-sm px-4 py-2 hover:bg-blue-200 transition-all duration-300 cursor-pointer text-center flex items-center justify-center gap-2'>
+          <Link class='size-4' />
+          Read more
+        </a>
+      </div>
+    </div>
+  </div>
+</article>

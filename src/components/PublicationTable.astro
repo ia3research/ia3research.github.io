@@ -1,0 +1,74 @@
+---
+export interface Publication {
+  slug: string;
+  year: number;
+  quarter: string;
+}
+
+export interface TimelineProps {
+  publications: Publication[];
+  currentYear?: number;
+  yearRange?: number;
+}
+
+const { publications, yearRange, currentYear } = Astro.props;
+
+const start = currentYear - yearRange;
+const end = currentYear;
+const years = Array.from({ length: Math.abs(end - start) + 1 }, (_, i) =>
+  start <= end ? start + i : start - i
+).sort((a, b) => a - b);
+
+const getQuartileColor = (quartile: string) => {
+  switch (quartile) {
+    case "Q1":
+      return "bg-blue-300 text-black border-blue-500"; // más oscuro
+    case "Q2":
+      return "bg-blue-200 text-black border-blue-400";
+    case "Q3":
+      return "bg-blue-100 text-black border-blue-300";
+    case "Q4":
+      return "bg-blue-50 text-black border-blue-200"; // más claro
+    case "International":
+      return "bg-green-300 text-black border-green-400";
+    case "National":
+      return "bg-green-100 text-black border-green-200";
+    default:
+      return "bg-gray-100 text-black border-gray-200";
+  }
+};
+
+const journalsData: Record<number, string[]> = {};
+years.forEach((year) => {
+  journalsData[year] = publications
+    .filter((pub: Publication) => pub.year === year)
+    .map((pub: Publication) => {
+      return {
+        slug: pub.slug,
+        color: getQuartileColor(pub.quarter),
+      };
+    });
+});
+
+const gridCols = `grid-cols-${years.length}`;
+console.log("Grid columns:", gridCols);
+---
+
+<div class={`grid grid-cols-6 w-full relative gap-1 font-sans`}>
+  {
+    years.map((year, index) => (
+      <div
+        class={`mb-4 flex flex-col px-2 py-1 ${index < years.length - 1 ? "border-r-3 border-gray-500" : ""}`}>
+        <h2 class='text-xl font-bold mb-4 text-center'>{year}</h2>
+        <div class='grid grid-cols-1 gap-2 place-items-center place-content-end flex-1'>
+          {journalsData[year].map((pub: any) => (
+            <p
+              class={`text-xs rounded-sm ${pub.color} font-semibold p-2 border w-full text-center`}>
+              {pub.slug}
+            </p>
+          ))}
+        </div>
+      </div>
+    ))
+  }
+</div>

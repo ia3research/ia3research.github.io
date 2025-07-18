@@ -1,0 +1,59 @@
+---
+import Link from "../icons/Link.astro";
+
+export interface SeminarCardProps {
+  date?: string;
+  title?: string;
+  location?: string;
+  speaker?: string;
+  speakerUrl?: string;
+  image?: string;
+}
+
+const { date, title, location, speaker, speakerUrl, image } = Astro.props;
+
+const [datePart, timePart] = date.split(" ");
+const [day, month, year] = datePart.split("-").map(Number);
+const [hours, minutes] = timePart.split(":").map(Number);
+
+const formattedDate = new Date(
+  year,
+  month - 1,
+  day,
+  hours,
+  minutes
+).toLocaleDateString("en", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+  hour12: false,
+});
+---
+
+<div
+  class='hover:shadow-lg transition-shadow duration-300 p-3 bg-white rounded-2xl shadow-md flex flex-col justify-between gap-3 max-w-80'>
+  <img
+    class='aspect-square rounded-sm object-cover overflow-hidden'
+    src={`/ia3-prop/seminars/${image}`}
+  />
+  <h3 class='text-xs'>
+    {formattedDate}
+    {location}
+  </h3>
+  <h1 class='text-xl flex-1'>{title}</h1>
+  <h2 class='text-base'>{speaker}</h2>
+  {
+    speakerUrl && (
+      <a
+        href={speakerUrl}
+        target='_blank'
+        rel='noopener noreferrer'
+        class='border border-blue-800 rounded-sm px-4 py-2 hover:bg-blue-200 transition-all duration-300 cursor-pointer text-center flex items-center justify-center gap-2'>
+        <Link class='size-4' />
+        Speaker Information
+      </a>
+    )
+  }
+</div>

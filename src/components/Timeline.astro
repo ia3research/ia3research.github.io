@@ -1,0 +1,232 @@
+---
+export interface Project {
+  id: number;
+  call: string;
+  name: string;
+  funder: string;
+  startYear: number;
+  startMonth: number; // 1-12
+  endYear: number;
+  endMonth: number; // 1-12
+}
+
+export interface TimelineProps {
+  projects: Project[];
+  funders: string[];
+  startYear?: number;
+  endYear?: number;
+  currentYear?: number;
+  currentMonth?: number;
+}
+
+const { projects, funders, startYear, endYear, currentYear, currentMonth } =
+  Astro.props;
+
+// Función para verificar si dos proyectos se solapan
+const projectsOverlap = (project1: Project, project2: Project): boolean => {
+  const start1 = project1.startYear * 12 + project1.startMonth - 1;
+  const end1 = project1.endYear * 12 + project1.endMonth - 1;
+  const start2 = project2.startYear * 12 + project2.startMonth - 1;
+  const end2 = project2.endYear * 12 + project2.endMonth - 1;
+
+  return start1 <= end2 && start2 <= end1;
+};
+
+// Función para asignar niveles a proyectos que se solapan
+const assignLevels = (
+  projects: Project[]
+): Array<Project & { level: number }> => {
+  // Ordenar proyectos por fecha de inicio
+  const sortedProjects = [...projects].sort((a, b) => {
+    const startA = a.startYear * 12 + a.startMonth;
+    const startB = b.startYear * 12 + b.startMonth;
+    return startA - startB;
+  });
+
+  const projectsWithLevels: Array<Project & { level: number }> = [];
+
+  for (const project of sortedProjects) {
+    let level = 0;
+
+    // Encontrar el primer nivel disponible
+    while (true) {
+      const conflictExists = projectsWithLevels.some(
+        (existingProject) =>
+          existingProject.level === level &&
+          projectsOverlap(project, existingProject)
+      );
+
+      if (!conflictExists) {
+        break;
+      }
+      level++;
+    }
+
+    projectsWithLevels.push({ ...project, level });
+  }
+
+  return projectsWithLevels;
+};
+
+const years = Array.from(
+  { length: endYear - startYear + 1 },
+  (_, i) => startYear + i
+);
+
+// Calcular total de meses en el rango
+const totalMonths = (endYear - startYear + 1) * 12;
+
+// Función para convertir año/mes a posición en meses desde el inicio
+const getMonthPosition = (year: number, month: number) => {
+  return (year - startYear) * 12 + (month - 1);
+};
+
+// Agrupar proyectos por financiador y asignar niveles
+const projectsByFunderWithLevels = funders.reduce(
+  (acc: any, funder: any) => {
+    const funderProjects = projects.filter(
+      (project: any) => project.funder === funder
+    );
+    acc[funder] = assignLevels(funderProjects);
+    return acc;
+  },
+  {} as Record<string, Array<Project & { level: number }>>
+);
+
+// Calcular la altura máxima necesaria para cada financiador
+const getMaxLevelsForFunder = (funder: string): number => {
+  const funderProjects = projectsByFunderWithLevels[funder] || [];
+  return funderProjects.length > 0
+    ? Math.max(...funderProjects.map((p: any) => p.level)) + 1
+    : 1;
+};
+
+// Función para calcular la posición y ancho de cada proyecto basado en meses
+const getProjectStyle = (project: Project & { level: number }) => {
+  const startMonthPos = getMonthPosition(project.startYear, project.startMonth);
+  const endMonthPos = getMonthPosition(project.endYear, project.endMonth);
+  const projectDurationMonths = endMonthPos - startMonthPos + 1;
+
+  const left = (startMonthPos / totalMonths) * 100;
+  const width = (projectDurationMonths / totalMonths) * 100;
+  const top = project.level * 35 + 5; // 35px por nivel + 5px de margen
+
+  return {
+    left: `${left}%`,
+    width: `${width}%`,
+    top: `${top}px`,
+  };
+};
+
+// Calcular posición de la línea del año/mes actual
+const currentMonthPosition = getMonthPosition(currentYear, currentMonth);
+const currentPositionPercent = (currentMonthPosition / totalMonths) * 100;
+
+// Función para formatear fecha
+const formatDate = (year: number, month: number) => {
+  const monthNames = [
+    "Ene",
+    "Feb",
+    "Mar",
+    "Abr",
+    "May",
+    "Jun",
+    "Jul",
+    "Ago",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dic",
+  ];
+  return `${monthNames[month - 1]} ${year}`;
+};
+
+// Generar marcadores de tiempo
+const getTimeMarkers = () => {
+  return years.map((year) => ({
+    year,
+    month: 1,
+    label: year.toString(),
+    isCurrentPeriod: year === currentYear,
+  }));
+};
+
+const timeMarkers = getTimeMarkers();
+---
+
+<div
+  class='relative font-sans bg-white border border-gray-300 w-full rounded-md overflow-hidden'>
+  {/* Filas de años */}
+  <div class='flex border-b-2 border-gray-900 bg-gray-50'>
+    {/* Columna de etiquetas de financiadores */}
+    <div
+      class='w-[150px] p-2.5 font-bold border-gray-300 flex items-center justify-center text-center text-xs leading-tight flex-shrink-0'>
+      {/* Vacío para alinear con las etiquetas de financiadores */}
+    </div>
+
+    {/* Columnas de tiempo */}
+    <div class='flex flex-1 min-w-[800px]'>
+      {
+        timeMarkers.map((marker, index) => (
+          <div
+            class={`flex-1 py-2.5 px-1 text-center font-bold text-xs border-r- border-gray-400 whitespace-nowrap ${
+              marker.isCurrentPeriod ? "text-blue-600 bg-blue-50" : ""
+            }`}>
+            {marker.label}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  {/* Filas de financiadores y proyectos */}
+  {
+    funders.map((funder: any) => {
+      const maxLevels = getMaxLevelsForFunder(funder);
+      const rowHeight = Math.max(40, maxLevels * 35 + 5); // Altura mínima 60px, o basada en niveles
+
+      return (
+        <div
+          class='flex border-b border-gray-200'
+          style={{ minHeight: `${rowHeight}px` }}>
+          {/* Columna de etiqueta del financiador */}
+          <div class='w-[150px] p-2.5 font-bold border-r border-gray-300 flex items-center justify-center text-center text-xs leading-tight flex-shrink-0'>
+            {funder}
+          </div>
+
+          {/* Área de proyectos */}
+          <div
+            class='flex-1 relative py-2.5 min-w-[800px] overflow-hidden'
+            style={{ minHeight: `${rowHeight - 20}px` }}>
+            {/* Proyectos */}
+            {projectsByFunderWithLevels[funder]?.map((project: any, index: any) => (
+              <div
+                class='absolute z-10 h-7 border border-gray-600 rounded flex items-center justify-center px-2 cursor-pointer transition-all duration-200 min-w-[60px] shadow-sm hover:opacity-90 hover:shadow-md hover:z-[5] hover:-translate-y-0.5 bg-blue-200'
+                style={{
+                  ...getProjectStyle(project),
+                }}
+                title={`${project.name} (${formatDate(
+                  project.startYear,
+                  project.startMonth
+                )} - ${formatDate(project.endYear, project.endMonth)})`}>
+                <span class='text-xs font-bold text-gray-800 whitespace-nowrap overflow-hidden text-ellipsis'>
+                  {project.call}
+                </span>
+              </div>
+            ))}
+
+            {/* Líneas verticales de separación de años */}
+            {years.map((year) => (
+              <div
+                class='absolute top-0 bottom-0 w-px bg-gray-300 pointer-events-none'
+                style={{
+                  left: `${(getMonthPosition(year, 1) / totalMonths) * 100}%`,
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      );
+    })
+  }
+</div>

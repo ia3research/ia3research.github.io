@@ -1,0 +1,46 @@
+---
+import Header from "../components/Header.astro";
+import DatacodeCard from "../components/DatacodeCard.astro";
+import Layout from "../layouts/Layout.astro";
+import { DATA, CODE } from "../lib/datacode";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <Header currentPage='datacode' />
+  <main
+    class='w-full flex flex-col items-center justify-center md:py-12 md:px-56 py-4 px-10'>
+    <h1 class='text-2xl text-center'>Datasets Publicy Available</h1>
+    <div class='grid md:grid-cols-3 grid-cols-1 gap-8 mt-8 max-w-6xl'>
+      {
+        DATA.map((dataset) => (
+          <DatacodeCard
+            name={dataset.name}
+            description={dataset.description}
+            paper={dataset.paper}
+            link={dataset.link}
+            image={dataset.image}
+            type='Database'
+          />
+        ))
+      }
+    </div>
+    <h1 class='text-2xl mt-12 text-center'>Open Source Code</h1>
+    <div class='grid md:grid-cols-3 grid-cols-1 gap-8 mt-8 max-w-6xl'>
+      {
+        CODE.map((code) => (
+          <DatacodeCard
+            name={code.name}
+            description={code.description}
+            paper={code.paper}
+            link={code.link}
+            image={code.image}
+            type='Code'
+          />
+        ))
+      }
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,185 @@
+---
+// Header.astro
+export interface Props {
+  currentPage?: string;
+}
+
+const { currentPage = "Home" } = Astro.props;
+
+const navItems = [
+  { name: "Home", slug: "home" },
+  { name: "People", slug: "people" },
+  { name: "Research lines", slug: "research" },
+  { name: "Projects", slug: "projects" },
+  { name: "Publications", slug: "publications" },
+  { name: "Data & Code", slug: "datacode" },
+  { name: "Seminars", slug: "seminars" },
+  { name: "Contact", slug: "contact" },
+];
+
+const activeClassWeb =
+  "after:absolute after:-bottom-0.5 after:left-0 after:right-0 after:w-full after:h-0.5 after:mx-auto after:bg-blue-500";
+const isActiveWeb = (item: string) => {
+  return currentPage.toLowerCase() === item.toLowerCase() ? activeClassWeb : "";
+};
+
+const activeClassMobile =
+  "after:absolute after:-bottom-0.5 after:left-0 after:w-1/2 after:h-0.5 after:mx-auto after:bg-blue-500";
+const isActiveMobile = (item: string) => {
+  return currentPage.toLowerCase() === item.toLowerCase()
+    ? activeClassMobile
+    : "";
+};
+---
+
+<header class='py-4'>
+  <div
+    class='max-w-6xl h-8 px-8 flex flex-row md:gap-0 items-center justify-between m-auto gap-4'>
+    <div class='text-3xl font-bold decoration-none hidden md:block'>
+      <a href='/'>IA³</a>
+    </div>
+
+    <div
+      class='text-3xl font-bold decoration-none relative flex items-center justify-between w-full md:hidden'>
+      <a href='/ia3-prop/'>IA³</a>
+      <button
+        id='mobile-menu-button'
+        class='md:hidden flex flex-col justify-center items-center space-y-1.5 cursor-pointer z-[60]'>
+        <span
+          class='block w-6 h-0.5 bg-black transition-all duration-300 ease-in-out'
+        ></span>
+        <span
+          class='block w-6 h-0.5 bg-black transition-all duration-300 ease-in-out'
+        ></span>
+        <span
+          class='block w-6 h-0.5 bg-black transition-all duration-300 ease-in-out'
+        ></span>
+      </button>
+    </div>
+
+    <!-- Menú de navegación para dispositivos desktop -->
+    <nav class='hidden md:block'>
+      <ul class='flex list-none m-0 p-0 gap-2 flex-wrap justify-center'>
+        {
+          navItems.map((item) => (
+            <li class='hover:bg-blue-100 py-0.5 rounded-sm transition-all duration-300 ease-in-out'>
+              <a
+                href={`/ia3-prop/${item.slug === "home" ? "" : item.slug}`}
+                class={`text-base relative nav-link px-2 py-1 rounded-sm transition-all duration-300 ease-in-out ${isActiveWeb(item.slug)}`}>
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <!-- Botón de menú hamburguesa para móviles -->
+  </div>
+  <!-- Overlay para bloquear interacciones con el fondo -->
+  <div
+    id='mobile-menu-overlay'
+    class='fixed inset-0 bg-black/50 z-40 hidden md:hidden'>
+  </div>
+  <!-- Menú móvil expandible (desde derecha a izquierda) -->
+  <div
+    id='mobile-menu'
+    class='md:hidden fixed top-0 right-0 h-full w-4/5 max-w-xs bg-white shadow-md z-50 transform translate-x-full transition-transform duration-300 ease-in-out py-6 px-8'>
+    <ul class='flex flex-col list-none mt-8 p-0 gap-4'>
+      {
+        navItems.map((item) => (
+          <li class='hover:bg-blue-100 py-1 px-2 rounded-sm transition-all duration-300 ease-in-out'>
+            <a
+              href={`/ia3-prop/${item.slug === "home" ? "" : item.slug}`}
+              class={`text-base block relative nav-link transition-all duration-300 ease-in-out ${isActiveMobile(item.slug)}`}>
+              {item.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</header>
+
+<script>
+  // Script para manejar el menú móvil
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+
+  // Estado del menú (cerrado por defecto)
+  let menuOpen = false;
+
+  function toggleMobileMenu() {
+    menuOpen = !menuOpen;
+
+    if (menuOpen) {
+      // Abre el menú
+      if (mobileMenuOverlay) {
+        mobileMenuOverlay.classList.remove("hidden");
+      }
+      document.body.style.overflow = "hidden";
+
+      if (mobileMenu) {
+        mobileMenu.classList.remove("translate-x-full");
+      }
+    } else {
+      // Cierra el menú
+      if (mobileMenuOverlay) {
+        mobileMenuOverlay.classList.add("hidden");
+      }
+      document.body.style.overflow = "";
+
+      if (mobileMenu) {
+        mobileMenu.classList.add("translate-x-full");
+      }
+    }
+
+    // Anima las barras del menú hamburguesa
+    if (mobileMenuButton) {
+      const spans = mobileMenuButton.querySelectorAll("span");
+      spans.forEach((span, index) => {
+        if (menuOpen) {
+          span.classList.add("transform");
+          if (index === 0) {
+            span.classList.add("rotate-45", "translate-y-2");
+          } else if (index === 1) {
+            span.classList.add("opacity-0");
+          } else if (index === 2) {
+            span.classList.add("-rotate-45", "-translate-y-2");
+          }
+        } else {
+          span.classList.remove("transform");
+          if (index === 0) {
+            span.classList.remove("rotate-45", "translate-y-2");
+          } else if (index === 1) {
+            span.classList.remove("opacity-0");
+          } else if (index === 2) {
+            span.classList.remove("-rotate-45", "-translate-y-2");
+          }
+        }
+      });
+    }
+  }
+
+  if (mobileMenuButton && mobileMenu && mobileMenuOverlay) {
+    // Toggle del menú al hacer clic en el botón hamburguesa
+    mobileMenuButton.addEventListener("click", toggleMobileMenu);
+
+    // Cierra el menú al hacer clic en un enlace
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (menuOpen) {
+          toggleMobileMenu();
+        }
+      });
+    });
+
+    // Cierra el menú al presionar la tecla Escape
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menuOpen) {
+        toggleMobileMenu();
+      }
+    });
+  }
+</script>
