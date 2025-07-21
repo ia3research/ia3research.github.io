@@ -8,6 +8,8 @@ export const FUNDERS = [
 ];
 
 export const PROJECTS = [
+
+
   {
     startdate: "01-09-2022",
     enddate: "31-08-2025",
@@ -74,39 +76,8 @@ export const PROJECTS = [
     image: "quantwin.webp",
     funder: "Valencian Government",
   },
-  {
-    startdate: "01-01-2024",
-    enddate: "31-12-2024",
-    call: "DIRECT-Gest",
-    shortname: "DIR-GEST",
-    name: "[UJISABIO 2023] Desarrollo de las habilidades y competencias directivas de las enfermeras a través de un videojuego como herramienta de aprendizaje de la gestión sanitaria.",
-    grant: 5000,
-    link: "https://unisalut.uji.es/ayudas/",
-    image: "directgest.webp",
-    funder: "Valencian Government",
-  },
-  {
-    startdate: "01-01-2024",
-    enddate: "31-12-2024",
-    call: "CC-IA",
-    shortname: "CC-IA",
-    name: "[ILISABIO 2023] Implementación de la Inteligencia Artificial y el procesamiento automático de imágenes para la valoración de la composición corporal e inflamación sistémica en cáncer colorrectal.",
-    grant: 20000,
-    link: "https://unisalut.uji.es/ayudas/",
-    image: "ccia.webp",
-    funder: "Valencian Government",
-  },
-  {
-    startdate: "01-04-2024",
-    enddate: "31-12-2024",
-    call: "Catness",
-    shortname: "CTN-1",
-    name: "Automatización de procesos de porting",
-    grant: 0,
-    link: "https://catnessgames.com/es/",
-    image: "catness.webp",
-    funder: "Companies",
-  },
+  
+
   {
     startdate: "01-09-2024",
     enddate: "31-08-2026",
@@ -142,5 +113,38 @@ export const PAST_PROJECTS = [
     link: "https://www.fbbva.es/ayudas/ayudas-equipos-investigacion-cientifica-2020-covid19/",
     image: "bbva20.webp",
     funder: "Companies",
+  },
+    {
+    startdate: "01-04-2024",
+    enddate: "31-12-2024",
+    call: "Catness",
+    shortname: "CTN-1",
+    name: "Automatización de procesos de porting",
+    grant: 0,
+    link: "https://catnessgames.com/es/",
+    image: "catness.webp",
+    funder: "Companies",
+  },
+  {
+    startdate: "01-01-2024",
+    enddate: "31-12-2024",
+    call: "DIRECT-Gest",
+    shortname: "DIR-GEST",
+    name: "[UJISABIO 2023] Desarrollo de las habilidades y competencias directivas de las enfermeras a través de un videojuego como herramienta de aprendizaje de la gestión sanitaria.",
+    grant: 5000,
+    link: "https://unisalut.uji.es/ayudas/",
+    image: "directgest.webp",
+    funder: "Valencian Government",
+  },
+  {
+    startdate: "01-01-2024",
+    enddate: "31-12-2024",
+    call: "CC-IA",
+    shortname: "CC-IA",
+    name: "[ILISABIO 2023] Implementación de la Inteligencia Artificial y el procesamiento automático de imágenes para la valoración de la composición corporal e inflamación sistémica en cáncer colorrectal.",
+    grant: 20000,
+    link: "https://unisalut.uji.es/ayudas/",
+    image: "ccia.webp",
+    funder: "Valencian Government",
   },
 ];
