@@ -46,7 +46,7 @@ const getQuartileColor = (quartile: string) => {
       </div>
       <div
         class={`${getQuartileColor(quarter)} font-semibold px-2 rounded-md select-none`}>
-        {quarter}
+        {quarter}{type === "Conference" && " Conf."}
       </div>
     </div>
     <div class='text-lg leading-tight'>{title}</div>

@@ -8,6 +8,7 @@ export interface Project {
   startMonth: number; // 1-12
   endYear: number;
   endMonth: number; // 1-12
+  link: string;
 }
 
 export interface TimelineProps {
@@ -199,21 +200,25 @@ const timeMarkers = getTimeMarkers();
             class='flex-1 relative py-2.5 min-w-[800px] overflow-hidden'
             style={{ minHeight: `${rowHeight - 20}px` }}>
             {/* Proyectos */}
-            {projectsByFunderWithLevels[funder]?.map((project: any, index: any) => (
-              <div
-                class='absolute z-10 h-7 border border-gray-600 rounded flex items-center justify-center px-2 cursor-pointer transition-all duration-200 min-w-[60px] shadow-sm hover:opacity-90 hover:shadow-md hover:z-[5] hover:-translate-y-0.5 bg-blue-200'
-                style={{
-                  ...getProjectStyle(project),
-                }}
-                title={`${project.name} (${formatDate(
-                  project.startYear,
-                  project.startMonth
-                )} - ${formatDate(project.endYear, project.endMonth)})`}>
-                <span class='text-xs font-bold text-gray-800 whitespace-nowrap overflow-hidden text-ellipsis'>
-                  {project.call}
-                </span>
-              </div>
-            ))}
+            {projectsByFunderWithLevels[funder]?.map(
+              (project: any, index: any) => (
+                <a href={project.link} target='_blank' rel='noopener noreferrer'>
+                  <div
+                    class='absolute z-10 h-7 border border-gray-600 rounded flex items-center justify-center px-2 cursor-pointer transition-all duration-200 min-w-[60px] shadow-sm hover:opacity-90 hover:shadow-md hover:z-[5] hover:-translate-y-0.5 bg-blue-200'
+                    style={{
+                      ...getProjectStyle(project),
+                    }}
+                    title={`${project.name} (${formatDate(
+                      project.startYear,
+                      project.startMonth
+                    )} - ${formatDate(project.endYear, project.endMonth)})`}>
+                    <span class='text-xs font-bold text-gray-800 whitespace-nowrap overflow-hidden text-ellipsis'>
+                      {project.call}
+                    </span>
+                  </div>
+                </a>
+              )
+            )}
 
             {/* Líneas verticales de separación de años */}
             {years.map((year) => (

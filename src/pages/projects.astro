@@ -21,6 +21,7 @@ let timelineProjects = PROJECTS.map((project, index) => ({
   startMonth: +project.startdate.split("-")[1],
   endYear: +project.enddate.split("-")[2],
   endMonth: +project.enddate.split("-")[1],
+  link: project.link,
 }));
 
 const length = timelineProjects.length;
@@ -36,6 +37,7 @@ timelineProjects = timelineProjects.concat(
     startMonth: +project.startdate.split("-")[1],
     endYear: +project.enddate.split("-")[2],
     endMonth: +project.enddate.split("-")[1],
+    link: project.link,
   }))
 );
 

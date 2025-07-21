@@ -34,6 +34,18 @@ const formattedEndDate = new Date(year, month - 1, day).toLocaleDateString(
     year: "numeric",
   }
 );
+
+const grantFormatted = grant
+  ? new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "EUR",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    })
+      .format(grant)
+      .replace("€", "")
+      .trim() + " €"
+  : null;
 ---
 
 <div
@@ -47,7 +59,7 @@ const formattedEndDate = new Date(year, month - 1, day).toLocaleDateString(
   </h3>
   <h1 class='text-xl'>{call}</h1>
   <h2 class='text-base flex-1'>{shortName}: {name}</h2>
-  <h2 class='text-lg'>{grant} €</h2>
+  {grant && <h2 class='text-lg'>{grantFormatted}</h2>}
   <a
     href={link}
     target='_blank'
