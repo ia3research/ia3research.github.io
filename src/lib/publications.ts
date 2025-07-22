@@ -506,7 +506,7 @@ export const PUBLICATIONS = [
         publisher: "I Congreso Español de Videojuegos",
         quarter: "National",
         type: "Conference",
-        slug: "CEV22 B"
+        slug: "CEV 2022 B"
     },
     {
         title: "NTBOE: A new algorithm for efficiently playing multi-action adversarial games",
@@ -516,7 +516,7 @@ export const PUBLICATIONS = [
         publisher: "I Congreso Español de Videojuegos",
         quarter: "National",
         type: "Conference",
-        slug: "CEV22 A"
+        slug: "CEV 2022 A"
     },
     {
         title: "Efficient tuning of kNN hyperparameters for indoor positioning with N-TBEA",
@@ -526,7 +526,7 @@ export const PUBLICATIONS = [
         publisher: "International Congress on Ultra Modern Telecommunications and Control Systems",
         quarter: "International",
         type: "Conference",
-        slug: "ICUMT22 B"
+        slug: "ICUMT 2022 B"
     },
     {
         title: "A Novel BLE RSSI Database for Analyzing Routines of Community-Dwelling Older Adults",
@@ -536,7 +536,7 @@ export const PUBLICATIONS = [
         publisher: "International Congress on Ultra Modern Telecommunications and Control Systems",
         quarter: "International",
         type: "Conference",
-        slug: "ICUMT22 A"
+        slug: "ICUMT 2022 A"
     },
     {
         title: "Ajuste eficiente de los hiperparametros de kNN para posicionamiento en interiores con N-TBEA",
@@ -546,7 +546,7 @@ export const PUBLICATIONS = [
         publisher: "29th Seminario Anual de Automática, Electrónica Industrial e Instrumentación",
         quarter: "National",
         type: "Conference",
-        slug: "SAAEI22"
+        slug: "SAAEI 2022"
     },
     {
         title: "Reflexiones sobre por qué el estudiantado no acude a las actividades complementarias y propuesta de soluciones",
@@ -556,7 +556,7 @@ export const PUBLICATIONS = [
         publisher: "XXVIII Edición de las Jornadas sobre la Enseñanza Universitaria de la Informática",
         quarter: "National",
         type: "Conference",
-        slug: "JENUI22"
+        slug: "JENUI 2022"
     },
     {
         title: "ASMACAG: Un nuevo juego de cartas multi acción para facilitar el estudio de técnicas de IA",
@@ -566,7 +566,7 @@ export const PUBLICATIONS = [
         publisher: "1er Congreso Internacional de DiGRA España",
         quarter: "National",
         type: "Conference",
-        slug: "DIGRAES21 B"
+        slug: "DIGRAES 2021 B"
     },
     {
         title: "Concepto de localidad en las aventuras de texto y análisis de ubicaciones geográficas reales en los juegos de Aventuras AD",
@@ -576,7 +576,7 @@ export const PUBLICATIONS = [
         publisher: "1er Congreso Internacional de DiGRA España",
         quarter: "National",
         type: "Conference",
-        slug: "DIGRAES21 A"
+        slug: "DIGRAES 2021 A"
     },
     {
         title: "A novel method for in-home Gait Speed estimation in Health Monitoring Using Bluetooth Low Energy",
@@ -586,7 +586,7 @@ export const PUBLICATIONS = [
         publisher: "22nd IEEE International Conference on Industrial Technology",
         quarter: "International",
         type: "Conference",
-        slug: "ICIT21"
+        slug: "ICIT 2021"
     },
     {
         title: "Unsupervised detection of transitions at home by using BLE technology",
@@ -596,7 +596,7 @@ export const PUBLICATIONS = [
         publisher: "11th International Conference on Indoor Positioning and Indoor Navigation",
         quarter: "International",
         type: "Conference",
-        slug: "IPIN21"
+        slug: "IPIN 2021"
     },
     {
         title: "Detección no supervisada de transiciones dentro del hogar mediante tecnología BLE",
@@ -606,7 +606,7 @@ export const PUBLICATIONS = [
         publisher: "28th Seminario Anual de Automática, Electrónica Industrial e Instrumentación",
         quarter: "National",
         type: "Conference",
-        slug: "SAAEI21"
+        slug: "SAAEI 2021"
     },
     {
         title: "Sistema de posicionamiento en interiores en el hogar usando balizas Bluetooth Low Energy",
@@ -616,7 +616,7 @@ export const PUBLICATIONS = [
         publisher: "27th Seminario Anual de Automática, Electrónica Industrial e Instrumentación",
         quarter: "National",
         type: "Conference",
-        slug: "SAAEI20"
+        slug: "SAAEI 2020"
     },
     {
         title: "TAG: A Tabletop Games Framework",
@@ -626,7 +626,7 @@ export const PUBLICATIONS = [
         publisher: "AIIDE-20 Workshop on Experimental AI in Games",
         quarter: "International",
         type: "Conference",
-        slug: "EXAG20"
+        slug: "EXAG 2020"
     },
     {
         title: "Efficient Heuristic Policy Optimisation for a Challenging Strategic Card Game",
@@ -636,7 +636,7 @@ export const PUBLICATIONS = [
         publisher: "23rd International Conference on the Applications of Evolutionary and Bio-inspired Computation",
         quarter: "International",
         type: "Conference",
-        slug: "EVOSTAR20"
+        slug: "EVOSTAR 2020"
     },
     {
     title: "Error Bound Estimation for Fingerprinting-Based Indoor Positioning Systems Using Monte Carlo Simulations",
@@ -646,6 +646,6 @@ export const PUBLICATIONS = [
     publisher: "16th International Congress on Ultra Modern Telecommunications and Control Systems (ICUMT 2024)",
     quarter: "International",
     type: "Conference",
-    slug: "ICUMT24"
+    slug: "ICUMT 2024"
 }
 ];
