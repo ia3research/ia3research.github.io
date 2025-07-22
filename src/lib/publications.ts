@@ -506,7 +506,7 @@ export const PUBLICATIONS = [
         publisher: "I Congreso Español de Videojuegos",
         quarter: "National",
         type: "Conference",
-        slug: "CEV22"
+        slug: "CEV22b"
     },
     {
         title: "NTBOE: A new algorithm for efficiently playing multi-action adversarial games",
@@ -516,7 +516,7 @@ export const PUBLICATIONS = [
         publisher: "I Congreso Español de Videojuegos",
         quarter: "National",
         type: "Conference",
-        slug: "CEV22"
+        slug: "CEV22a"
     },
     {
         title: "Efficient tuning of kNN hyperparameters for indoor positioning with N-TBEA",
@@ -526,7 +526,7 @@ export const PUBLICATIONS = [
         publisher: "International Congress on Ultra Modern Telecommunications and Control Systems",
         quarter: "International",
         type: "Conference",
-        slug: "ICUMT22"
+        slug: "ICUMT22b"
     },
     {
         title: "A Novel BLE RSSI Database for Analyzing Routines of Community-Dwelling Older Adults",
@@ -536,7 +536,7 @@ export const PUBLICATIONS = [
         publisher: "International Congress on Ultra Modern Telecommunications and Control Systems",
         quarter: "International",
         type: "Conference",
-        slug: "ICUMT22"
+        slug: "ICUMT22a"
     },
     {
         title: "Ajuste eficiente de los hiperparametros de kNN para posicionamiento en interiores con N-TBEA",
@@ -566,7 +566,7 @@ export const PUBLICATIONS = [
         publisher: "1er Congreso Internacional de DiGRA España",
         quarter: "National",
         type: "Conference",
-        slug: "DIGRAES21"
+        slug: "DIGRAES21b"
     },
     {
         title: "Concepto de localidad en las aventuras de texto y análisis de ubicaciones geográficas reales en los juegos de Aventuras AD",
@@ -576,7 +576,7 @@ export const PUBLICATIONS = [
         publisher: "1er Congreso Internacional de DiGRA España",
         quarter: "National",
         type: "Conference",
-        slug: "DIGRAES21"
+        slug: "DIGRAES21a"
     },
     {
         title: "A novel method for in-home Gait Speed estimation in Health Monitoring Using Bluetooth Low Energy",
