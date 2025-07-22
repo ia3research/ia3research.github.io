@@ -497,4 +497,145 @@ export const PUBLICATIONS = [
     type: "Journal",
     slug: "Cognitive Computation",
   },
+
+  {
+        title: "Analysis of The Witcher 3: Wild hunt's quests",
+        authors: "Raul Montoliu, Adrian Mon-Maroto, Emilio Sansano-Sansano and Ignacio Miralles-Tena",
+        doi: "",
+        year: 2022,
+        publisher: "I Congreso Español de Videojuegos",
+        quarter: "National",
+        type: "Conference",
+        slug: "CEV22"
+    },
+    {
+        title: "NTBOE: A new algorithm for efficiently playing multi-action adversarial games",
+        authors: "Raul Montoliu and Diego Villabrille Seca",
+        doi: "",
+        year: 2022,
+        publisher: "I Congreso Español de Videojuegos",
+        quarter: "National",
+        type: "Conference",
+        slug: "CEV22"
+    },
+    {
+        title: "Efficient tuning of kNN hyperparameters for indoor positioning with N-TBEA",
+        authors: "R. Montoliu, A. Pérez-Navarro, J. Torres-Sospedra",
+        doi: "https://doi.org/10.1109/ICUMT57764.2022.9943377",
+        year: 2022,
+        publisher: "International Congress on Ultra Modern Telecommunications and Control Systems",
+        quarter: "International",
+        type: "Conference",
+        slug: "ICUMT22"
+    },
+    {
+        title: "A Novel BLE RSSI Database for Analyzing Routines of Community-Dwelling Older Adults",
+        authors: "S. Lluva Plaza, R. Montoliu Colás, A. Jiménez Martín, J.M. Villadangos Carrizo, E. Sansano Sansano and J.J. García Domínguez",
+        doi: "https://doi.org/10.1109/ICUMT57764.2022.9943410",
+        year: 2022,
+        publisher: "International Congress on Ultra Modern Telecommunications and Control Systems",
+        quarter: "International",
+        type: "Conference",
+        slug: "ICUMT22"
+    },
+    {
+        title: "Ajuste eficiente de los hiperparametros de kNN para posicionamiento en interiores con N-TBEA",
+        authors: "Raúl Montoliu, Antoni Perez-Navarro, Joaquín Torres-Sospedra",
+        doi: "",
+        year: 2022,
+        publisher: "29th Seminario Anual de Automática, Electrónica Industrial e Instrumentación",
+        quarter: "National",
+        type: "Conference",
+        slug: "SAAEI22"
+    },
+    {
+        title: "Reflexiones sobre por qué el estudiantado no acude a las actividades complementarias y propuesta de soluciones",
+        authors: "R. Montoliu, C. Rebollo, D. Díaz, I. Remolar",
+        doi: "",
+        year: 2022,
+        publisher: "XXVIII Edición de las Jornadas sobre la Enseñanza Universitaria de la Informática",
+        quarter: "National",
+        type: "Conference",
+        slug: "JENUI22"
+    },
+    {
+        title: "ASMACAG: Un nuevo juego de cartas multi acción para facilitar el estudio de técnicas de IA",
+        authors: "Diego Villabrille Seca, Raúl Montoliu",
+        doi: "",
+        year: 2021,
+        publisher: "1er Congreso Internacional de DiGRA España",
+        quarter: "National",
+        type: "Conference",
+        slug: "DIGRAES21"
+    },
+    {
+        title: "Concepto de localidad en las aventuras de texto y análisis de ubicaciones geográficas reales en los juegos de Aventuras AD",
+        authors: "Juan José Muñoz Falcó, Raúl Montoliu",
+        doi: "",
+        year: 2021,
+        publisher: "1er Congreso Internacional de DiGRA España",
+        quarter: "National",
+        type: "Conference",
+        slug: "DIGRAES21"
+    },
+    {
+        title: "A novel method for in-home Gait Speed estimation in Health Monitoring Using Bluetooth Low Energy",
+        authors: "Fernando J. Aranda, Fernando J. Álvarez, Felipe Parralejo, Emilio Sansano-Sansano, Raúl Montoliu",
+        doi: "https://doi.org/10.1109/ICIT46573.2021.9453578",
+        year: 2021,
+        publisher: "22nd IEEE International Conference on Industrial Technology",
+        quarter: "International",
+        type: "Conference",
+        slug: "ICIT21"
+    },
+    {
+        title: "Unsupervised detection of transitions at home by using BLE technology",
+        authors: "Raúl Montoliu, Emilio Sansano-Sansano",
+        doi: "https://doi.org/10.1109/IPIN51156.2021.9662578",
+        year: 2021,
+        publisher: "11th International Conference on Indoor Positioning and Indoor Navigation",
+        quarter: "International",
+        type: "Conference",
+        slug: "IPIN21"
+    },
+    {
+        title: "Detección no supervisada de transiciones dentro del hogar mediante tecnología BLE",
+        authors: "Raúl Montoliu, Emilio Sansano-Sansano",
+        doi: "",
+        year: 2021,
+        publisher: "28th Seminario Anual de Automática, Electrónica Industrial e Instrumentación",
+        quarter: "National",
+        type: "Conference",
+        slug: "SAAEI21"
+    },
+    {
+        title: "Sistema de posicionamiento en interiores en el hogar usando balizas Bluetooth Low Energy",
+        authors: "Raúl Montoliu, Emilio Sansano-Sansano, Arturo Gascó",
+        doi: "",
+        year: 2020,
+        publisher: "27th Seminario Anual de Automática, Electrónica Industrial e Instrumentación",
+        quarter: "National",
+        type: "Conference",
+        slug: "SAAEI20"
+    },
+    {
+        title: "TAG: A Tabletop Games Framework",
+        authors: "Raluca Gaina, Diego Perez Liebana, Alexander Dockhorn, Martin Balla and Raul Montoliu",
+        doi: "",
+        year: 2020,
+        publisher: "AIIDE-20 Workshop on Experimental AI in Games",
+        quarter: "International",
+        type: "Conference",
+        slug: "EXAG20"
+    },
+    {
+        title: "Efficient Heuristic Policy Optimisation for a Challenging Strategic Card Game",
+        authors: "R. Montoliu, R.D. Gaina, D. Perez-Leibana, D. Delgado, S. Lucas",
+        doi: "https://link.springer.com/chapter/10.1007/978-3-030-43722-0_26",
+        year: 2020,
+        publisher: "23rd International Conference on the Applications of Evolutionary and Bio-inspired Computation",
+        quarter: "International",
+        type: "Conference",
+        slug: "EVOSTAR20"
+    }
 ];
