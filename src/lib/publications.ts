@@ -506,7 +506,7 @@ export const PUBLICATIONS = [
         publisher: "I Congreso Español de Videojuegos",
         quarter: "National",
         type: "Conference",
-        slug: "CEV22b"
+        slug: "CEV22 B"
     },
     {
         title: "NTBOE: A new algorithm for efficiently playing multi-action adversarial games",
@@ -516,7 +516,7 @@ export const PUBLICATIONS = [
         publisher: "I Congreso Español de Videojuegos",
         quarter: "National",
         type: "Conference",
-        slug: "CEV22a"
+        slug: "CEV22 A"
     },
     {
         title: "Efficient tuning of kNN hyperparameters for indoor positioning with N-TBEA",
@@ -526,7 +526,7 @@ export const PUBLICATIONS = [
         publisher: "International Congress on Ultra Modern Telecommunications and Control Systems",
         quarter: "International",
         type: "Conference",
-        slug: "ICUMT22b"
+        slug: "ICUMT22 B"
     },
     {
         title: "A Novel BLE RSSI Database for Analyzing Routines of Community-Dwelling Older Adults",
@@ -536,7 +536,7 @@ export const PUBLICATIONS = [
         publisher: "International Congress on Ultra Modern Telecommunications and Control Systems",
         quarter: "International",
         type: "Conference",
-        slug: "ICUMT22a"
+        slug: "ICUMT22 A"
     },
     {
         title: "Ajuste eficiente de los hiperparametros de kNN para posicionamiento en interiores con N-TBEA",
@@ -566,7 +566,7 @@ export const PUBLICATIONS = [
         publisher: "1er Congreso Internacional de DiGRA España",
         quarter: "National",
         type: "Conference",
-        slug: "DIGRAES21b"
+        slug: "DIGRAES21 B"
     },
     {
         title: "Concepto de localidad en las aventuras de texto y análisis de ubicaciones geográficas reales en los juegos de Aventuras AD",
@@ -576,7 +576,7 @@ export const PUBLICATIONS = [
         publisher: "1er Congreso Internacional de DiGRA España",
         quarter: "National",
         type: "Conference",
-        slug: "DIGRAES21a"
+        slug: "DIGRAES21 A"
     },
     {
         title: "A novel method for in-home Gait Speed estimation in Health Monitoring Using Bluetooth Low Energy",
@@ -637,5 +637,15 @@ export const PUBLICATIONS = [
         quarter: "International",
         type: "Conference",
         slug: "EVOSTAR20"
-    }
+    },
+    {
+    title: "Error Bound Estimation for Fingerprinting-Based Indoor Positioning Systems Using Monte Carlo Simulations",
+    authors: "C. Valero-Abundio, R. Montoliu, M. Martinez-Garcia, E. Sansano-Sansano, J. Torres-Sospedra and A. Perez-Navarro",
+    doi: "https://ieeexplore.ieee.org/document/11048830",
+    year: 2024,
+    publisher: "16th International Congress on Ultra Modern Telecommunications and Control Systems (ICUMT 2024)",
+    quarter: "International",
+    type: "Conference",
+    slug: "ICUMT24"
+}
 ];
