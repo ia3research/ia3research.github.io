@@ -9,7 +9,6 @@ export const FUNDERS = [
 
 export const PROJECTS = [
 
-
   {
     startdate: "01-09-2022",
     enddate: "31-08-2025",
@@ -21,17 +20,7 @@ export const PROJECTS = [
     image: "indri.webp",
     funder: "Spanish Government",
   },
-  {
-    startdate: "01-01-2023",
-    enddate: "31-12-2024",
-    call: "CIGE-2022-066",
-    shortname: "CIGE",
-    name: "Un Enfoque Bioplausible en la Intersección de Matemáticas e Inteligencia Artificial",
-    grant: 20000,
-    link: "https://ceice.gva.es/es/web/ciencia/convocatories_2022",
-    image: "cige.webp",
-    funder: "Valencian Government",
-  },
+
   {
     startdate: "01-01-2023",
     enddate: "31-12-2025",
@@ -43,16 +32,7 @@ export const PROJECTS = [
     image: "neuroml.webp",
     funder: "University",
   },
-  {
-    startdate: "01-01-2023",
-    enddate: "31-12-2025",
-    call: "RED2022-134355-T",
-    shortname: "REPNIN++",
-    name: "Red de posicionamiento y navegación en interiores y exteriores restringidos y sus aplicaciones.",
-    link: "https://repnin.web.uah.es/",
-    image: "repnin.webp",
-    funder: "Group",
-  },
+ 
   {
     startdate: "01-01-2023",
     enddate: "31-08-2025",
@@ -102,6 +82,27 @@ export const PROJECTS = [
 ];
 
 export const PAST_PROJECTS = [
+   {
+    startdate: "01-01-2023",
+    enddate: "31-12-2025",
+    call: "RED2022-134355-T",
+    shortname: "REPNIN++",
+    name: "Red de posicionamiento y navegación en interiores y exteriores restringidos y sus aplicaciones.",
+    link: "https://repnin.web.uah.es/",
+    image: "repnin.webp",
+    funder: "Group",
+  },
+    {
+    startdate: "01-01-2023",
+    enddate: "31-12-2024",
+    call: "CIGE-2022-066",
+    shortname: "CIGE",
+    name: "Un Enfoque Bioplausible en la Intersección de Matemáticas e Inteligencia Artificial",
+    grant: 20000,
+    link: "https://ceice.gva.es/es/web/ciencia/convocatories_2022",
+    image: "cige.webp",
+    funder: "Valencian Government",
+  },
   {
     startdate: "09-10-2020",
     enddate: "09-04-2022",
