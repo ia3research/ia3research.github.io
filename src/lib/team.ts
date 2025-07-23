@@ -86,37 +86,6 @@ export const TEAM = [
       orcid: "https://orcid.org/0009-0003-1899-7611",
     },
   },
-  {
-    name: "Antoni Pérez-Navarro",
-    role: "Collaborator",
-    image: "antoni-perez.webp",
-    address: "Dr.",
-    socials: {
-      scholar: "https://scholar.google.es/citations?user=_mSpvHAAAAAJ&hl=es",
-      orcid: "https://orcid.org/0000-0002-7037-0635",
-    },
-  },
-  {
-    name: "Joaquín Torres-Sospedra",
-    role: "Collaborator",
-    image: "joaquin-torres.webp",
-    address: "Dr.",
-    socials: {
-      scholar: "https://scholar.google.es/citations?user=pLX7e4AAAAAJ&hl=es",
-      orcid: "https://orcid.org/0000-0003-4338-4334",
-      web: "http://jtorr.es/",
-    },
-  },
-  {
-    name: "Abraham Batalla",
-    role: "Collaborator",
-    image: "abraham-batalla.webp",
-    address: "Dr.",
-    socials: {
-      scholar: "https://scholar.google.es/citations?hl=es&user=9hqCjhQAAAAJ",
-      orcid: "https://orcid.org/0000-0003-4337-8890",
-    },
-  },
 ];
 
 export const PAST_MEMBERS = [
