@@ -16,7 +16,7 @@ export const PROJECTS = [
     name: "Consultor Finanzas con IA",
     grant: 89606,
     link: "",
-    image: "",
+    image: "confia.webp",
     funder: "Valencian Government",
   },
     {
@@ -27,7 +27,7 @@ export const PROJECTS = [
     name: "Adagio",
     grant: 10872 ,
     link: "",
-    image: "",
+    image: "empty.webp",
     funder: "European Comission",
   },
     {
@@ -38,7 +38,7 @@ export const PROJECTS = [
     name: "Asistente conversacional para la gestión del conocimiento en consultoría mediante LLMs",
     grant: 10872,
     link: "",
-    image: "",
+    image: "empty.webp",
     funder: "European Comission",
   },
     {
@@ -49,7 +49,7 @@ export const PROJECTS = [
     name: "Desarrollo de herramienta digital para optimización de la calidad de las fotografías de muestras",
     grant: 10872,
     link: "",
-    image: "",
+    image: "empty.webp",
     funder: "European Comission",
   },
   {
