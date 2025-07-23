@@ -1,14 +1,57 @@
 export const FUNDERS = [
   "Spanish Government",
   "Valencian Government",
-  "University",
-  "Europe",
+  "Jaume I University",
+  "European Comission",
   "Companies",
   "Group",
 ];
 
 export const PROJECTS = [
-
+  {
+    startdate: "01-02-2025",
+    enddate: "28-02-2026",
+    call: "INREIA/2024/30",
+    shortname: "CONFIA",
+    name: "Consultor Finanzas con IA",
+    grant: 89606,
+    link: "",
+    image: "",
+    funder: "Valencian Government",
+  },
+    {
+    startdate: "01-07-2025",
+    enddate: "31-12-2025",
+    call: "",
+    shortname: "INNDIH-Symplia",
+    name: "Adagio",
+    grant:  ,
+    link: "",
+    image: "",
+    funder: "European Comission",
+  },
+    {
+    startdate: "01-07-2025",
+    enddate: "31-12-2025",
+    call: "",
+    shortname: "INNDIH-Improven",
+    name: "Asistente conversacional para la gestión del conocimiento en consultoría mediante LLMs",
+    grant: ,
+    link: "",
+    image: "",
+    funder: "European Comission",
+  },
+    {
+    startdate: "01-01-2025",
+    enddate: "30-06-2025",
+    call: "",
+    shortname: "INNDIH-Cebimat",
+    name: "Desarrollo de herramienta digital para optimización de la calidad de las fotografías de muestras",
+    grant: ,
+    link: "",
+    image: "",
+    funder: "European Comission",
+  },
   {
     startdate: "01-09-2022",
     enddate: "31-08-2025",
@@ -30,7 +73,7 @@ export const PROJECTS = [
     grant: 19825,
     link: "https://www.uji.es/serveis/ocit/base/grupsinvestigacio/detall?codi=329",
     image: "neuroml.webp",
-    funder: "University",
+    funder: "Jaume I University",
   },
  
   {
@@ -42,7 +85,7 @@ export const PROJECTS = [
     grant: 3000000,
     link: "https://e-diplomaproject.eu/",
     image: "ediploma.webp",
-    funder: "Europe",
+    funder: "European Comission",
   },
   {
     startdate: "01-01-2023",
@@ -66,7 +109,7 @@ export const PROJECTS = [
     grant: 400000,
     link: "https://www.linkedin.com/company/seen-project/",
     image: "seen.webp",
-    funder: "Europe",
+    funder: "European Comission",
   },
   {
     startdate: "01-09-2024",
