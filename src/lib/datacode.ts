@@ -1,4 +1,11 @@
 export const DATA = [
+   {
+    name: "Handball-Positions",
+    description: "A new dataset for spatial, temporal, and tactical analysis of female handball player movements",
+    paper: "https://doi.org/10.1016/j.dib.2024.111116",
+    link: "https://zenodo.org/records/12065335",
+    image: "handball.webp",
+  },
   {
     name: "BLE-GSpeed",
     description: "A BLE-based dataset to estimate user Gait Speed",
