@@ -8,6 +8,7 @@ export const PUBLICATIONS = [
         quarter: "",
         type: "",
         slug: "",
+        line: "",
     }*/
   {
     title:
@@ -20,6 +21,7 @@ export const PUBLICATIONS = [
     quarter: "Q1",
     type: "Journal",
     slug: "Scientific Reports",
+    line: "dam",
   },
   {
     title:
@@ -32,6 +34,7 @@ export const PUBLICATIONS = [
     quarter: "Q1",
     type: "Journal",
     slug: "Internet of Things",
+    line: "sds",
   },
   {
     title:
@@ -45,6 +48,7 @@ export const PUBLICATIONS = [
     quarter: "National",
     type: "Conference",
     slug: "SAAEI 2025 A",
+    line: "aai",
   },
   {
     title: "Análisis Retrospectivo del Dataset UJIIndoorLoc",
@@ -56,6 +60,7 @@ export const PUBLICATIONS = [
     quarter: "National",
     type: "Conference",
     slug: "SAAEI 2025 B",
+    line: "aai",
   },
   {
     title: "Extracting daily routines from raw RSSI data",
@@ -67,6 +72,7 @@ export const PUBLICATIONS = [
     quarter: "Q2",
     type: "Journal",
     slug: "Sensors",
+    line: "sds",
   },
   {
     title:
@@ -79,6 +85,7 @@ export const PUBLICATIONS = [
     quarter: "International",
     type: "Conference",
     slug: "IEEEIPAS 2025",
+    line: "dam",
   },
   {
     title:
@@ -91,6 +98,7 @@ export const PUBLICATIONS = [
     quarter: "Q4",
     type: "Journal",
     slug: "Kinesiology",
+    line: "dam",
   },
   {
     title:
@@ -103,6 +111,7 @@ export const PUBLICATIONS = [
     quarter: "Q2",
     type: "Journal",
     slug: "Royal Society Open Science",
+    line: "dam",
   },
   {
     title:
@@ -115,6 +124,7 @@ export const PUBLICATIONS = [
     quarter: "Q3",
     type: "Journal",
     slug: "Data in Brief",
+    line: "dam",
   },
   {
     title:
@@ -126,6 +136,7 @@ export const PUBLICATIONS = [
     quarter: "Q1",
     type: "Journal",
     slug: "Heliyon",
+    line: "dam",
   },
   {
     title: "",
@@ -138,6 +149,7 @@ export const PUBLICATIONS = [
     quarter: "International",
     type: "Conference",
     slug: "ISSI 2024 A",
+    line: "dam",
   },
   {
     title:
@@ -151,6 +163,7 @@ export const PUBLICATIONS = [
     quarter: "International",
     type: "Conference",
     slug: "ISSI 2024 B",
+    line: "dam",
   },
   {
     title:
@@ -163,6 +176,7 @@ export const PUBLICATIONS = [
     quarter: "International",
     type: "Conference",
     slug: "IPIN 2024",
+    line: "sds",
   },
   {
     title:
@@ -175,6 +189,7 @@ export const PUBLICATIONS = [
     quarter: "Q1",
     type: "Journal",
     slug: "MEE",
+    line: "sds",
   },
   {
     title:
@@ -186,6 +201,7 @@ export const PUBLICATIONS = [
     quarter: "Q1",
     type: "Journal",
     slug: "ESA",
+    line: "dam",
   },
   {
     title:
@@ -199,6 +215,7 @@ export const PUBLICATIONS = [
     quarter: "National",
     type: "Conference",
     slug: "SAAEI 2024",
+    line: "sds",
   },
   {
     title:
@@ -211,6 +228,7 @@ export const PUBLICATIONS = [
     quarter: "International",
     type: "Conference",
     slug: "INTED 2024",
+    line: "dam",
   },
   {
     title:
@@ -223,6 +241,7 @@ export const PUBLICATIONS = [
     quarter: "International",
     type: "Conference",
     slug: "ELECTRIMACS 2024",
+    line: "aai",
   },
   {
     title:
@@ -235,6 +254,7 @@ export const PUBLICATIONS = [
     quarter: "Q1",
     type: "Journal",
     slug: "Scientific Data",
+    line: "dam",
   },
   {
     title:
@@ -247,6 +267,7 @@ export const PUBLICATIONS = [
     quarter: "National",
     type: "Conference",
     slug: "CEV 2023",
+    line: "gvai",
   },
   {
     title:
@@ -259,6 +280,7 @@ export const PUBLICATIONS = [
     quarter: "International",
     type: "Conference",
     slug: "LBS 2023",
+    line: "aai",
   },
   {
     title:
@@ -272,6 +294,7 @@ export const PUBLICATIONS = [
     quarter: "International",
     type: "Conference",
     slug: "IPIN 2023 A",
+    line: "aai",
   },
   {
     title:
@@ -285,6 +308,7 @@ export const PUBLICATIONS = [
     quarter: "International",
     type: "Conference",
     slug: "IPIN 2023 B",
+    line: "sds",
   },
   {
     title:
@@ -297,6 +321,7 @@ export const PUBLICATIONS = [
     quarter: "International",
     type: "Conference",
     slug: "IECON 2023",
+    line: "aai",
   },
   {
     title:
@@ -309,6 +334,7 @@ export const PUBLICATIONS = [
     quarter: "Q1",
     type: "Journal",
     slug: "IEEE Sensors",
+    line: "dam",
   },
   {
     title:
@@ -320,6 +346,7 @@ export const PUBLICATIONS = [
     quarter: "Q1",
     type: "Journal",
     slug: "JES",
+    line: "aai",
   },
   {
     title:
@@ -333,6 +360,7 @@ export const PUBLICATIONS = [
     quarter: "National",
     type: "Conference",
     slug: "SAAEI 2023",
+    line: "sds",
   },
   {
     title:
@@ -345,6 +373,7 @@ export const PUBLICATIONS = [
     quarter: "International",
     type: "Conference",
     slug: "MIS4TEL 2023",
+    line: "aai",
   },
   {
     title:
@@ -358,6 +387,7 @@ export const PUBLICATIONS = [
     quarter: "International",
     type: "Conference",
     slug: "AIAI 2023",
+    line: "aai",
   },
   {
     title:
@@ -369,6 +399,7 @@ export const PUBLICATIONS = [
     quarter: "National",
     type: "Conference",
     slug: "DIGRAES 2023",
+    line: "gvai",
   },
   {
     title:
@@ -381,6 +412,7 @@ export const PUBLICATIONS = [
     quarter: "Q2",
     type: "Journal",
     slug: "Scientific Reports",
+    line: "dam",
   },
   {
     title:
@@ -393,6 +425,7 @@ export const PUBLICATIONS = [
     quarter: "Q2",
     type: "Journal",
     slug: "IEEE Sensors",
+    line: "dam",
   },
   {
     title:
@@ -405,6 +438,7 @@ export const PUBLICATIONS = [
     quarter: "Q1",
     type: "Journal",
     slug: "Biology",
+    line: "dam",
   },
   {
     title:
@@ -417,6 +451,7 @@ export const PUBLICATIONS = [
     quarter: "",
     type: "Journal",
     slug: "ToDiGRA",
+    line: "gvai",
   },
   {
     title:
@@ -429,6 +464,7 @@ export const PUBLICATIONS = [
     quarter: "Q2",
     type: "Journal",
     slug: "Sensors",
+    line: "sds",
   },
   {
     title: "BLE-GSpeed: A new BLE-based dataset to estimate user Gait Speed",
@@ -440,6 +476,7 @@ export const PUBLICATIONS = [
     quarter: "",
     type: "Journal",
     slug: "Data",
+    line: "sds",
   },
   {
     title:
@@ -452,6 +489,7 @@ export const PUBLICATIONS = [
     quarter: "Q1",
     type: "Journal",
     slug: "Current Psychology",
+    line: "dam",
   },
   {
     title:
@@ -464,6 +502,7 @@ export const PUBLICATIONS = [
     quarter: "Q4",
     type: "Journal",
     slug: "MIS",
+    line: "sds",
   },
   {
     title: " A study of deep neural networks for human activity recognition",
@@ -474,6 +513,7 @@ export const PUBLICATIONS = [
     quarter: "Q4",
     type: "Journal",
     slug: "Computational Intelligence",
+    line: "dam",
   },
   {
     title:
@@ -485,6 +525,7 @@ export const PUBLICATIONS = [
     quarter: "Q2",
     type: "Journal",
     slug: "Electronics",
+    line: "sds",
   },
   {
     title: "Anomaly detection on Activities of Daily Living with Linear Drift",
@@ -496,156 +537,198 @@ export const PUBLICATIONS = [
     quarter: "Q1",
     type: "Journal",
     slug: "Cognitive Computation",
+    line: "sds",
   },
-
   {
-        title: "Analysis of The Witcher 3: Wild hunt's quests",
-        authors: "Raul Montoliu, Adrian Mon-Maroto, Emilio Sansano-Sansano and Ignacio Miralles-Tena",
-        doi: "",
-        year: 2022,
-        publisher: "I Congreso Español de Videojuegos",
-        quarter: "National",
-        type: "Conference",
-        slug: "CEV 2022 B"
-    },
-    {
-        title: "NTBOE: A new algorithm for efficiently playing multi-action adversarial games",
-        authors: "Raul Montoliu and Diego Villabrille Seca",
-        doi: "",
-        year: 2022,
-        publisher: "I Congreso Español de Videojuegos",
-        quarter: "National",
-        type: "Conference",
-        slug: "CEV 2022 A"
-    },
-    {
-        title: "Efficient tuning of kNN hyperparameters for indoor positioning with N-TBEA",
-        authors: "R. Montoliu, A. Pérez-Navarro, J. Torres-Sospedra",
-        doi: "https://doi.org/10.1109/ICUMT57764.2022.9943377",
-        year: 2022,
-        publisher: "International Congress on Ultra Modern Telecommunications and Control Systems",
-        quarter: "International",
-        type: "Conference",
-        slug: "ICUMT 2022 B"
-    },
-    {
-        title: "A Novel BLE RSSI Database for Analyzing Routines of Community-Dwelling Older Adults",
-        authors: "S. Lluva Plaza, R. Montoliu Colás, A. Jiménez Martín, J.M. Villadangos Carrizo, E. Sansano Sansano and J.J. García Domínguez",
-        doi: "https://doi.org/10.1109/ICUMT57764.2022.9943410",
-        year: 2022,
-        publisher: "International Congress on Ultra Modern Telecommunications and Control Systems",
-        quarter: "International",
-        type: "Conference",
-        slug: "ICUMT 2022 A"
-    },
-    {
-        title: "Ajuste eficiente de los hiperparametros de kNN para posicionamiento en interiores con N-TBEA",
-        authors: "Raúl Montoliu, Antoni Perez-Navarro, Joaquín Torres-Sospedra",
-        doi: "",
-        year: 2022,
-        publisher: "29th Seminario Anual de Automática, Electrónica Industrial e Instrumentación",
-        quarter: "National",
-        type: "Conference",
-        slug: "SAAEI 2022"
-    },
-    {
-        title: "Reflexiones sobre por qué el estudiantado no acude a las actividades complementarias y propuesta de soluciones",
-        authors: "R. Montoliu, C. Rebollo, D. Díaz, I. Remolar",
-        doi: "",
-        year: 2022,
-        publisher: "XXVIII Edición de las Jornadas sobre la Enseñanza Universitaria de la Informática",
-        quarter: "National",
-        type: "Conference",
-        slug: "JENUI 2022"
-    },
-    {
-        title: "ASMACAG: Un nuevo juego de cartas multi acción para facilitar el estudio de técnicas de IA",
-        authors: "Diego Villabrille Seca, Raúl Montoliu",
-        doi: "",
-        year: 2021,
-        publisher: "1er Congreso Internacional de DiGRA España",
-        quarter: "National",
-        type: "Conference",
-        slug: "DIGRAES 2021 B"
-    },
-    {
-        title: "Concepto de localidad en las aventuras de texto y análisis de ubicaciones geográficas reales en los juegos de Aventuras AD",
-        authors: "Juan José Muñoz Falcó, Raúl Montoliu",
-        doi: "",
-        year: 2021,
-        publisher: "1er Congreso Internacional de DiGRA España",
-        quarter: "National",
-        type: "Conference",
-        slug: "DIGRAES 2021 A"
-    },
-    {
-        title: "A novel method for in-home Gait Speed estimation in Health Monitoring Using Bluetooth Low Energy",
-        authors: "Fernando J. Aranda, Fernando J. Álvarez, Felipe Parralejo, Emilio Sansano-Sansano, Raúl Montoliu",
-        doi: "https://doi.org/10.1109/ICIT46573.2021.9453578",
-        year: 2021,
-        publisher: "22nd IEEE International Conference on Industrial Technology",
-        quarter: "International",
-        type: "Conference",
-        slug: "ICIT 2021"
-    },
-    {
-        title: "Unsupervised detection of transitions at home by using BLE technology",
-        authors: "Raúl Montoliu, Emilio Sansano-Sansano",
-        doi: "https://doi.org/10.1109/IPIN51156.2021.9662578",
-        year: 2021,
-        publisher: "11th International Conference on Indoor Positioning and Indoor Navigation",
-        quarter: "International",
-        type: "Conference",
-        slug: "IPIN 2021"
-    },
-    {
-        title: "Detección no supervisada de transiciones dentro del hogar mediante tecnología BLE",
-        authors: "Raúl Montoliu, Emilio Sansano-Sansano",
-        doi: "",
-        year: 2021,
-        publisher: "28th Seminario Anual de Automática, Electrónica Industrial e Instrumentación",
-        quarter: "National",
-        type: "Conference",
-        slug: "SAAEI 2021"
-    },
-    {
-        title: "Sistema de posicionamiento en interiores en el hogar usando balizas Bluetooth Low Energy",
-        authors: "Raúl Montoliu, Emilio Sansano-Sansano, Arturo Gascó",
-        doi: "",
-        year: 2020,
-        publisher: "27th Seminario Anual de Automática, Electrónica Industrial e Instrumentación",
-        quarter: "National",
-        type: "Conference",
-        slug: "SAAEI 2020"
-    },
-    {
-        title: "TAG: A Tabletop Games Framework",
-        authors: "Raluca Gaina, Diego Perez Liebana, Alexander Dockhorn, Martin Balla and Raul Montoliu",
-        doi: "",
-        year: 2020,
-        publisher: "AIIDE-20 Workshop on Experimental AI in Games",
-        quarter: "International",
-        type: "Conference",
-        slug: "EXAG 2020"
-    },
-    {
-        title: "Efficient Heuristic Policy Optimisation for a Challenging Strategic Card Game",
-        authors: "R. Montoliu, R.D. Gaina, D. Perez-Leibana, D. Delgado, S. Lucas",
-        doi: "https://link.springer.com/chapter/10.1007/978-3-030-43722-0_26",
-        year: 2020,
-        publisher: "23rd International Conference on the Applications of Evolutionary and Bio-inspired Computation",
-        quarter: "International",
-        type: "Conference",
-        slug: "EVOSTAR 2020"
-    },
-    {
-    title: "Error Bound Estimation for Fingerprinting-Based Indoor Positioning Systems Using Monte Carlo Simulations",
-    authors: "C. Valero-Abundio, R. Montoliu, M. Martinez-Garcia, E. Sansano-Sansano, J. Torres-Sospedra and A. Perez-Navarro",
-    doi: "https://ieeexplore.ieee.org/document/11048830",
-    year: 2024,
-    publisher: "16th International Congress on Ultra Modern Telecommunications and Control Systems (ICUMT 2024)",
+    title: "Analysis of The Witcher 3: Wild hunt's quests",
+    authors:
+      "Raul Montoliu, Adrian Mon-Maroto, Emilio Sansano-Sansano and Ignacio Miralles-Tena",
+    doi: "",
+    year: 2022,
+    publisher: "I Congreso Español de Videojuegos",
+    quarter: "National",
+    type: "Conference",
+    slug: "CEV 2022 B",
+    line: "gvai",
+  },
+  {
+    title:
+      "NTBOE: A new algorithm for efficiently playing multi-action adversarial games",
+    authors: "Raul Montoliu and Diego Villabrille Seca",
+    doi: "",
+    year: 2022,
+    publisher: "I Congreso Español de Videojuegos",
+    quarter: "National",
+    type: "Conference",
+    slug: "CEV 2022 A",
+    line: "gvai",
+  },
+  {
+    title:
+      "Efficient tuning of kNN hyperparameters for indoor positioning with N-TBEA",
+    authors: "R. Montoliu, A. Pérez-Navarro, J. Torres-Sospedra",
+    doi: "https://doi.org/10.1109/ICUMT57764.2022.9943377",
+    year: 2022,
+    publisher:
+      "International Congress on Ultra Modern Telecommunications and Control Systems",
     quarter: "International",
     type: "Conference",
-    slug: "ICUMT 2024"
-}
+    slug: "ICUMT 2022 B",
+    line: "aai",
+  },
+  {
+    title:
+      "A Novel BLE RSSI Database for Analyzing Routines of Community-Dwelling Older Adults",
+    authors:
+      "S. Lluva Plaza, R. Montoliu Colás, A. Jiménez Martín, J.M. Villadangos Carrizo, E. Sansano Sansano and J.J. García Domínguez",
+    doi: "https://doi.org/10.1109/ICUMT57764.2022.9943410",
+    year: 2022,
+    publisher:
+      "International Congress on Ultra Modern Telecommunications and Control Systems",
+    quarter: "International",
+    type: "Conference",
+    slug: "ICUMT 2022 A",
+    line: "sds",
+  },
+  {
+    title:
+      "Ajuste eficiente de los hiperparametros de kNN para posicionamiento en interiores con N-TBEA",
+    authors: "Raúl Montoliu, Antoni Perez-Navarro, Joaquín Torres-Sospedra",
+    doi: "",
+    year: 2022,
+    publisher:
+      "29th Seminario Anual de Automática, Electrónica Industrial e Instrumentación",
+    quarter: "National",
+    type: "Conference",
+    slug: "SAAEI 2022",
+    line: "aai",
+  },
+  {
+    title:
+      "Reflexiones sobre por qué el estudiantado no acude a las actividades complementarias y propuesta de soluciones",
+    authors: "R. Montoliu, C. Rebollo, D. Díaz, I. Remolar",
+    doi: "",
+    year: 2022,
+    publisher:
+      "XXVIII Edición de las Jornadas sobre la Enseñanza Universitaria de la Informática",
+    quarter: "National",
+    type: "Conference",
+    slug: "JENUI 2022",
+    line: "dam",
+  },
+  {
+    title:
+      "ASMACAG: Un nuevo juego de cartas multi acción para facilitar el estudio de técnicas de IA",
+    authors: "Diego Villabrille Seca, Raúl Montoliu",
+    doi: "",
+    year: 2021,
+    publisher: "1er Congreso Internacional de DiGRA España",
+    quarter: "National",
+    type: "Conference",
+    slug: "DIGRAES 2021 B",
+    line: "gvai",
+  },
+  {
+    title:
+      "Concepto de localidad en las aventuras de texto y análisis de ubicaciones geográficas reales en los juegos de Aventuras AD",
+    authors: "Juan José Muñoz Falcó, Raúl Montoliu",
+    doi: "",
+    year: 2021,
+    publisher: "1er Congreso Internacional de DiGRA España",
+    quarter: "National",
+    type: "Conference",
+    slug: "DIGRAES 2021 A",
+    line: "gvai",
+  },
+  {
+    title:
+      "A novel method for in-home Gait Speed estimation in Health Monitoring Using Bluetooth Low Energy",
+    authors:
+      "Fernando J. Aranda, Fernando J. Álvarez, Felipe Parralejo, Emilio Sansano-Sansano, Raúl Montoliu",
+    doi: "https://doi.org/10.1109/ICIT46573.2021.9453578",
+    year: 2021,
+    publisher: "22nd IEEE International Conference on Industrial Technology",
+    quarter: "International",
+    type: "Conference",
+    slug: "ICIT 2021",
+    line: "sds",
+  },
+  {
+    title:
+      "Unsupervised detection of transitions at home by using BLE technology",
+    authors: "Raúl Montoliu, Emilio Sansano-Sansano",
+    doi: "https://doi.org/10.1109/IPIN51156.2021.9662578",
+    year: 2021,
+    publisher:
+      "11th International Conference on Indoor Positioning and Indoor Navigation",
+    quarter: "International",
+    type: "Conference",
+    slug: "IPIN 2021",
+    line: "sds",
+  },
+  {
+    title:
+      "Detección no supervisada de transiciones dentro del hogar mediante tecnología BLE",
+    authors: "Raúl Montoliu, Emilio Sansano-Sansano",
+    doi: "",
+    year: 2021,
+    publisher:
+      "28th Seminario Anual de Automática, Electrónica Industrial e Instrumentación",
+    quarter: "National",
+    type: "Conference",
+    slug: "SAAEI 2021",
+    line: "sds",
+  },
+  {
+    title:
+      "Sistema de posicionamiento en interiores en el hogar usando balizas Bluetooth Low Energy",
+    authors: "Raúl Montoliu, Emilio Sansano-Sansano, Arturo Gascó",
+    doi: "",
+    year: 2020,
+    publisher:
+      "27th Seminario Anual de Automática, Electrónica Industrial e Instrumentación",
+    quarter: "National",
+    type: "Conference",
+    slug: "SAAEI 2020",
+    line: "sds",
+  },
+  {
+    title: "TAG: A Tabletop Games Framework",
+    authors:
+      "Raluca Gaina, Diego Perez Liebana, Alexander Dockhorn, Martin Balla and Raul Montoliu",
+    doi: "",
+    year: 2020,
+    publisher: "AIIDE-20 Workshop on Experimental AI in Games",
+    quarter: "International",
+    type: "Conference",
+    slug: "EXAG 2020",
+    line: "gvai",
+  },
+  {
+    title:
+      "Efficient Heuristic Policy Optimisation for a Challenging Strategic Card Game",
+    authors: "R. Montoliu, R.D. Gaina, D. Perez-Leibana, D. Delgado, S. Lucas",
+    doi: "https://link.springer.com/chapter/10.1007/978-3-030-43722-0_26",
+    year: 2020,
+    publisher:
+      "23rd International Conference on the Applications of Evolutionary and Bio-inspired Computation",
+    quarter: "International",
+    type: "Conference",
+    slug: "EVOSTAR 2020",
+    line: "gvai",
+  },
+  {
+    title:
+      "Error Bound Estimation for Fingerprinting-Based Indoor Positioning Systems Using Monte Carlo Simulations",
+    authors:
+      "C. Valero-Abundio, R. Montoliu, M. Martinez-Garcia, E. Sansano-Sansano, J. Torres-Sospedra and A. Perez-Navarro",
+    doi: "https://ieeexplore.ieee.org/document/11048830",
+    year: 2024,
+    publisher:
+      "16th International Congress on Ultra Modern Telecommunications and Control Systems (ICUMT 2024)",
+    quarter: "International",
+    type: "Conference",
+    slug: "ICUMT 2024",
+    line: "aai",
+  },
 ];

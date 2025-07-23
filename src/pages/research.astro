@@ -3,9 +3,20 @@ import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 
 import { RESEARCH } from "../lib/research";
+import { PUBLICATIONS } from "../lib/publications";
+import { PROJECTS, PAST_PROJECTS } from "../lib/projects";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const researchLines = RESEARCH.map((line) => {
+  const projects = PROJECTS.filter((p) => p.line === line.id).length;
+  const pastProjects = PAST_PROJECTS.filter((p) => p.line === line.id).length;
+  const publications = PUBLICATIONS.filter((p) => p.line === line.id).length;
+
+  return {
+    ...line,
+    projects: projects + pastProjects,
+    publications: publications,
+  };
+});
 ---
 
 <Layout>
@@ -15,7 +26,7 @@ import { RESEARCH } from "../lib/research";
     <h1 class='text-2xl text-center'>Research Lines</h1>
     <div class='grid md:grid-cols-2 grid-cols-1 gap-8 mt-8 max-w-6xl'>
       {
-        RESEARCH.map((line) => (
+        researchLines.map((line) => (
           <div class='hover:shadow-lg transition-shadow duration-300 px-6 py-3 bg-white rounded-lg shadow-md flex flex-col justify-between'>
             <div class='flex justify-between items-start mb-2 gap-4'>
               <div class='text-lg font-semibold text-gray-900 leading-tight'>

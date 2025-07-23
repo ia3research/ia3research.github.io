@@ -18,19 +18,21 @@ export const PROJECTS = [
     link: "",
     image: "confia.webp",
     funder: "Valencian Government",
+    line: "aai",
   },
-    {
+  {
     startdate: "01-07-2025",
     enddate: "31-12-2025",
     call: "",
     shortname: "INNDIH-Symplia",
     name: "Adagio",
-    grant: 10872 ,
+    grant: 10872,
     link: "",
     image: "empty.webp",
     funder: "European Comission",
+    line: "aig",
   },
-    {
+  {
     startdate: "01-07-2025",
     enddate: "31-12-2025",
     call: "",
@@ -40,8 +42,9 @@ export const PROJECTS = [
     link: "",
     image: "empty.webp",
     funder: "European Comission",
+    line: "aai",
   },
-    {
+  {
     startdate: "01-01-2025",
     enddate: "30-06-2025",
     call: "",
@@ -51,6 +54,7 @@ export const PROJECTS = [
     link: "",
     image: "empty.webp",
     funder: "European Comission",
+    line: "aai",
   },
   {
     startdate: "01-09-2022",
@@ -62,6 +66,7 @@ export const PROJECTS = [
     link: "https://geintra-uah.org/projects/localizacion-y-deteccion-integrada-seguimiento-digital-actividad-humana-indri",
     image: "indri.webp",
     funder: "Spanish Government",
+    line: "sds",
   },
 
   {
@@ -74,8 +79,9 @@ export const PROJECTS = [
     link: "https://www.uji.es/serveis/ocit/base/grupsinvestigacio/detall?codi=329",
     image: "neuroml.webp",
     funder: "Jaume I University",
+    line: "dam",
   },
- 
+
   {
     startdate: "01-01-2023",
     enddate: "31-08-2025",
@@ -86,6 +92,7 @@ export const PROJECTS = [
     link: "https://e-diplomaproject.eu/",
     image: "ediploma.webp",
     funder: "European Comission",
+    line: "aai",
   },
   {
     startdate: "01-01-2023",
@@ -97,8 +104,8 @@ export const PROJECTS = [
     link: "https://panorama.upv.es/cat/ipublic/item/10075751",
     image: "quantwin.webp",
     funder: "Valencian Government",
+    line: "dam",
   },
-  
 
   {
     startdate: "01-09-2024",
@@ -110,6 +117,7 @@ export const PROJECTS = [
     link: "https://www.linkedin.com/company/seen-project/",
     image: "seen.webp",
     funder: "European Comission",
+    line: "dam",
   },
   {
     startdate: "01-09-2024",
@@ -121,11 +129,12 @@ export const PROJECTS = [
     link: "https://aplicat.upv.es/exploraupv/ficha-proyecto/proyecto/20240714",
     image: "prometeo.webp",
     funder: "Valencian Government",
+    line: "aai",
   },
 ];
 
 export const PAST_PROJECTS = [
-   {
+  {
     startdate: "01-01-2023",
     enddate: "31-12-2025",
     call: "RED2022-134355-T",
@@ -134,8 +143,9 @@ export const PAST_PROJECTS = [
     link: "https://repnin.web.uah.es/",
     image: "repnin.webp",
     funder: "Group",
+    line: "sds",
   },
-    {
+  {
     startdate: "01-01-2023",
     enddate: "31-12-2024",
     call: "CIGE-2022-066",
@@ -145,6 +155,7 @@ export const PAST_PROJECTS = [
     link: "https://ceice.gva.es/es/web/ciencia/convocatories_2022",
     image: "cige.webp",
     funder: "Valencian Government",
+    line: "dam",
   },
   {
     startdate: "09-10-2020",
@@ -156,8 +167,9 @@ export const PAST_PROJECTS = [
     link: "https://www.fbbva.es/ayudas/ayudas-equipos-investigacion-cientifica-2020-covid19/",
     image: "bbva20.webp",
     funder: "Companies",
+    line: "dam",
   },
-    {
+  {
     startdate: "01-04-2024",
     enddate: "31-12-2024",
     call: "Catness",
@@ -166,6 +178,7 @@ export const PAST_PROJECTS = [
     link: "https://catnessgames.com/es/",
     image: "catness.webp",
     funder: "Companies",
+    line: "aai",
   },
   {
     startdate: "01-01-2024",
@@ -177,6 +190,7 @@ export const PAST_PROJECTS = [
     link: "https://unisalut.uji.es/ayudas/",
     image: "directgest.webp",
     funder: "Valencian Government",
+    line: "gvai",
   },
   {
     startdate: "01-01-2024",
@@ -188,5 +202,6 @@ export const PAST_PROJECTS = [
     link: "https://unisalut.uji.es/ayudas/",
     image: "ccia.webp",
     funder: "Valencian Government",
+    line: "aai",
   },
 ];

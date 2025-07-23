@@ -1,37 +1,27 @@
 export const RESEARCH = [
   {
-    id: 1,
+    id: "aai",
     title: "Applied Artificial Intelligence",
-    projects: 8,
-    publications: 24,
     startYear: 2018,
   },
   {
-    id: 2,
+    id: "dam",
     title: "Data Analysis & Modelling",
-    projects: 5,
-    publications: 18,
-    startYear: 2019,
+    startYear: 2018,
   },
   {
-    id: 3,
+    id: "sds",
     title: "Smart Devices & Systems",
-    projects: 6,
-    publications: 15,
-    startYear: 2017,
+    startYear: 2018,
   },
   {
-    id: 4,
+    id: "gvai",
     title: "Game & Videogames AI",
-    projects: 7,
-    publications: 21,
     startYear: 2020,
   },
   {
-    id: 5,
+    id: "aig",
     title: "AI for Goodness",
-    projects: 4,
-    publications: 12,
-    startYear: 2021,
-  }
+    startYear: 2025,
+  },
 ];
