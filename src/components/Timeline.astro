@@ -119,10 +119,6 @@ const getProjectStyle = (project: Project & { level: number }) => {
   };
 };
 
-// Calcular posición de la línea del año/mes actual
-const currentMonthPosition = getMonthPosition(currentYear, currentMonth);
-const currentPositionPercent = (currentMonthPosition / totalMonths) * 100;
-
 // Función para formatear fecha
 const formatDate = (year: number, month: number) => {
   const monthNames = [
@@ -204,7 +200,7 @@ const timeMarkers = getTimeMarkers();
               (project: any, index: any) => (
                 <a href={project.link} target='_blank' rel='noopener noreferrer'>
                   <div
-                    class='absolute z-10 h-7 border border-gray-600 rounded flex items-center justify-center px-2 cursor-pointer transition-all duration-200 min-w-[60px] shadow-sm hover:opacity-90 hover:shadow-md hover:z-[5] hover:-translate-y-0.5 bg-blue-200'
+                    class='absolute z-10 h-7 border border-gray-600 rounded flex items-center justify-center px-2 cursor-pointer transition-all duration-200 shadow-sm hover:opacity-90 hover:shadow-md hover:z-[5] hover:-translate-y-0.5 bg-blue-200'
                     style={{
                       ...getProjectStyle(project),
                     }}

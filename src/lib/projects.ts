@@ -23,8 +23,8 @@ export const PROJECTS = [
   {
     startdate: "01-07-2025",
     enddate: "31-12-2025",
-    call: "",
-    shortname: "INNDIH-Symplia",
+    call: "INNDIH-Symplia",
+    shortname: "I-S",
     name: "Adagio",
     grant: 10872,
     link: "",
@@ -35,8 +35,8 @@ export const PROJECTS = [
   {
     startdate: "01-07-2025",
     enddate: "31-12-2025",
-    call: "",
-    shortname: "INNDIH-Improven",
+    call: "INNDIH-Improven",
+    shortname: "I-I",
     name: "Asistente conversacional para la gestión del conocimiento en consultoría mediante LLMs",
     grant: 10872,
     link: "",
@@ -47,8 +47,8 @@ export const PROJECTS = [
   {
     startdate: "01-01-2025",
     enddate: "30-06-2025",
-    call: "",
-    shortname: "INNDIH-Cebimat",
+    call: "INNDIH-Cebimat",
+    shortname: "I-C",
     name: "Desarrollo de herramienta digital para optimización de la calidad de las fotografías de muestras",
     grant: 10872,
     link: "",
