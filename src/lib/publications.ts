@@ -139,10 +139,11 @@ export const PUBLICATIONS = [
     line: "dam",
   },
   {
-    title: "",
+    title:
+      "Using ellipses to improve the estimation of the error bound on indoor positioning problems",
     authors:
       "Cristian Valero-Abundio, Raúl Montoliu, Marina Martínez-García, Emilio Sansano-Sansano, Joaquín Torres-Sospedra, Antoni Pérez-Navarro",
-    doi: "Using ellipses to improve the estimation of the error bound on indoor positioning problems",
+    doi: "https://ieeexplore.ieee.org/document/10720469",
     year: 2024,
     publisher:
       "4th International Symposium on Sensing and Instrumentation in IoT Era (ISSI-24)",
