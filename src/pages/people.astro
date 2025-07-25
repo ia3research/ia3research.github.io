@@ -24,6 +24,7 @@ import { TEAM, PAST_MEMBERS } from "../lib/team";
             />
             <h2 class='text-lg font-semibold mt-4'>{`${member.address} ${member.name}`}</h2>
             <p class='text-lg text-gray-500'>{member.role}</p>
+            <p class='text-sm text-gray-500'>{member.email}</p>
             <div class='flex flex-row gap-2.5 justify-center items-center mt-3'>
               {member.socials.scholar && (
                 <a

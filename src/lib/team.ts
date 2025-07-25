@@ -4,6 +4,7 @@ export const TEAM = [
     role: "Faculty",
     image: "raul-montoliu.webp",
     address: "Dr.",
+    email: "montoliu AT uji DOT es",
     socials: {
       scholar: "https://scholar.google.es/citations?user=ndCvmPYAAAAJ&hl=es",
       orcid: "https://orcid.org/0000-0002-8467-391X",
@@ -15,6 +16,7 @@ export const TEAM = [
     role: "Faculty",
     image: "emilio-sansano.webp",
     address: "Dr.",
+    email: "esansano AT uji DOT es",
     socials: {
       scholar: "https://scholar.google.es/citations?user=9cdShMEAAAAJ&hl=es",
       orcid: "https://orcid.org/0000-0002-7814-0383",
@@ -25,6 +27,7 @@ export const TEAM = [
     role: "Collaborator",
     image: "marina-martinez.webp",
     address: "Dr.",
+    email: "martigar AT uji DOT es",
     socials: {
       scholar: "https://scholar.google.es/citations?user=qq7VhUsAAAAJ&hl=es",
       orcid: "https://orcid.org/0000-0002-2228-4396",
@@ -35,6 +38,7 @@ export const TEAM = [
     role: "Ph.D. Student",
     image: "alex-martinez.webp",
     address: "Mr.",
+    email: "alemarti AT uji DOT es",
     socials: {
       scholar: "https://scholar.google.es/citations?hl=es&user=gJY4isIAAAAJ",
       orcid: "https://orcid.org/0000-0002-3751-705X",
@@ -46,6 +50,7 @@ export const TEAM = [
     role: "Ph.D. Student",
     image: "juan-jose.webp",
     address: "Mr.",
+    email: "juanjose.munoz AT uji DOT es",
     socials: {
       scholar: "https://scholar.google.es/citations?hl=es&user=Ei3tllsAAAAJ",
       orcid: "https://orcid.org/0000-0002-4682-6399",
@@ -56,6 +61,7 @@ export const TEAM = [
     role: "Ph.D. Student",
     image: "david-agost.webp",
     address: "Mr.",
+    email: "david.agost AT uji DOT es",
     socials: {
       orcid: "https://orcid.org/0009-0003-4711-6393",
     },
@@ -65,6 +71,7 @@ export const TEAM = [
     role: "Researcher",
     image: "cristian-valero.webp",
     address: "Mr.",
+    email: "cvalero AT uji DOT es",
     socials: {
       scholar: "https://scholar.google.es/citations?hl=es&user=qm2YxbUgIdMC",
       orcid: "https://orcid.org/0009-0007-1035-942X",
@@ -75,13 +82,17 @@ export const TEAM = [
     role: "Researcher",
     image: "hector-rubio.webp",
     address: "Mr.",
-    socials: {},
+    email: "rubioh AT uji DOT es",
+    socials: {
+      orcid: "https://orcid.org/0009-0001-6909-352X",
+    },
   },
   {
     name: "Silvia Franch Ventura",
     role: "Researcher",
     image: "silvia-franch.webp",
     address: "Mrs.",
+    email: "sfranch AT uji DOT es",
     socials: {
       orcid: "https://orcid.org/0009-0003-1899-7611",
     },
