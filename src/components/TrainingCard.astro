@@ -1,0 +1,54 @@
+---
+import Teacher from "../icons/Teacher.astro";
+
+export interface TrainingCardProps {
+  name?: string;
+  description?: string;
+  image?: string;
+  teachers?: string;
+  startDate?: string;
+  endDate?: string;
+  place?: string;
+}
+
+const { name, description, image, teachers, startDate, endDate, place } =
+  Astro.props;
+
+let [day, month, year] = startDate.split("-").map(Number);
+const formattedStartDate = new Date(year, month - 1, day).toLocaleDateString(
+  "en",
+  {
+    month: "long",
+    year: "numeric",
+  }
+);
+
+[day, month, year] = endDate.split("-").map(Number);
+const formattedEndDate = new Date(year, month - 1, day).toLocaleDateString(
+  "en",
+  {
+    month: "long",
+    year: "numeric",
+  }
+);
+---
+
+<div
+  class='hover:shadow-lg transition-shadow duration-300 p-3 bg-white rounded-2xl shadow-md flex flex-col justify-between gap-3 max-w-80'>
+  <img
+    class='aspect-square rounded-sm overflow-hidden object-cover'
+    src={`/training/${image}`}
+  />
+  <p class='text-xs'>
+    {place}
+    <br /> ({formattedStartDate} - {formattedEndDate})
+  </p>
+  <h1 class='text-xl'>{name}</h1>
+  <div class='flex-1 flex items-end'>
+    <p class='text-base'>{description}</p>
+  </div>
+  <div class='flex flex-row gap-2 justify-start items-center'>
+    <Teacher class='size-4 mt-0.5' />
+    <span class='text-xs'>{teachers}</span>
+  </div>
+</div>
