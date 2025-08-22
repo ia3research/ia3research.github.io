@@ -10,6 +10,29 @@ export const PUBLICATIONS = [
         slug: "",
         line: "",
     }*/
+
+  {
+        title: "Perceptual Sensitivity to Rotational Differences in Natural Images",
+        authors: "David Agost Beltrán, Paula Daudén Oliver, Jesús Malo López, Valero Laparra Pérez-Muelas, Marina Martínez García, Raúl Montoliu Colás, Emilio Sansano Sansano",
+        doi: "",
+        year: 2025,
+        publisher: "8th International Conference on Artificial Intelligence and Pattern Recognition",
+        quarter: "International",
+        type: "Conference",
+        slug: "AIPR 2025",
+        line: "dam",
+    },
+    {
+        title: "Computing a Characteristic Orientation for Rotation-Independent Image Analysis",
+        authors: "Cristian Valero Abundio, Emilio Sansano Sansano, Raúl Montoliu Colás, Marina Martínez García",
+        doi: "",
+        year: 2025,
+        publisher: "8th International Conference on Artificial Intelligence and Pattern Recognition",
+        quarter: "International",
+        type: "Conference",
+        slug: "AIPR 2025",
+        line: "dam",
+    },
   {
     title:
       "Decoding the impact of aging on the interaction between visual attention and working memory",
