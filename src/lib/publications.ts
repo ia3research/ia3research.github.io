@@ -19,7 +19,7 @@ export const PUBLICATIONS = [
         publisher: "8th International Conference on Artificial Intelligence and Pattern Recognition",
         quarter: "International",
         type: "Conference",
-        slug: "AIPR 2025",
+        slug: "AIPR 2025 B",
         line: "dam",
     },
     {
@@ -30,7 +30,7 @@ export const PUBLICATIONS = [
         publisher: "8th International Conference on Artificial Intelligence and Pattern Recognition",
         quarter: "International",
         type: "Conference",
-        slug: "AIPR 2025",
+        slug: "AIPR 2025 A",
         line: "dam",
     },
   {
