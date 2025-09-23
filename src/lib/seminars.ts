@@ -9,7 +9,7 @@ export const SEMINARS = [
     }*/
    {
     title: "RTT-based Indoor Positioning",
-    date: "01-10-2025 15:05",
+    date: "01-10-2025 15:10",
     location: "NB4302DL",
     speaker: "Raul Montoliu",
     speakerUrl: "https://www.raulmontoliu.com/",
