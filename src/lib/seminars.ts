@@ -12,6 +12,7 @@ export const SEMINARS = [
     date: "01-10-2025 15:05",
     location: "NB4302DL",
     speaker: "Raul Montoliu",
+    speakerUrl: "https://www.raulmontoliu.com/",
     image: "wam011025.webp",
    },
 
