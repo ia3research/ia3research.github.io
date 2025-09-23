@@ -7,6 +7,21 @@ export const SEMINARS = [
     speakerUrl: "",
     image: "",
     }*/
+   {
+    title: "RTT-based Indoor Positioning",
+    date: "01-10-2025 15:05",
+    location: "NB4302DL",
+    speaker: "Raul Montoliu",
+    image: "wam011025.webp",
+   },
+
+  {
+    title: "Introducción a la IA generativa",
+    date: "24-09-2025 15:05",
+    location: "NB4302DL",
+    speaker: "Emilio Sansano",
+    image: "wam240925.webp",
+   },
   {
     title: "AI for Cultural Heritage",
     date: "12-02-2025 15:30",
