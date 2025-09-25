@@ -26,7 +26,7 @@ import { TEAM, PAST_MEMBERS } from "../lib/team";
             <p class='text-lg text-gray-500'>{member.role}</p>
             <p class='text-sm text-gray-500'>{member.email}</p>
             <div class='flex flex-row gap-2.5 justify-center items-center mt-3'>
-              {member.socials.scholar && (
+              {member.socials && member.socials.scholar && (
                 <a
                   href={member.socials.scholar}
                   target='_blank'
@@ -34,7 +34,7 @@ import { TEAM, PAST_MEMBERS } from "../lib/team";
                   <Scholar class='size-6 transition-all hover:scale-110 duration-300' />
                 </a>
               )}
-              {member.socials.orcid && (
+              {member.socials && member.socials.orcid && (
                 <a
                   href={member.socials.orcid}
                   target='_blank'
@@ -42,7 +42,7 @@ import { TEAM, PAST_MEMBERS } from "../lib/team";
                   <Orcid class='size-6 transition-all hover:scale-110 duration-300' />
                 </a>
               )}
-              {member.socials.web && (
+              {member.socials && member.socials.web && (
                 <a
                   href={member.socials.web}
                   target='_blank'
