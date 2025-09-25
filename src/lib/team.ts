@@ -103,7 +103,6 @@ export const TEAM = [
     image: "alejandro-carda.webp",
     address: "Mr.",
     email: "al446484 AT uji DOT es",
-    socials: {   },
   },
     {
     name: "Miguel Angel Lira Mijares",
@@ -111,10 +110,7 @@ export const TEAM = [
     image: "miguel-lira.webp",
     address: "Mr.",
       email: "al448489 AT uji DOT es",
-    socials: {    },
   },
-
-  Miguel Angel Lira Mijares
 ];
 
 export const PAST_MEMBERS = [
