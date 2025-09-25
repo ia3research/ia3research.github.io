@@ -97,6 +97,20 @@ export const TEAM = [
       orcid: "https://orcid.org/0009-0003-1899-7611",
     },
   },
+    {
+    name: "Alejandro Carda Cerguta",
+    role: "Student",
+    image: "alejandro-carda.webp",
+    address: "Mr.",
+  },
+    {
+    name: "Miguel Angel Lira Mijares",
+    role: "Student",
+    image: "miguel-lira.webp",
+    address: "Mr.",
+  },
+
+  Miguel Angel Lira Mijares
 ];
 
 export const PAST_MEMBERS = [
