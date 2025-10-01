@@ -28,7 +28,7 @@ export const PROJECTS = [
     name: "Adagio",
     grant: 10872,
     link: "",
-    image: "empty.webp",
+    image: "symplia.webp",
     funder: "European Comission",
     line: "aig",
   },
