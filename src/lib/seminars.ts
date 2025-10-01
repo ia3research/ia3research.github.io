@@ -13,7 +13,7 @@ export const SEMINARS = [
     location: "NB4302DL",
     speaker: "Raul Montoliu",
     speakerUrl: "https://www.raulmontoliu.com/",
-    image: "wam011025.webp",
+    image: "wam011025.png",
    },
   {
     title: "Introducción a la IA generativa",
