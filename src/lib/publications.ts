@@ -20,7 +20,7 @@ export const PUBLICATIONS = [
     year: 2025,
     publisher:
       "17th International Congress on Ultra Modern Telecommunications and Control Systems and Workshops (ICUMT'25)",
-    quarter: "Intenational",
+    quarter: "International",
     type: "Conference",
     slug: "ICUMT 2025",
     line: "aai",
