@@ -13,6 +13,20 @@ export const PUBLICATIONS = [
 
   {
     title:
+      "Fingerprinting with Fine Time Measurements: from RSS to RTT",
+    authors:
+      "M. Matey-Sanz, J.M. Claver, E. Martinez, S. Felici-Castell, R. Montoliu, A. Perez-Navarro,  J. Jose Perez, A. Soriano, S. Trilles and J. Torres-Sospedra",
+    doi: "https://icumt.info/2025/",
+    year: 2025,
+    publisher:
+      "17th International Congress on Ultra Modern Telecommunications and Control Systems and Workshops (ICUMT'25)",
+    quarter: "Intenational",
+    type: "Conference",
+    slug: "ICUMT 2025",
+    line: "aai",
+  },
+  {
+    title:
       "Decoding the impact of aging on the interaction between visual attention and working memory",
     authors:
       "Marta Balagué-Marmaña, Marina Martínez-Garcia, Laura Dempere-Marco",
