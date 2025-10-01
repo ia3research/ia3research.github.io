@@ -52,7 +52,7 @@ export const PROJECTS = [
     name: "Desarrollo de herramienta digital para optimización de la calidad de las fotografías de muestras",
     grant: 10872,
     link: "",
-    image: "empty.webp",
+    image: "cebimat.webp",
     funder: "European Comission",
     line: "aai",
   },
