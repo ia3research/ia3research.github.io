@@ -25,7 +25,7 @@ export const PROJECTS = [
     enddate: "31-12-2025",
     call: "INNDIH-Symplia",
     shortname: "I-S",
-    name: "Adagio",
+    name: "Adagio: Reconocimiento del habla para personas con dificultades",
     grant: 10872,
     link: "",
     image: "symplia.webp",
