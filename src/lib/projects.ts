@@ -40,7 +40,7 @@ export const PROJECTS = [
     name: "Asistente conversacional para la gestión del conocimiento en consultoría mediante LLMs",
     grant: 10872,
     link: "",
-    image: "empty.webp",
+    image: "improven.webp",
     funder: "European Comission",
     line: "aai",
   },
