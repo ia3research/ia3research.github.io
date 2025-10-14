@@ -24,7 +24,7 @@ export const PUBLICATIONS = [
     {
         title: "Towards the Adoption of Recommender Systems in Online Education: A Framework and Implementation",
         authors: "Alex Martínez-Martínez, Águeda Gómez-Cambronero, Raul Montoliu, Inmaculada Remolar",
-        doi: "",
+        doi: "https://doi.org/10.3390/bdcc9100259",
         year: 2025,
         publisher: "Big Data and Cognitive Computing",
         quarter: "Q1",
