@@ -11,6 +11,31 @@ export const PUBLICATIONS = [
         line: "",
     }*/
 
+
+  1-UJIIndoorLoc Dataset: A Retrospective Analysis after 10 Years of Usage
+Joaquín Torres-Sospedra, Raul Montoliu and Antoni Perez-Navarro
+{
+        title: "UJIIndoorLoc Dataset: A Retrospective Analysis after 10 Years of Usage",
+        authors: "Joaquín Torres-Sospedra, Raul Montoliu and Antoni Perez-Navarro",
+        doi: "",
+        year: 2025,
+        publisher: "15th International Conference on Indoor Positioning and Indoor Navigation",
+        quarter: "International",
+        type: "Conference",
+        slug: "IPIN 2025",
+        line: "aai",
+    },
+    {
+        title: "Towards the Adoption of Recommender Systems in Online Education: A Framework and Implementation",
+        authors: "Alex Martínez-Martínez, Águeda Gómez-Cambronero, Raul Montoliu, Inmaculada Remolar",
+        doi: "",
+        year: 2025,
+        publisher: "Big Data and Cognitive Computing",
+        quarter: "Q1",
+        type: "Journal",
+        slug: "BDCC",
+        line: "dam",
+    },
   {
     title:
       "Fingerprinting with Fine Time Measurements: from RSS to RTT",
