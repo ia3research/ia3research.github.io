@@ -10,10 +10,6 @@ export const PUBLICATIONS = [
         slug: "",
         line: "",
     }*/
-
-
-  1-UJIIndoorLoc Dataset: A Retrospective Analysis after 10 Years of Usage
-Joaquín Torres-Sospedra, Raul Montoliu and Antoni Perez-Navarro
 {
         title: "UJIIndoorLoc Dataset: A Retrospective Analysis after 10 Years of Usage",
         authors: "Joaquín Torres-Sospedra, Raul Montoliu and Antoni Perez-Navarro",
