@@ -13,7 +13,7 @@ export const PUBLICATIONS = [
 {
         title: "UJIIndoorLoc Dataset: A Retrospective Analysis after 10 Years of Usage",
         authors: "Joaquín Torres-Sospedra, Raul Montoliu and Antoni Perez-Navarro",
-        doi: "",
+        doi: "https://doi.org/10.1109/IPIN66788.2025.11213284",
         year: 2025,
         publisher: "15th International Conference on Indoor Positioning and Indoor Navigation",
         quarter: "International",
