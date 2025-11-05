@@ -56,21 +56,21 @@ function renderAudioBlock(idx, animate = false, direction = 'right') {
     const trackTitle = block.title ?? `Track ${idx + 1}`;
     const sourceType = block.type ?? 'audio/mpeg';
     const html = `
-    <div class="player-wrap w-full">
-        <h2 class="track-title text-lg font-semibold text-blue-600 text-center">${trackTitle}</h2>
-        <audio id="audioPlayer" controls preload="none" class="w-full my-3">
+    <div class="player-wrap w-full flex flex-col items-center gap-12">
+        <h2 class="track-title text-2xl font-semibold text-blue-500 text-center leading-tight">${trackTitle}</h2>
+        <audio id="audioPlayer" controls preload="none" class="w-full max-w-3xl">
             <source src="${block.audio}" type="${sourceType}">
             Your browser does not support the audio element.
         </audio>
-        <div class="demo-columns flex flex-col md:flex-row gap-6 items-stretch">
+        <div class="demo-columns flex flex-col md:flex-row gap-10 items-stretch w-full">
             <div class="demo-column flex-1">
                 <button id="leftBtn" class="btn w-full px-4 py-3 rounded-md border border-blue-200 bg-blue-50 text-blue-700 font-semibold hover:bg-blue-100 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed">${LEFT_LABEL}</button>
-                <div class="msg mt-3 border border-gray-200 bg-gray-50 text-gray-700 p-4 rounded-md min-h-[3rem] w-full break-words" id="leftMsg" aria-live="polite"></div>
+                <div class="mt-6 border border-gray-200 bg-gray-50 text-gray-700 p-4 rounded-md min-h-[3rem] w-full break-words text-left leading-relaxed" id="leftMsg" aria-live="polite"></div>
                 <span id="leftMsgMeasure" class="msg msg-measure" style="position:absolute;visibility:hidden;pointer-events:none;left:-9999px;top:0;width:100%"></span>
             </div>
             <div class="demo-column flex-1">
                 <button id="rightBtn" class="btn w-full px-4 py-3 rounded-md border border-blue-200 bg-blue-50 text-blue-700 font-semibold hover:bg-blue-100 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed">${RIGHT_LABEL}</button>
-                <div class="msg mt-3 border border-gray-200 bg-gray-50 text-gray-700 p-4 rounded-md min-h-[3rem] w-full break-words" id="rightMsg" aria-live="polite"></div>
+                <div class="mt-6 border border-gray-200 bg-gray-50 text-gray-700 p-4 rounded-md min-h-[3rem] w-full break-words text-left leading-relaxed" id="rightMsg" aria-live="polite"></div>
                 <span id="rightMsgMeasure" class="msg msg-measure" style="position:absolute;visibility:hidden;pointer-events:none;left:-9999px;top:0;width:100%"></span>
             </div>
         </div>
@@ -202,6 +202,7 @@ function renderAudioBlock(idx, animate = false, direction = 'right') {
         function handleClick(btn, targetEl, phrase, measureEl) {
             if (btn.disabled) return;
             btn.disabled = true;
+            btn.style.pointerEvents = 'none';
             revealText(targetEl, phrase, 45, measureEl);
         }
 
@@ -227,11 +228,13 @@ function updateSliderButtons() {
         sliderPrevButton.disabled = currentIndex === 0;
         // show pointer when active, not-allowed when disabled
         sliderPrevButton.style.cursor = sliderPrevButton.disabled ? 'not-allowed' : 'pointer';
+        sliderPrevButton.style.pointerEvents = sliderPrevButton.disabled ? 'none' : 'auto';
     }
     if (sliderNextButton) {
         sliderNextButton.disabled = currentIndex === audioBlocks.length - 1;
         // show pointer when active, not-allowed when disabled
         sliderNextButton.style.cursor = sliderNextButton.disabled ? 'not-allowed' : 'pointer';
+        sliderNextButton.style.pointerEvents = sliderNextButton.disabled ? 'none' : 'auto';
     }
 }
 

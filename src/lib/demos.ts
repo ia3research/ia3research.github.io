@@ -16,7 +16,7 @@ export const DEMOS = [
     name: "Improven RAG",
     description:
       "Retrieval-Augmented Generation application to improve customer support.",
-    link: "https://ia3research.github.io",
+    link: "/demos/improven",
     image: "improven.webp",
   },
 ];
