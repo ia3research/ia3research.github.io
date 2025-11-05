@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+---
+
+<Layout>
+  <Header currentPage="demos" />
+
+  <!-- Use site-wide styles (Tailwind) instead of demo-specific CSS -->
+  <main class="w-full flex items-start justify-center py-12 px-4">
+  <div class="max-w-5xl w-full">
+      <div class="mb-8 text-center">
+        <h1 class="text-2xl font-semibold"><a href="https://adagioweb.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Adagio</a> — Project demonstration</h1>
+        <p class="text-sm text-gray-500 mt-2">Play the audio and press the buttons to see the transcriptions from both models</p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6">
+        <div class="flex items-center justify-center gap-6">
+          <button id="sliderPrev" class="slider-nav-btn inline-flex items-center justify-center w-12 h-12 rounded-md text-blue-600 hover:text-blue-800 disabled:opacity-0 disabled:pointer-events-none disabled:cursor-default transition-opacity duration-150" type="button" aria-label="Anterior">
+            <svg class="slider-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 12H18M6 12L11 7M6 12L11 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+
+          <div class="slider-viewport w-full max-w-4xl mx-2" id="sliderViewport">
+            <div id="sliderContent" class="slider-content"></div>
+          </div>
+
+          <button id="sliderNext" class="slider-nav-btn inline-flex items-center justify-center w-12 h-12 rounded-md text-blue-600 hover:text-blue-800 disabled:opacity-0 disabled:pointer-events-none disabled:cursor-default transition-opacity duration-150" type="button" aria-label="Siguiente">
+            <svg class="slider-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 12H18M18 12L13 7M18 12L13 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Load demo script (runs on client) -->
+  <script src="/demos/simplia/simplia.js" defer></script>
+
+</Layout>

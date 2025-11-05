@@ -9,7 +9,7 @@ export const DEMOS = [
     name: "Adagio",
     description:
       "The Speech-to-Text application for persons with speech impairments.",
-    link: "https://ia3research.github.io",
+    link: "/demos/simplia",
     image: "adagio.webp",
   },
   {
