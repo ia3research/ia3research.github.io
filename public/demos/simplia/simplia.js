@@ -7,6 +7,76 @@ function stripTags(html) {
     return tmp.textContent || tmp.innerText || '';
 }
 
+function measureRichTextHeight(text, referenceEl) {
+    if (!referenceEl) return 0;
+    const refRect = referenceEl.getBoundingClientRect();
+    const width = Math.max(0, Math.floor(refRect.width));
+
+    const meas = document.createElement('div');
+    meas.style.position = 'absolute';
+    meas.style.visibility = 'hidden';
+    meas.style.left = '-9999px';
+    meas.style.top = '0';
+    meas.style.width = `${width}px`;
+    meas.style.boxSizing = 'border-box';
+
+    const refStyle = window.getComputedStyle(referenceEl);
+    meas.style.font = refStyle.font || `${refStyle.fontSize} ${refStyle.fontFamily}`;
+    meas.style.padding = refStyle.padding;
+    meas.style.border = refStyle.border;
+    meas.style.whiteSpace = 'pre-wrap';
+    meas.style.wordBreak = refStyle.wordBreak || 'break-word';
+    meas.style.lineHeight = refStyle.lineHeight;
+    meas.style.letterSpacing = refStyle.letterSpacing;
+
+    if (text && /<[^>]+>/.test(text)) {
+        meas.innerHTML = text;
+    } else {
+        meas.textContent = text;
+    }
+
+    document.body.appendChild(meas);
+    const height = meas.offsetHeight;
+    document.body.removeChild(meas);
+    return height;
+}
+
+function equalizeButtonHeights(firstBtn, secondBtn) {
+    if (!firstBtn || !secondBtn) return;
+    firstBtn.style.height = '';
+    secondBtn.style.height = '';
+    const firstRect = firstBtn.getBoundingClientRect();
+    const secondRect = secondBtn.getBoundingClientRect();
+    const maxHeight = Math.max(firstRect.height, secondRect.height);
+    firstBtn.style.height = `${maxHeight}px`;
+    secondBtn.style.height = `${maxHeight}px`;
+}
+
+function scheduleEqualization(...callbacks) {
+    requestAnimationFrame(() => {
+        callbacks.forEach((callback) => {
+            if (typeof callback === 'function') {
+                callback();
+            }
+        });
+    });
+}
+
+function typeIntoElement(targetEl, text, intervalMs, onComplete) {
+    targetEl.textContent = '';
+    let position = 0;
+    const intervalId = setInterval(() => {
+        targetEl.textContent += text.charAt(position);
+        position += 1;
+        if (position >= text.length) {
+            clearInterval(intervalId);
+            if (typeof onComplete === 'function') {
+                onComplete();
+            }
+        }
+    }, intervalMs);
+}
+
 const audioBlocks = [
     {
         title: 'Pueblos pintorescos enclavados en ondulantes colinas',
@@ -45,6 +115,7 @@ const audioBlocks = [
         }
     }
 ];
+
 let currentIndex = 0;
 let cleanupCurrentBlock = null;
 
@@ -73,12 +144,10 @@ function renderAudioBlock(idx, animate = false, direction = 'right') {
             <div class="demo-column flex-1">
                 <button id="leftBtn" class="btn w-full px-4 py-3 rounded-md border border-blue-200 bg-blue-50 text-blue-700 font-semibold hover:bg-blue-100 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed">${LEFT_LABEL}</button>
                 <div class="mt-6 border border-gray-200 bg-gray-50 text-gray-700 p-4 rounded-md min-h-[3rem] w-full break-words text-left leading-relaxed" id="leftMsg" aria-live="polite"></div>
-                <span id="leftMsgMeasure" class="msg msg-measure" style="position:absolute;visibility:hidden;pointer-events:none;left:-9999px;top:0;width:100%"></span>
             </div>
             <div class="demo-column flex-1">
                 <button id="rightBtn" class="btn w-full px-4 py-3 rounded-md border border-blue-200 bg-blue-50 text-blue-700 font-semibold hover:bg-blue-100 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed">${RIGHT_LABEL}</button>
                 <div class="mt-6 border border-gray-200 bg-gray-50 text-gray-700 p-4 rounded-md min-h-[3rem] w-full break-words text-left leading-relaxed" id="rightMsg" aria-live="polite"></div>
-                <span id="rightMsgMeasure" class="msg msg-measure" style="position:absolute;visibility:hidden;pointer-events:none;left:-9999px;top:0;width:100%"></span>
             </div>
         </div>
     </div>
@@ -93,7 +162,7 @@ function renderAudioBlock(idx, animate = false, direction = 'right') {
 
     const mountContent = () => {
         sliderContent.innerHTML = html;
-        cleanupCurrentBlock = attachBlockEvents();
+        cleanupCurrentBlock = attachBlockEvents(block);
     };
 
     if (animate) {
@@ -141,173 +210,106 @@ function renderAudioBlock(idx, animate = false, direction = 'right') {
         sliderContent.style.transform = 'translateX(0)';
         sliderContent.style.transition = CONTENT_TRANSITION_SPEC;
     }
+}
 
-    function attachBlockEvents() {
-        const leftBtn = document.getElementById('leftBtn');
-        const rightBtn = document.getElementById('rightBtn');
-        const leftMsg = document.getElementById('leftMsg');
-        const rightMsg = document.getElementById('rightMsg');
-        const leftMsgMeasure = document.getElementById('leftMsgMeasure');
-        const rightMsgMeasure = document.getElementById('rightMsgMeasure');
-        const demoColumns = document.querySelector('.demo-columns');
+function attachBlockEvents(block) {
+    const leftBtn = document.getElementById('leftBtn');
+    const rightBtn = document.getElementById('rightBtn');
+    const leftMsg = document.getElementById('leftMsg');
+    const rightMsg = document.getElementById('rightMsg');
+    const demoColumns = document.querySelector('.demo-columns');
 
-        if (leftBtn) {
-            leftBtn.innerHTML = LEFT_LABEL;
-            leftBtn.setAttribute('aria-label', stripTags(LEFT_LABEL));
-        }
-        if (rightBtn) {
-            rightBtn.innerHTML = RIGHT_LABEL;
-            rightBtn.setAttribute('aria-label', stripTags(RIGHT_LABEL));
-        }
-
-        // Robust measurement: create an off-DOM clone sized to the reference element
-        // and measure its height. This avoids layout shifts and problems with hidden
-        // elements or transforms.
-        function measureHeight(text, referenceEl) {
-            // Determine width to measure at
-            const refRect = referenceEl.getBoundingClientRect();
-            const width = Math.max(0, Math.floor(refRect.width));
-
-            const meas = document.createElement('div');
-            // Apply basic box model and typography similar to the target element
-            meas.style.position = 'absolute';
-            meas.style.visibility = 'hidden';
-            meas.style.left = '-9999px';
-            meas.style.top = '0';
-            meas.style.width = `${width}px`;
-            meas.style.boxSizing = 'border-box';
-            // Copy font-related styles from reference to improve accuracy
-            const refStyle = window.getComputedStyle(referenceEl);
-            meas.style.font = refStyle.font || `${refStyle.fontSize} ${refStyle.fontFamily}`;
-            meas.style.padding = refStyle.padding;
-            meas.style.border = refStyle.border;
-            meas.style.whiteSpace = 'pre-wrap';
-            meas.style.wordWrap = 'break-word';
-
-            // If text contains HTML tags, use innerHTML; otherwise use textContent
-            if (text && /<[^>]+>/.test(text)) {
-                meas.innerHTML = text;
-            } else {
-                meas.textContent = text;
-            }
-
-            document.body.appendChild(meas);
-            const h = meas.offsetHeight;
-            document.body.removeChild(meas);
-            return h;
-        }
-
-        function applyEqualHeights() {
-            const leftHeight = measureHeight(block.phrases.left, leftMsg);
-            const rightHeight = measureHeight(block.phrases.right, rightMsg);
-            const maxHeight = Math.max(leftHeight, rightHeight);
-            // Set explicit heights so layout doesn't change when text is revealed
-            leftMsg.style.height = `${maxHeight}px`;
-            rightMsg.style.height = `${maxHeight}px`;
-            // Ensure min-height remains enforced as fallback
-            leftMsg.style.minHeight = leftMsg.style.minHeight || '';
-            rightMsg.style.minHeight = rightMsg.style.minHeight || '';
-        }
-
-        function applyEqualButtonHeights() {
-            if (!leftBtn || !rightBtn) return;
-            leftBtn.style.height = '';
-            rightBtn.style.height = '';
-            const leftRect = leftBtn.getBoundingClientRect();
-            const rightRect = rightBtn.getBoundingClientRect();
-            const maxHeight = Math.max(leftRect.height, rightRect.height);
-            leftBtn.style.height = `${maxHeight}px`;
-            rightBtn.style.height = `${maxHeight}px`;
-        }
-
-        function revealText(targetEl, text, intervalMs = 45, measureEl) {
-            targetEl.textContent = '';
-            let position = 0;
-            const intervalId = setInterval(() => {
-                targetEl.textContent += text.charAt(position);
-                position += 1;
-                if (position >= text.length) {
-                    clearInterval(intervalId);
-                }
-            }, intervalMs);
-        }
-
-        function handleClick(btn, targetEl, phrase, measureEl) {
-            if (btn.disabled) return;
-            btn.disabled = true;
-            btn.style.pointerEvents = 'none';
-            revealText(targetEl, phrase, 45, measureEl);
-        }
-
-        const scheduleEqualAdjustments = () => {
-            requestAnimationFrame(() => {
-                applyEqualHeights();
-                applyEqualButtonHeights();
-            });
-        };
-
-        // Reserve enough space so the typing effect does not shift the layout.
-        applyEqualHeights();
-        applyEqualButtonHeights();
-        scheduleEqualAdjustments();
-
-        if (document.fonts && document.fonts.ready) {
-            document.fonts.ready.then(scheduleEqualAdjustments).catch(() => {});
-        }
-
-        const resizeObserver = typeof ResizeObserver !== 'undefined'
-            ? new ResizeObserver(() => {
-                  applyEqualButtonHeights();
-                  applyEqualHeights();
-              })
-            : null;
-
-        if (resizeObserver && demoColumns) {
-            resizeObserver.observe(demoColumns);
-        }
-
-        const onResize = () => {
-            scheduleEqualAdjustments();
-        };
-
-        window.addEventListener('resize', onResize);
-
-        leftBtn.addEventListener('click', () => handleClick(leftBtn, leftMsg, block.phrases.left, leftMsgMeasure));
-        rightBtn.addEventListener('click', () => handleClick(rightBtn, rightMsg, block.phrases.right, rightMsgMeasure));
-
-        [leftBtn, rightBtn].forEach((button) => {
-            button.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault();
-                    button.click();
-                }
-            });
-        });
-
-        return () => {
-            window.removeEventListener('resize', onResize);
-            if (resizeObserver) {
-                resizeObserver.disconnect();
-            }
-        };
+    if (!leftBtn || !rightBtn || !leftMsg || !rightMsg) {
+        return () => {};
     }
+
+    leftBtn.innerHTML = LEFT_LABEL;
+    leftBtn.setAttribute('aria-label', stripTags(LEFT_LABEL));
+    rightBtn.innerHTML = RIGHT_LABEL;
+    rightBtn.setAttribute('aria-label', stripTags(RIGHT_LABEL));
+
+    const applyEqualHeights = () => {
+        const leftHeight = measureRichTextHeight(block.phrases.left, leftMsg);
+        const rightHeight = measureRichTextHeight(block.phrases.right, rightMsg);
+        const maxHeight = Math.max(leftHeight, rightHeight);
+        leftMsg.style.height = `${maxHeight}px`;
+        rightMsg.style.height = `${maxHeight}px`;
+        leftMsg.style.minHeight = leftMsg.style.minHeight || '';
+        rightMsg.style.minHeight = rightMsg.style.minHeight || '';
+    };
+
+    const applyEqualButtonHeights = () => {
+        equalizeButtonHeights(leftBtn, rightBtn);
+    };
+
+    const scheduleEqualAdjustments = () => scheduleEqualization(applyEqualHeights, applyEqualButtonHeights);
+
+    applyEqualHeights();
+    applyEqualButtonHeights();
+    scheduleEqualAdjustments();
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(scheduleEqualAdjustments).catch(() => {});
+    }
+
+    const resizeObserver = typeof ResizeObserver !== 'undefined'
+        ? new ResizeObserver(scheduleEqualAdjustments)
+        : null;
+
+    if (resizeObserver && demoColumns) {
+        resizeObserver.observe(demoColumns);
+    }
+
+    const onResize = () => {
+        scheduleEqualAdjustments();
+    };
+
+    window.addEventListener('resize', onResize);
+
+    const onLeftClick = () => handleClick(leftBtn, leftMsg, block.phrases.left);
+    const onRightClick = () => handleClick(rightBtn, rightMsg, block.phrases.right);
+
+    leftBtn.addEventListener('click', onLeftClick);
+    rightBtn.addEventListener('click', onRightClick);
+
+    [leftBtn, rightBtn].forEach((button) => {
+        button.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                button.click();
+            }
+        });
+    });
+
+    function handleClick(button, targetEl, phrase) {
+        if (button.disabled) return;
+        button.disabled = true;
+        button.style.pointerEvents = 'none';
+        typeIntoElement(targetEl, phrase, 45);
+    }
+
+    return () => {
+        window.removeEventListener('resize', onResize);
+        if (resizeObserver) {
+            resizeObserver.disconnect();
+        }
+        leftBtn.removeEventListener('click', onLeftClick);
+        rightBtn.removeEventListener('click', onRightClick);
+    };
 }
 
 function updateSliderButtons() {
     if (sliderPrevButton) {
         sliderPrevButton.disabled = currentIndex === 0;
-        // show pointer when active, not-allowed when disabled
         sliderPrevButton.style.cursor = sliderPrevButton.disabled ? 'not-allowed' : 'pointer';
         sliderPrevButton.style.pointerEvents = sliderPrevButton.disabled ? 'none' : 'auto';
     }
     if (sliderNextButton) {
         sliderNextButton.disabled = currentIndex === audioBlocks.length - 1;
-        // show pointer when active, not-allowed when disabled
         sliderNextButton.style.cursor = sliderNextButton.disabled ? 'not-allowed' : 'pointer';
         sliderNextButton.style.pointerEvents = sliderNextButton.disabled ? 'none' : 'auto';
     }
 }
-
 
 sliderPrevButton.addEventListener('click', () => {
     if (currentIndex > 0) {
@@ -325,6 +327,5 @@ sliderNextButton.addEventListener('click', () => {
     }
 });
 
-// Inicializar
 renderAudioBlock(currentIndex);
 updateSliderButtons();

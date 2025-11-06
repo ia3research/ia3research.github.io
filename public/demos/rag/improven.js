@@ -2,11 +2,91 @@ const WITHOUT_RAG_LABEL = 'Answer with conventional AI assistant';
 const WITH_RAG_LABEL = 'Answer with <strong><u>our</u></strong> RAG AI assistant';
 const TYPING_INTERVAL_MS = 10;
 
+function stripTags(html) {
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || '';
+}
+
+function buildRichMarkup(text) {
+    return `<span class="msg-rich-content">${text}</span>`;
+}
+
+function measureRichTextHeight(text, referenceEl) {
+    if (!referenceEl) return 0;
+    const refRect = referenceEl.getBoundingClientRect();
+    const width = Math.max(0, Math.floor(refRect.width));
+
+    const meas = document.createElement('div');
+    meas.style.position = 'absolute';
+    meas.style.visibility = 'hidden';
+    meas.style.left = '-9999px';
+    meas.style.top = '0';
+    meas.style.width = `${width}px`;
+    meas.style.boxSizing = 'border-box';
+
+    const refStyle = window.getComputedStyle(referenceEl);
+    meas.style.font = refStyle.font || `${refStyle.fontSize} ${refStyle.fontFamily}`;
+    meas.style.padding = refStyle.padding;
+    meas.style.border = refStyle.border;
+    meas.style.whiteSpace = 'pre-wrap';
+    meas.style.wordBreak = refStyle.wordBreak || 'break-word';
+    meas.style.lineHeight = refStyle.lineHeight;
+    meas.style.letterSpacing = refStyle.letterSpacing;
+
+    if (text && /<[^>]+>/.test(text)) {
+        meas.innerHTML = buildRichMarkup(text);
+    } else {
+        meas.textContent = text;
+    }
+
+    document.body.appendChild(meas);
+    const height = meas.offsetHeight;
+    document.body.removeChild(meas);
+    return height;
+}
+
+function equalizeButtonHeights(firstBtn, secondBtn) {
+    if (!firstBtn || !secondBtn) return;
+    firstBtn.style.height = '';
+    secondBtn.style.height = '';
+    const firstRect = firstBtn.getBoundingClientRect();
+    const secondRect = secondBtn.getBoundingClientRect();
+    const maxHeight = Math.max(firstRect.height, secondRect.height);
+    firstBtn.style.height = `${maxHeight}px`;
+    secondBtn.style.height = `${maxHeight}px`;
+}
+
+function scheduleEqualization(...callbacks) {
+    requestAnimationFrame(() => {
+        callbacks.forEach((callback) => {
+            if (typeof callback === 'function') {
+                callback();
+            }
+        });
+    });
+}
+
+function typeIntoElement(targetEl, text, intervalMs, onComplete) {
+    targetEl.textContent = '';
+    let position = 0;
+    const intervalId = setInterval(() => {
+        targetEl.textContent += text.charAt(position);
+        position += 1;
+        if (position >= text.length) {
+            clearInterval(intervalId);
+            if (typeof onComplete === 'function') {
+                onComplete();
+            }
+        }
+    }, intervalMs);
+}
+
 const ragScenarios = [
     {
         question: 'Which radiology services are included in the dental coverage?',
         withoutRag: 'Dental coverage typically focuses on routine oral health services, so radiology services might be limited. The plan may include general X-rays, but the details depend on the provider. Please check your policy documents or contact support for the most accurate list.',
-    withRag: `The radiology services included in the dental coverage are:
+        withRag: `The radiology services included in the dental coverage are:
  ·Orthopantomography (panoramic X-ray)
  ·Intraoral Scanner
  ·Intraoral Camera Photographs
@@ -42,12 +122,6 @@ const HEIGHT_TRANSITION_SPEC = 'height 0.35s ease';
 const ANIMATION_DURATION = 350;
 const HEIGHT_RESET_DELAY = 450;
 
-function stripTags(html) {
-    const tmp = document.createElement('div');
-    tmp.innerHTML = html;
-    return tmp.textContent || tmp.innerText || '';
-}
-
 function renderScenario(idx, animate = false, direction = 'right') {
     const scenario = ragScenarios[idx];
     const html = `
@@ -76,7 +150,7 @@ function renderScenario(idx, animate = false, direction = 'right') {
 
     const mountContent = () => {
         sliderContent.innerHTML = html;
-        cleanupCurrentScenario = attachScenarioEvents();
+        cleanupCurrentScenario = attachScenarioEvents(scenario, animate);
     };
 
     if (animate) {
@@ -124,213 +198,147 @@ function renderScenario(idx, animate = false, direction = 'right') {
         sliderContent.style.transform = 'translateX(0)';
         sliderContent.style.transition = CONTENT_TRANSITION_SPEC;
     }
+}
 
-    function attachScenarioEvents() {
-        const noRagBtn = document.getElementById('noRagBtn');
-        const ragBtn = document.getElementById('ragBtn');
-        const noRagMsg = document.getElementById('noRagMsg');
-        const ragMsg = document.getElementById('ragMsg');
-        const explanationEl = document.getElementById('scenarioExplanation');
-        const responseColumns = document.querySelector('.response-columns');
+function attachScenarioEvents(scenario, animateTransition) {
+    const noRagBtn = document.getElementById('noRagBtn');
+    const ragBtn = document.getElementById('ragBtn');
+    const noRagMsg = document.getElementById('noRagMsg');
+    const ragMsg = document.getElementById('ragMsg');
+    const explanationEl = document.getElementById('scenarioExplanation');
+    const responseColumns = document.querySelector('.response-columns');
 
-        // Ensure labels render HTML and provide plain-text aria-labels
-        if (noRagBtn) {
-            noRagBtn.innerHTML = WITHOUT_RAG_LABEL;
-            noRagBtn.setAttribute('aria-label', stripTags(WITHOUT_RAG_LABEL));
-        }
-        if (ragBtn) {
-            ragBtn.innerHTML = WITH_RAG_LABEL;
-            ragBtn.setAttribute('aria-label', stripTags(WITH_RAG_LABEL));
-        }
-
-        const noRagText = scenario.withoutRag;
-        const ragText = scenario.withRag;
-        let withoutRagRevealed = false;
-        let withRagRevealed = false;
-        let explanationShown = false;
-
-        function buildRichMarkup(text) {
-            return `<span class="msg-rich-content">${text}</span>`;
-        }
-
-        function measureHeight(text, referenceEl) {
-            if (!referenceEl) return 0;
-            const refRect = referenceEl.getBoundingClientRect();
-            const width = Math.max(0, Math.floor(refRect.width));
-
-            const meas = document.createElement('div');
-            meas.style.position = 'absolute';
-            meas.style.visibility = 'hidden';
-            meas.style.left = '-9999px';
-            meas.style.top = '0';
-            meas.style.width = `${width}px`;
-            meas.style.boxSizing = 'border-box';
-
-            const refStyle = window.getComputedStyle(referenceEl);
-            meas.style.font = refStyle.font || `${refStyle.fontSize} ${refStyle.fontFamily}`;
-            meas.style.padding = refStyle.padding;
-            meas.style.border = refStyle.border;
-            meas.style.whiteSpace = 'pre-wrap';
-            meas.style.wordBreak = refStyle.wordBreak || 'break-word';
-            meas.style.lineHeight = refStyle.lineHeight;
-            meas.style.letterSpacing = refStyle.letterSpacing;
-
-            if (text && /<[^>]+>/.test(text)) {
-                meas.innerHTML = buildRichMarkup(text);
-            } else {
-                meas.textContent = text;
-            }
-
-            document.body.appendChild(meas);
-            const height = meas.offsetHeight;
-            document.body.removeChild(meas);
-            return height;
-        }
-
-        function applyEqualHeights() {
-            const noRagHeight = measureHeight(noRagText, noRagMsg);
-            const ragHeight = measureHeight(ragText, ragMsg);
-            const maxHeight = Math.max(noRagHeight, ragHeight);
-            noRagMsg.style.height = `${maxHeight}px`;
-            ragMsg.style.height = `${maxHeight}px`;
-            noRagMsg.style.minHeight = noRagMsg.style.minHeight || '';
-            ragMsg.style.minHeight = ragMsg.style.minHeight || '';
-        }
-
-        function applyEqualButtonHeights() {
-            if (!noRagBtn || !ragBtn) return;
-            noRagBtn.style.height = '';
-            ragBtn.style.height = '';
-            const noRagRect = noRagBtn.getBoundingClientRect();
-            const ragRect = ragBtn.getBoundingClientRect();
-            const maxHeight = Math.max(noRagRect.height, ragRect.height);
-            noRagBtn.style.height = `${maxHeight}px`;
-            ragBtn.style.height = `${maxHeight}px`;
-        }
-
-        function animateViewportHeight(previousHeight, afterFrame) {
-            if (!previousHeight) {
-                if (typeof afterFrame === 'function') {
-                    afterFrame();
-                }
-                return;
-            }
-            sliderViewport.style.height = `${previousHeight}px`;
-            sliderViewport.style.transition = HEIGHT_TRANSITION_SPEC;
-            sliderViewport.getBoundingClientRect();
-
-            requestAnimationFrame(() => {
-                if (typeof afterFrame === 'function') {
-                    afterFrame();
-                }
-                const nextHeight = sliderContent.offsetHeight;
-                sliderViewport.style.height = `${nextHeight}px`;
-            });
-
-            setTimeout(() => {
-                sliderViewport.style.height = '';
-                sliderViewport.style.transition = '';
-            }, HEIGHT_RESET_DELAY);
-        }
-
-        function revealText(targetEl, text) {
-            targetEl.textContent = '';
-            let position = 0;
-            const intervalId = setInterval(() => {
-                targetEl.textContent += text.charAt(position);
-                position += 1;
-                if (position >= text.length) {
-                    clearInterval(intervalId);
-                    if (text.includes('<')) {
-                        targetEl.innerHTML = buildRichMarkup(text);
-                    }
-                }
-            }, TYPING_INTERVAL_MS);
-        }
-
-        function maybeShowExplanation() {
-            if (!explanationShown && withoutRagRevealed && withRagRevealed && explanationEl) {
-                explanationShown = true;
-                const previousHeight = sliderViewport.offsetHeight || sliderContent.offsetHeight;
-                explanationEl.hidden = false;
-                animateViewportHeight(previousHeight, () => {
-                    explanationEl.classList.add('visible');
-                });
-            }
-        }
-
-        function handleClick(button, targetEl, text, which) {
-            if (button.disabled) return;
-            button.disabled = true;
-            button.style.pointerEvents = 'none';
-            revealText(targetEl, text);
-            if (which === 'without') {
-                withoutRagRevealed = true;
-            } else if (which === 'with') {
-                withRagRevealed = true;
-            }
-            maybeShowExplanation();
-        }
-
-        const scheduleEqualHeights = () => {
-            requestAnimationFrame(() => {
-                applyEqualHeights();
-                applyEqualButtonHeights();
-            });
-        };
-
-        if (animate) {
-            applyEqualHeights();
-            applyEqualButtonHeights();
-            scheduleEqualHeights();
-        } else {
-            scheduleEqualHeights();
-        }
-
-        if (document.fonts && document.fonts.ready) {
-            document.fonts.ready.then(scheduleEqualHeights).catch(() => {});
-        }
-
-        const resizeObserver = typeof ResizeObserver !== 'undefined'
-            ? new ResizeObserver(() => {
-                  applyEqualButtonHeights();
-                  applyEqualHeights();
-              })
-            : null;
-
-        if (resizeObserver && responseColumns) {
-            resizeObserver.observe(responseColumns);
-        }
-
-        const onResize = () => {
-            scheduleEqualHeights();
-        };
-
-        window.addEventListener('resize', onResize);
-
-        if (noRagBtn) {
-            noRagBtn.addEventListener('click', () => handleClick(noRagBtn, noRagMsg, noRagText, 'without'));
-        }
-        if (ragBtn) {
-            ragBtn.addEventListener('click', () => handleClick(ragBtn, ragMsg, ragText, 'with'));
-        }
-
-        [noRagBtn, ragBtn].forEach((button) => {
-            if (!button) return;
-            button.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault();
-                    button.click();
-                }
-            });
-        });
-        return () => {
-            window.removeEventListener('resize', onResize);
-            if (resizeObserver) {
-                resizeObserver.disconnect();
-            }
-        };
+    if (!noRagBtn || !ragBtn || !noRagMsg || !ragMsg) {
+        return () => {};
     }
+
+    noRagBtn.innerHTML = WITHOUT_RAG_LABEL;
+    noRagBtn.setAttribute('aria-label', stripTags(WITHOUT_RAG_LABEL));
+    ragBtn.innerHTML = WITH_RAG_LABEL;
+    ragBtn.setAttribute('aria-label', stripTags(WITH_RAG_LABEL));
+
+    const noRagText = scenario.withoutRag;
+    const ragText = scenario.withRag;
+    let withoutRagRevealed = false;
+    let withRagRevealed = false;
+    let explanationShown = false;
+
+    const applyEqualHeights = () => {
+        const noRagHeight = measureRichTextHeight(noRagText, noRagMsg);
+        const ragHeight = measureRichTextHeight(ragText, ragMsg);
+        const maxHeight = Math.max(noRagHeight, ragHeight);
+        noRagMsg.style.height = `${maxHeight}px`;
+        ragMsg.style.height = `${maxHeight}px`;
+        noRagMsg.style.minHeight = noRagMsg.style.minHeight || '';
+        ragMsg.style.minHeight = ragMsg.style.minHeight || '';
+    };
+
+    const applyEqualButtonHeights = () => {
+        equalizeButtonHeights(noRagBtn, ragBtn);
+    };
+
+    const scheduleEqualAdjustments = () => scheduleEqualization(applyEqualHeights, applyEqualButtonHeights);
+
+    if (animateTransition) {
+        applyEqualHeights();
+        applyEqualButtonHeights();
+    }
+    scheduleEqualAdjustments();
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(scheduleEqualAdjustments).catch(() => {});
+    }
+
+    const resizeObserver = typeof ResizeObserver !== 'undefined'
+        ? new ResizeObserver(scheduleEqualAdjustments)
+        : null;
+
+    if (resizeObserver && responseColumns) {
+        resizeObserver.observe(responseColumns);
+    }
+
+    const onResize = () => {
+        scheduleEqualAdjustments();
+    };
+
+    window.addEventListener('resize', onResize);
+
+    const onNoRagClick = () => handleClick(noRagBtn, noRagMsg, noRagText, 'without');
+    const onRagClick = () => handleClick(ragBtn, ragMsg, ragText, 'with');
+
+    noRagBtn.addEventListener('click', onNoRagClick);
+    ragBtn.addEventListener('click', onRagClick);
+
+    [noRagBtn, ragBtn].forEach((button) => {
+        button.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                button.click();
+            }
+        });
+    });
+
+    function animateViewportHeight(previousHeight, afterFrame) {
+        if (!previousHeight) {
+            if (typeof afterFrame === 'function') {
+                afterFrame();
+            }
+            return;
+        }
+        sliderViewport.style.height = `${previousHeight}px`;
+        sliderViewport.style.transition = HEIGHT_TRANSITION_SPEC;
+        sliderViewport.getBoundingClientRect();
+
+        requestAnimationFrame(() => {
+            if (typeof afterFrame === 'function') {
+                afterFrame();
+            }
+            const nextHeight = sliderContent.offsetHeight;
+            sliderViewport.style.height = `${nextHeight}px`;
+        });
+
+        setTimeout(() => {
+            sliderViewport.style.height = '';
+            sliderViewport.style.transition = '';
+        }, HEIGHT_RESET_DELAY);
+    }
+
+    function handleClick(button, targetEl, text, which) {
+        if (button.disabled) return;
+        button.disabled = true;
+        button.style.pointerEvents = 'none';
+        typeIntoElement(targetEl, text, TYPING_INTERVAL_MS, () => {
+            if (text.includes('<')) {
+                targetEl.innerHTML = buildRichMarkup(text);
+            }
+        });
+        if (which === 'without') {
+            withoutRagRevealed = true;
+        } else if (which === 'with') {
+            withRagRevealed = true;
+        }
+        maybeShowExplanation();
+    }
+
+    function maybeShowExplanation() {
+        if (!explanationShown && withoutRagRevealed && withRagRevealed && explanationEl) {
+            explanationShown = true;
+            const previousHeight = sliderViewport.offsetHeight || sliderContent.offsetHeight;
+            explanationEl.hidden = false;
+            animateViewportHeight(previousHeight, () => {
+                explanationEl.classList.add('visible');
+            });
+        }
+    }
+
+    return () => {
+        window.removeEventListener('resize', onResize);
+        if (resizeObserver) {
+            resizeObserver.disconnect();
+        }
+        noRagBtn.removeEventListener('click', onNoRagClick);
+        ragBtn.removeEventListener('click', onRagClick);
+    };
 }
 
 function updateSliderButtons() {
@@ -366,6 +374,5 @@ if (sliderNextButton) {
     });
 }
 
-// Inicializar
 renderScenario(currentIndex);
 updateSliderButtons();
