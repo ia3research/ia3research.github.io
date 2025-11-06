@@ -16,8 +16,8 @@ const ragScenarios = [
  ·Lateral Skull X-ray
 (...)
 All these services are included at no additional cost (Inc.)¹ ²<div class="badge-list badge-list--notes">
- <span class="badge badge--note">¹ Sanitas Dental Policy.pdf page=2</span>
- <span class="badge badge--note">² Sanitas Dental Policy.pdf page=6</span>
+ <span class="badge badge--note">¹ Dental Policy.pdf page=2</span>
+ <span class="badge badge--note">² Dental Policy.pdf page=6</span>
 </div>`,
         explanation: 'With RAG, the system retrieves specific information from the provided sources, allowing it to list the exact radiology services included in the dental coverage. Without RAG, it gives a generic answer due to lack of specific data.'
     },
@@ -30,6 +30,7 @@ All these services are included at no additional cost (Inc.)¹ ²<div class="bad
 ];
 
 let currentIndex = 0;
+let cleanupCurrentScenario = null;
 
 const sliderViewport = document.getElementById('sliderViewport');
 const sliderContent = document.getElementById('sliderContent');
@@ -68,9 +69,14 @@ function renderScenario(idx, animate = false, direction = 'right') {
 
     const slideOffset = direction === 'right' ? -SLIDE_DISTANCE : SLIDE_DISTANCE;
 
+    if (cleanupCurrentScenario) {
+        cleanupCurrentScenario();
+        cleanupCurrentScenario = null;
+    }
+
     const mountContent = () => {
         sliderContent.innerHTML = html;
-        attachScenarioEvents();
+        cleanupCurrentScenario = attachScenarioEvents();
     };
 
     if (animate) {
@@ -125,6 +131,7 @@ function renderScenario(idx, animate = false, direction = 'right') {
         const noRagMsg = document.getElementById('noRagMsg');
         const ragMsg = document.getElementById('ragMsg');
         const explanationEl = document.getElementById('scenarioExplanation');
+        const responseColumns = document.querySelector('.response-columns');
 
         // Ensure labels render HTML and provide plain-text aria-labels
         if (noRagBtn) {
@@ -188,6 +195,17 @@ function renderScenario(idx, animate = false, direction = 'right') {
             ragMsg.style.height = `${maxHeight}px`;
             noRagMsg.style.minHeight = noRagMsg.style.minHeight || '';
             ragMsg.style.minHeight = ragMsg.style.minHeight || '';
+        }
+
+        function applyEqualButtonHeights() {
+            if (!noRagBtn || !ragBtn) return;
+            noRagBtn.style.height = '';
+            ragBtn.style.height = '';
+            const noRagRect = noRagBtn.getBoundingClientRect();
+            const ragRect = ragBtn.getBoundingClientRect();
+            const maxHeight = Math.max(noRagRect.height, ragRect.height);
+            noRagBtn.style.height = `${maxHeight}px`;
+            ragBtn.style.height = `${maxHeight}px`;
         }
 
         function animateViewportHeight(previousHeight, afterFrame) {
@@ -257,11 +275,13 @@ function renderScenario(idx, animate = false, direction = 'right') {
         const scheduleEqualHeights = () => {
             requestAnimationFrame(() => {
                 applyEqualHeights();
+                applyEqualButtonHeights();
             });
         };
 
         if (animate) {
             applyEqualHeights();
+            applyEqualButtonHeights();
             scheduleEqualHeights();
         } else {
             scheduleEqualHeights();
@@ -270,6 +290,23 @@ function renderScenario(idx, animate = false, direction = 'right') {
         if (document.fonts && document.fonts.ready) {
             document.fonts.ready.then(scheduleEqualHeights).catch(() => {});
         }
+
+        const resizeObserver = typeof ResizeObserver !== 'undefined'
+            ? new ResizeObserver(() => {
+                  applyEqualButtonHeights();
+                  applyEqualHeights();
+              })
+            : null;
+
+        if (resizeObserver && responseColumns) {
+            resizeObserver.observe(responseColumns);
+        }
+
+        const onResize = () => {
+            scheduleEqualHeights();
+        };
+
+        window.addEventListener('resize', onResize);
 
         if (noRagBtn) {
             noRagBtn.addEventListener('click', () => handleClick(noRagBtn, noRagMsg, noRagText, 'without'));
@@ -287,6 +324,12 @@ function renderScenario(idx, animate = false, direction = 'right') {
                 }
             });
         });
+        return () => {
+            window.removeEventListener('resize', onResize);
+            if (resizeObserver) {
+                resizeObserver.disconnect();
+            }
+        };
     }
 }
 
