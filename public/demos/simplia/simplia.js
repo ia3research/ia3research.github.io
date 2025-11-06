@@ -1,6 +1,12 @@
 const LEFT_LABEL = 'Transcription with a conventional model';
 const RIGHT_LABEL = 'Transcription with <strong><u>our</u></strong> improved model';
 
+function stripTags(html) {
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || '';
+}
+
 const audioBlocks = [
     {
         title: 'Pueblos pintorescos enclavados en ondulantes colinas',
@@ -40,6 +46,7 @@ const audioBlocks = [
     }
 ];
 let currentIndex = 0;
+let cleanupCurrentBlock = null;
 
 const sliderViewport = document.getElementById('sliderViewport');
 const sliderContent = document.getElementById('sliderContent');
@@ -79,9 +86,14 @@ function renderAudioBlock(idx, animate = false, direction = 'right') {
 
     const slideOffset = direction === 'right' ? -SLIDE_DISTANCE : SLIDE_DISTANCE;
 
+    if (cleanupCurrentBlock) {
+        cleanupCurrentBlock();
+        cleanupCurrentBlock = null;
+    }
+
     const mountContent = () => {
         sliderContent.innerHTML = html;
-        attachBlockEvents();
+        cleanupCurrentBlock = attachBlockEvents();
     };
 
     if (animate) {
@@ -137,6 +149,16 @@ function renderAudioBlock(idx, animate = false, direction = 'right') {
         const rightMsg = document.getElementById('rightMsg');
         const leftMsgMeasure = document.getElementById('leftMsgMeasure');
         const rightMsgMeasure = document.getElementById('rightMsgMeasure');
+        const demoColumns = document.querySelector('.demo-columns');
+
+        if (leftBtn) {
+            leftBtn.innerHTML = LEFT_LABEL;
+            leftBtn.setAttribute('aria-label', stripTags(LEFT_LABEL));
+        }
+        if (rightBtn) {
+            rightBtn.innerHTML = RIGHT_LABEL;
+            rightBtn.setAttribute('aria-label', stripTags(RIGHT_LABEL));
+        }
 
         // Robust measurement: create an off-DOM clone sized to the reference element
         // and measure its height. This avoids layout shifts and problems with hidden
@@ -187,6 +209,17 @@ function renderAudioBlock(idx, animate = false, direction = 'right') {
             rightMsg.style.minHeight = rightMsg.style.minHeight || '';
         }
 
+        function applyEqualButtonHeights() {
+            if (!leftBtn || !rightBtn) return;
+            leftBtn.style.height = '';
+            rightBtn.style.height = '';
+            const leftRect = leftBtn.getBoundingClientRect();
+            const rightRect = rightBtn.getBoundingClientRect();
+            const maxHeight = Math.max(leftRect.height, rightRect.height);
+            leftBtn.style.height = `${maxHeight}px`;
+            rightBtn.style.height = `${maxHeight}px`;
+        }
+
         function revealText(targetEl, text, intervalMs = 45, measureEl) {
             targetEl.textContent = '';
             let position = 0;
@@ -206,8 +239,38 @@ function renderAudioBlock(idx, animate = false, direction = 'right') {
             revealText(targetEl, phrase, 45, measureEl);
         }
 
+        const scheduleEqualAdjustments = () => {
+            requestAnimationFrame(() => {
+                applyEqualHeights();
+                applyEqualButtonHeights();
+            });
+        };
+
         // Reserve enough space so the typing effect does not shift the layout.
         applyEqualHeights();
+        applyEqualButtonHeights();
+        scheduleEqualAdjustments();
+
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(scheduleEqualAdjustments).catch(() => {});
+        }
+
+        const resizeObserver = typeof ResizeObserver !== 'undefined'
+            ? new ResizeObserver(() => {
+                  applyEqualButtonHeights();
+                  applyEqualHeights();
+              })
+            : null;
+
+        if (resizeObserver && demoColumns) {
+            resizeObserver.observe(demoColumns);
+        }
+
+        const onResize = () => {
+            scheduleEqualAdjustments();
+        };
+
+        window.addEventListener('resize', onResize);
 
         leftBtn.addEventListener('click', () => handleClick(leftBtn, leftMsg, block.phrases.left, leftMsgMeasure));
         rightBtn.addEventListener('click', () => handleClick(rightBtn, rightMsg, block.phrases.right, rightMsgMeasure));
@@ -220,6 +283,13 @@ function renderAudioBlock(idx, animate = false, direction = 'right') {
                 }
             });
         });
+
+        return () => {
+            window.removeEventListener('resize', onResize);
+            if (resizeObserver) {
+                resizeObserver.disconnect();
+            }
+        };
     }
 }
 
