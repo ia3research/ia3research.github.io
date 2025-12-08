@@ -11,12 +11,24 @@ export const PUBLICATIONS = [
         line: "",
     }*/
 
+
+{
+        title: "Computing a Characteristic Orientation for Rotation-Independent Image Analysis",
+        authors: "C. Valero-Abundio, E. Sansano-Sansano, R. Montoliu, M. Martínez-García",
+        doi: "https://visapp.scitevents.org/",
+        year: 2026,
+        publisher: "21st The International Conference on Computer Vision Theory and Applications",
+        quarter: "International",
+        type: "Conference",
+        slug: "VISAPP 2026",
+        line: "aai",
+  },
   {
     title:
       "Fingerprinting with Fine Time Measurements: from RSS to RTT",
     authors:
       "M. Matey-Sanz, J.M. Claver, E. Martinez, S. Felici-Castell, R. Montoliu, A. Perez-Navarro,  J. Jose Perez, A. Soriano, S. Trilles and J. Torres-Sospedra",
-    doi: "https://icumt.info/2025/",
+    doi: "https://doi.org/10.1109/ICUMT67815.2025.11268646",
     year: 2025,
     publisher:
       "17th International Congress on Ultra Modern Telecommunications and Control Systems and Workshops (ICUMT'25)",
