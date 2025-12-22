@@ -35,7 +35,7 @@ export const PUBLICATIONS = [
         type: "Conference",
         slug: "ICAART 2026",
         line: "aai",
-    }
+    },
 
 
   {
@@ -48,7 +48,7 @@ export const PUBLICATIONS = [
         type: "Journal",
         slug: "JSHR",
         line: "aai",
-    }
+    },
 
 
 
