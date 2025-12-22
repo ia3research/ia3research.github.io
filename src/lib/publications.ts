@@ -39,7 +39,7 @@ export const PUBLICATIONS = [
 
 
   {
-        title: "ayor validez ecológica del Game-Based Performance Test en comparación con el Yo-Yo IR1 en jugadoras de balonmano amateur",
+        title: "Mayor validez ecológica del Game-Based Performance Test en comparación con el Yo-Yo IR1 en jugadoras de balonmano amateur",
         authors: "Abraham Batalla-Gavalda, Jose Vicente Beltran-Garrido, Raúl Montoliu-Colás, Álvaro Reina-Gómez, Francisco Corbi, Gabriel Daza-Sobrino",
         doi: "https://doi.org/10.58727/jshr.118640",
         year: 2025,
