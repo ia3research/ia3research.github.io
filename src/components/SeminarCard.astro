@@ -11,6 +11,7 @@ export interface SeminarCardProps {
 }
 
 const { date, title, location, speaker, speakerUrl, image } = Astro.props;
+const imageAlt = title ? `${title} seminar image` : "Seminar image";
 
 const [datePart, timePart] = date.split(" ");
 const [day, month, year] = datePart.split("-").map(Number);
@@ -37,12 +38,14 @@ const formattedDate = new Date(
   <img
     class='aspect-square rounded-sm object-cover overflow-hidden'
     src={`/seminars/${image}`}
+    alt={imageAlt}
+    loading='lazy'
   />
   <h3 class='text-xs'>
     {formattedDate}
     {location}
   </h3>
-  <h1 class='text-xl flex-1'>{title}</h1>
+  <h3 class='text-xl flex-1'>{title}</h3>
   <h2 class='text-base'>{speaker}</h2>
   {
     speakerUrl && (

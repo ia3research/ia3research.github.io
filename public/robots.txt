@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ia3research.github.io/sitemap-index.xml

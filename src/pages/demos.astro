@@ -5,7 +5,9 @@ import Layout from "../layouts/Layout.astro";
 import { DEMOS } from "../lib/demos";
 ---
 
-<Layout>
+<Layout
+  title="Demos de IA aplicada | IA³"
+  description="Demos IA³ en IA aplicada, LLMs, agentes y RAG. Applied AI demos in LLMs, agents and RAG.">
   <Header currentPage='demos' />
   <main
     class='w-full flex flex-col items-center justify-center md:py-12 md:px-56 py-4 px-10'>
@@ -17,8 +19,10 @@ import { DEMOS } from "../lib/demos";
             <img
               class='aspect-square rounded-sm object-cover overflow-hidden'
               src={`/demos/${demo.image}`}
+              alt={`${demo.name} demo`}
+              loading='lazy'
             />
-            <h1 class='text-xl flex-1'>{demo.name}</h1>
+            <h3 class='text-xl flex-1'>{demo.name}</h3>
             <p class='text-base'>{demo.description}</p>
             {demo.link && (
               <a

@@ -1,15 +1,59 @@
 ---
 import "../styles/global.css";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  lang?: string;
+  type?: string;
+}
+
+const {
+  title = "IA³ Research Group",
+  description = "IA³ (Inteligencia Artificial Aplicada y Algoritmos) research group focused on machine learning, applied AI, LLMs, agents, RAG, and AI fairness.",
+  image = "/init.webp",
+  lang = "es",
+  type = "website",
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString() ?? "https://ia3research.github.io";
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const imageUrl = new URL(image, siteUrl).toString();
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ResearchOrganization",
+  name: "IA3 Research Group",
+  alternateName: "IA³",
+  url: siteUrl,
+  description:
+    "Grupo IA³ (Inteligencia Artificial Aplicada y Algoritmos, UJI): aprendizaje automático, inteligencia artificial aplicada, LLMs, agentes, RAG y fairness en IA. Research on machine learning, applied AI, LLMs, agents, RAG, AI fairness.",
+  sameAs: ["https://www.linkedin.com/company/107891652"],
+};
 ---
 
 <!doctype html>
-<html lang='en' class='bg-zinc-50 text-neutral- w-full h-full m-0'>
+<html lang={lang} class='bg-zinc-50 text-neutral- w-full h-full m-0'>
   <head>
     <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
     <link rel='icon' type='image/png' href='/favicon.png' />
     <meta name='generator' content={Astro.generator} />
-    <title>IA³ Research Group</title>
+    <title>{title}</title>
+    <meta name='description' content={description} />
+    <link rel='canonical' href={canonicalUrl} />
+    <meta property='og:site_name' content='IA³ Research Group' />
+    <meta property='og:type' content={type} />
+    <meta property='og:url' content={canonicalUrl} />
+    <meta property='og:title' content={title} />
+    <meta property='og:description' content={description} />
+    <meta property='og:image' content={imageUrl} />
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:title' content={title} />
+    <meta name='twitter:description' content={description} />
+    <meta name='twitter:image' content={imageUrl} />
+    <script type='application/ld+json'>{JSON.stringify(jsonLd)}</script>
   </head>
   <body class='bg-zinc-50 text-neutral- w-full h-full m-0 selection:bg-blue-300/70'>
     <slot />

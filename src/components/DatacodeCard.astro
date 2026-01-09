@@ -12,6 +12,7 @@ export interface Props {
 }
 
 const { name, link, image, description, paper, type } = Astro.props;
+const imageAlt = name ? `${name} cover image` : "Dataset cover image";
 ---
 
 <div
@@ -19,9 +20,11 @@ const { name, link, image, description, paper, type } = Astro.props;
   <img
     class='aspect-square rounded-sm object-cover overflow-hidden'
     src={`/datacode/${image}`}
+    alt={imageAlt}
+    loading='lazy'
   />
   <h3 class='text-sm text-gray-700'>{type}</h3>
-  <h1 class='text-xl'>{name}</h1>
+  <h3 class='text-xl'>{name}</h3>
   <p class='text-base'>{description}</p>
   <div class='grid grid-cols-2 gap-4 pt-4'>
     <a

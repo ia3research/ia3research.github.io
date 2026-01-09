@@ -25,7 +25,9 @@ const conferencePublications = publicationsFiltered.filter(
 );
 ---
 
-<Layout>
+<Layout
+  title="Publicaciones científicas IA³ | IA aplicada y ML"
+  description="Publicaciones IA³ sobre aprendizaje automático, LLMs, agentes y RAG. Publications on ML, LLMs, agents, RAG and applied AI.">
   <Header currentPage='publications' />
   <main
     class='w-full flex flex-col items-center justify-center md:py-12 md:px-56 py-4 px-10'>
@@ -61,7 +63,7 @@ const conferencePublications = publicationsFiltered.filter(
         ))
       }
     </div>
-    <h1 class='text-2xl mt-12 text-center'>Previous Publications</h1>
+    <h2 class='text-2xl mt-12 text-center'>Previous Publications</h2>
     <a
       href='https://www.uji.es/serveis/ocit/base/grupsinvestigacio/detall/?urlRedirect=https://www.uji.es/serveis/ocit/base/grupsinvestigacio/detall/&url=/serveis/ocit/base/grupsinvestigacio/detall&p_grupo_id=329&p_seccion=publicacionsTesis&p_antiguedad=999'
       target='_blank'
