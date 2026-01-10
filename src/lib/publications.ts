@@ -24,7 +24,6 @@ export const PUBLICATIONS = [
         slug: "VISAPP 2026",
         line: "aai",
   },
-
   {
         title: "MACO: A Strategic Board Game Environment for Advanced AI Research",
         authors: "Ali Bakhiet Elimam, Raul Montoliu",
@@ -36,8 +35,6 @@ export const PUBLICATIONS = [
         slug: "ICAART 2026",
         line: "aai",
     },
-
-
   {
         title: "Mayor validez ecológica del Game-Based Performance Test en comparación con el Yo-Yo IR1 en jugadoras de balonmano amateur",
         authors: "Abraham Batalla-Gavalda, Jose Vicente Beltran-Garrido, Raúl Montoliu-Colás, Álvaro Reina-Gómez, Francisco Corbi, Gabriel Daza-Sobrino",
@@ -49,10 +46,6 @@ export const PUBLICATIONS = [
         slug: "JSHR",
         line: "aai",
     },
-
-
-
-
 {
         title: "UJIIndoorLoc Dataset: A Retrospective Analysis after 10 Years of Usage",
         authors: "Joaquín Torres-Sospedra, Raul Montoliu and Antoni Perez-Navarro",
