@@ -14,6 +14,11 @@ export interface ProjectCardProps {
 
 const { endDate, startDate, call, name, shortName, grant, link, image } =
   Astro.props;
+const imageAlt = shortName
+  ? `${shortName} project image`
+  : name
+    ? `${name} project image`
+    : "Project image";
 
 let [day, month, year] = startDate.split("-").map(Number);
 const formattedStartDate = new Date(year, month - 1, day).toLocaleDateString(
@@ -53,11 +58,13 @@ const grantFormatted = grant
   <img
     class='aspect-square rounded-sm overflow-hidden object-cover'
     src={`/projects/${image}`}
+    alt={imageAlt}
+    loading='lazy'
   />
   <h3 class='text-xs'>
     {formattedStartDate} - {formattedEndDate}
   </h3>
-  <h1 class='text-xl'>{call}</h1>
+  <h3 class='text-xl'>{call}</h3>
   <h2 class='text-base flex-1'>{shortName}: {name}</h2>
   {grant && <h2 class='text-lg'>{grantFormatted}</h2>}
   <a
