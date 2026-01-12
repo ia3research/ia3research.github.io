@@ -9,6 +9,8 @@ export const TEAM = [
       scholar: "https://scholar.google.es/citations?user=ndCvmPYAAAAJ&hl=es",
       orcid: "https://orcid.org/0000-0002-8467-391X",
       web: "http://www.raulmontoliu.com/",
+      scienceportal:
+        "https://portalcientific.uji.es/investigadores/1327908/detalle",
     },
   },
   {
@@ -20,6 +22,8 @@ export const TEAM = [
     socials: {
       scholar: "https://scholar.google.es/citations?user=9cdShMEAAAAJ&hl=es",
       orcid: "https://orcid.org/0000-0002-7814-0383",
+      scienceportal:
+        "https://portalcientific.uji.es/investigadores/1327885/detalle",
     },
   },
   {
@@ -31,6 +35,8 @@ export const TEAM = [
     socials: {
       scholar: "https://scholar.google.es/citations?user=qq7VhUsAAAAJ&hl=es",
       orcid: "https://orcid.org/0000-0002-2228-4396",
+      scienceportal:
+        "https://portalcientific.uji.es/investigadores/1327544/detalle",
     },
   },
   {
@@ -43,6 +49,8 @@ export const TEAM = [
       scholar: "https://scholar.google.es/citations?hl=es&user=gJY4isIAAAAJ",
       orcid: "https://orcid.org/0000-0002-3751-705X",
       web: "https://almtav08.github.io/",
+      scienceportal:
+        "https://portalcientific.uji.es/investigadores/1328226/detalle",
     },
   },
   {
@@ -95,21 +103,23 @@ export const TEAM = [
     email: "sfranch AT uji DOT es",
     socials: {
       orcid: "https://orcid.org/0009-0003-1899-7611",
+      scienceportal:
+        "https://portalcientific.uji.es/investigadores/2337674/detalle",
     },
   },
-    {
+  {
     name: "Alejandro Carda Cerguta",
     role: "Student",
     image: "alejandro-carda.webp",
     address: "Mr.",
     email: "al446484 AT uji DOT es",
   },
-    {
+  {
     name: "Miguel Angel Lira Mijares",
     role: "Student",
     image: "miguel-lira.webp",
     address: "Mr.",
-      email: "al448489 AT uji DOT es",
+    email: "al448489 AT uji DOT es",
   },
 ];
 
