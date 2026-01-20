@@ -12,7 +12,17 @@ export const PUBLICATIONS = [
     }*/
 
 
-
+{
+        title: "RAID-Dataset: human responses to affine image distortions and Gaussian noise",
+        authors: "Paula Daudén-Oliver, David Agost-Beltran, Emilio Sansano-Sansano, Raul Montoliu, Valero Laparra, Jesús Malo & Marina Martínez-Garcia ",
+        doi: "https://doi.org/10.1038/s41597-026-06581-0",
+        year: 2026,
+        publisher: "Scientific Data",
+        quarter: "Q1",
+        type: "Journal",
+        slug: "SDATA",
+        line: "aai",
+  },
 {
         title: "Computing a Characteristic Orientation for Rotation-Independent Image Analysis",
         authors: "C. Valero-Abundio, E. Sansano-Sansano, R. Montoliu, M. Martínez-García",
