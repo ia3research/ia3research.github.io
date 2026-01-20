@@ -8,19 +8,18 @@ export const FUNDERS = [
 ];
 
 export const PROJECTS = [
-    {
-    startdate: "01-01-2025",
-    enddate: "28-2-2026",
-    call: "ConfIA",
-    shortname: "ConfIA",
-    name: "[Erasmus+ SEEN] Social Entrepreneurship Ecosystems Network.",
-    grant: 90000,
+  {
+    startdate: "01-02-2025",
+    enddate: "28-02-2026",
+    call: "INREIA/2024/30",
+    shortname: "CONFIA",
+    name: "Consultor Finanzas con IA",
+    grant: 89606,
     link: "",
     image: "confia.webp",
     funder: "Valencian Government",
-    line: "dam",
+    line: "aai",
   },
-
   {
     startdate: "01-09-2024",
     enddate: "31-08-2026",
@@ -48,18 +47,7 @@ export const PROJECTS = [
 ];
 
 export const PAST_PROJECTS = [
-  {
-    startdate: "01-02-2025",
-    enddate: "28-02-2026",
-    call: "INREIA/2024/30",
-    shortname: "CONFIA",
-    name: "Consultor Finanzas con IA",
-    grant: 89606,
-    link: "",
-    image: "confia.webp",
-    funder: "Valencian Government",
-    line: "aai",
-  },
+
   {
     startdate: "01-07-2025",
     enddate: "31-12-2025",
