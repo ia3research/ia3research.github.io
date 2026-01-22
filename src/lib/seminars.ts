@@ -16,7 +16,7 @@ export const SEMINARS = [
     image: "wam240925.webp",
   },
  {
-    title: "An Explainable Educational Generative System: A Synthesis of POG-Based Recommendations Enrichment and Archetype-Based Behavioral Nudges",
+    title: "An Explainable Educational Generative System",
     date: "14-01-2026 15:00",
     location: "NB4302DL",
     speaker: "Alex Martínez",
@@ -47,7 +47,14 @@ export const SEMINARS = [
     speakerUrl: "",
     image: "rag.webp",
   },
-
+  {
+    title: "Comparing Human and Model Perceptual Sensitivity to Rotation",
+    date: "05-11-2025",
+    location: "NB4302DL",
+    speaker: "David Agost Beltrán",
+    speakerUrl: "",
+    image: "wam051125.webp"
+  },
   {
     title: "The Hopf model for generative effective connectivity",
     date: "15-10-2025 15:00",
