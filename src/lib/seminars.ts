@@ -7,6 +7,23 @@ export const SEMINARS = [
     speakerUrl: "",
     image: "",
     }*/
+
+   {
+    title: "Evaluación de un RAG",
+    date: "12-11-2025 15:00",
+    location: "NB4302DL",
+    speaker: "Emilio Sansano",
+    speakerUrl: "",
+    image: "rag.webp",
+  },
+  {
+    title: "Comparing Human and Model Perceptual Sensitivity to Rotation",
+    date: "05-11-2025",
+    location: "NB4302DL",
+    speaker: "David Agost Beltrán",
+    speakerUrl: "",
+    image: "wam051125.webp",
+  },
  {
     title: "The Hopf model for generative effective connectivity",
     date: "15-10-2025 15:00",
