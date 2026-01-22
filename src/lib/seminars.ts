@@ -7,63 +7,7 @@ export const SEMINARS = [
     speakerUrl: "",
     image: "",
     }*/
-   {
-    title: "IA generativa : generació d’imatges (Continuació)",
-    date: "21-01-2026 15:00",
-    location: "NB4302DL",
-    speaker: "Marina Martinez",
-    speakerUrl: "",
-    image: "wam240925.webp",
-  },
- {
-    title: "An Explainable Educational Generative System: A Synthesis of POG-Based Recommendations Enrichment and Archetype-Based Behavioral Nudges",
-    date: "14-01-2026 15:00",
-    location: "NB4302DL",
-    speaker: "Alex Martínez",
-    speakerUrl: "",
-    image: "wam140126.webp",
-  },
-  {
-    title: "IA generativa : generació d’imatges",
-    date: "26-11-2025 15:00",
-    location: "NB4302DL",
-    speaker: "Marina Martinez",
-    speakerUrl: "",
-    image: "wam240925.webp",
-  },  
-  {
-    title: "VocalCart: software diseñado para personas con discapacidad visual, que facilita la compra en línea sin barreras y de forma completamente autónoma",
-    date: "19-11-2025 15:00",
-    location: "NB4302DL",
-    speaker: "Santiago Pérez y Lina Tocón",
-    speakerUrl: "",
-    image: "wam191125.webp",
-  },
-  {
-    title: "Evaluación de un RAG",
-    date: "12-11-2025 15:00",
-    location: "NB4302DL",
-    speaker: "Emilio Sansano",
-    speakerUrl: "",
-    image: "rag.webp",
-  },
-  {
-    title: "Comparing Human and Model Perceptual Sensitivity to Rotation",
-    date: "05-11-2025",
-    location: "NB4302DL",
-    speaker: "David Agost Beltrán",
-    speakerUrl: "",
-    image: "wam051125.webp",
-  },
 
- {
-    title: "The Hopf model for generative effective connectivity",
-    date: "15-10-2025 15:00",
-    location: "NB4302DL",
-    speaker: "Jaume Usó",
-    speakerUrl: "",
-    image: "wam151025.webp",
-  },
    {
     title: "RTT-based Indoor Positioning",
     date: "01-10-2025 15:10",
@@ -77,7 +21,7 @@ export const SEMINARS = [
     date: "24-09-2025 15:05",
     location: "NB4302DL",
     speaker: "Emilio Sansano",
-       speakerUrl: "",
+    speakerUrl: "",
     image: "wam240925.webp",
    },
   {
@@ -242,5 +186,5 @@ export const SEMINARS = [
     speaker: "Marina Martínez",
     speakerUrl: "",
     image: "marina-310124.webp",
-  },
+  }
 ];
