@@ -8,12 +8,12 @@ export const SEMINARS = [
     image: "",
     }*/
    {
-    title: "IA generativa : generació d’imatges (Continuación)",
+    title: "IA generativa : generació d’imatges (Continuació)",
     date: "21-01-2026 15:00",
     location: "NB4302DL",
     speaker: "Marina Martinez",
     speakerUrl: "",
-    image: "",
+    image: "wam240925.webp",
   },
  {
     title: "An Explainable Educational Generative System: A Synthesis of POG-Based Recommendations Enrichment and Archetype-Based Behavioral Nudges",
@@ -21,7 +21,7 @@ export const SEMINARS = [
     location: "NB4302DL",
     speaker: "Alex Martínez",
     speakerUrl: "",
-    image: "",
+    image: "wam140126.webp",
   },
   {
     title: "IA generativa : generació d’imatges",
@@ -29,7 +29,7 @@ export const SEMINARS = [
     location: "NB4302DL",
     speaker: "Marina Martinez",
     speakerUrl: "",
-    image: "",
+    image: "wam240925.webp",
   },  
   {
     title: "VocalCart: software diseñado para personas con discapacidad visual, que facilita la compra en línea sin barreras y de forma completamente autónoma",
@@ -37,7 +37,7 @@ export const SEMINARS = [
     location: "NB4302DL",
     speaker: "Santiago Pérez y Lina Tocón",
     speakerUrl: "",
-    image: "",
+    image: "wam191125.webp",
   },
   {
     title: "Evaluación de un RAG",
@@ -45,7 +45,7 @@ export const SEMINARS = [
     location: "NB4302DL",
     speaker: "Emilio Sansano",
     speakerUrl: "",
-    image: "",
+    image: "rag.webp",
   },
   {
     title: "Comparing Human and Model Perceptual Sensitivity to Rotation",
@@ -53,7 +53,7 @@ export const SEMINARS = [
     location: "NB4302DL",
     speaker: "David Agost Beltrán",
     speakerUrl: "",
-    image: "",
+    image: "wam051125.webp",
   },
 
  {
@@ -62,7 +62,7 @@ export const SEMINARS = [
     location: "NB4302DL",
     speaker: "Jaume Usó",
     speakerUrl: "",
-    image: "",
+    image: "wam151025.webp",
   },
    {
     title: "RTT-based Indoor Positioning",
@@ -77,6 +77,7 @@ export const SEMINARS = [
     date: "24-09-2025 15:05",
     location: "NB4302DL",
     speaker: "Emilio Sansano",
+       speakerUrl: "",
     image: "wam240925.webp",
    },
   {
@@ -88,8 +89,7 @@ export const SEMINARS = [
     image: "alessio-120225.webp",
   },
   {
-    title:
-      "What is beautiful is still good: the attractiveness halo effect in the era of beauty filters",
+    title: "What is beautiful is still good: the attractiveness halo effect in the era of beauty filters",
     date: "04-12-2024 14:30",
     location: "NB4302DL",
     speaker: "Marina García",
