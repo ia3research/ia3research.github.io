@@ -8,7 +8,7 @@ export const SEMINARS = [
     image: "",
     }*/
  {
-    title: "IA generativa : generació d’imatges (Continuació)",
+    title: "Image Generation II",
     date: "21-01-2026 15:00",
     location: "NB4302DL",
     speaker: "Marina Martinez",
@@ -24,7 +24,7 @@ export const SEMINARS = [
     image: "wam140126.webp",
   },
   {
-    title: "IA generativa : generació d’imatges",
+    title: "Image Generation II",
     date: "26-11-2025 15:00",
     location: "NB4302DL",
     speaker: "Marina Martinez",
@@ -32,28 +32,28 @@ export const SEMINARS = [
     image: "wam240925.webp",
   },  
   {
-    title: "VocalCart: software diseñado para personas con discapacidad visual, que facilita la compra en línea sin barreras y de forma completamente autónoma",
+    title: "VocalCart",
     date: "19-11-2025 15:00",
     location: "NB4302DL",
     speaker: "Santiago Pérez y Lina Tocón",
     speakerUrl: "",
     image: "wam191125.webp",
   },
-     {
-    title: "Evaluación de un RAG",
+  {
+    title: "RAG Evaluation",
     date: "12-11-2025 15:00",
     location: "NB4302DL",
     speaker: "Emilio Sansano",
     speakerUrl: "",
     image: "rag.webp",
   },
-  {
+    {
     title: "Comparing Human and Model Perceptual Sensitivity to Rotation",
-    date: "05-11-2025",
+    date: "05-11-2025 15:00",
     location: "NB4302DL",
-    speaker: "David Agost Beltrán",
+    speaker: "David Agost",
     speakerUrl: "",
-    image: "wam051125.webp"
+    image: "wam051125.webp",
   },
   {
     title: "The Hopf model for generative effective connectivity",
