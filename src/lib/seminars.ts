@@ -8,7 +8,7 @@ export const SEMINARS = [
     image: "",
     }*/
 
-{
+ {
     title: "Comparing Human and Model Perceptual Sensitivity to Rotation",
     date: "05-11-2025",
     location: "NB4302DL",
@@ -16,7 +16,7 @@ export const SEMINARS = [
     speakerUrl: "",
     image: "wam051125.webp",
   },
- {
+  {
     title: "The Hopf model for generative effective connectivity",
     date: "15-10-2025 15:00",
     location: "NB4302DL",
@@ -24,7 +24,6 @@ export const SEMINARS = [
     speakerUrl: "",
     image: "wam151025.webp",
   },
-
    {
     title: "RTT-based Indoor Positioning",
     date: "01-10-2025 15:10",
