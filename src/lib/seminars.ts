@@ -7,9 +7,17 @@ export const SEMINARS = [
     speakerUrl: "",
     image: "",
     }*/
+ {
+    title: "The Hopf model for generative effective connectivity",
+    date: "15-10-2025 15:00",
+    location: "NB4302DL",
+    speaker: "Jaume Usó",
+    speakerUrl: "",
+    image: "wam151025.webp",
+  },
 
    {
-    title: "RTT-based Indoor Positioninggg",
+    title: "RTT-based Indoor Positioning",
     date: "01-10-2025 15:10",
     location: "NB4302DL",
     speaker: "Raul Montoliu",
