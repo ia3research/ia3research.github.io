@@ -8,15 +8,7 @@ export const SEMINARS = [
     image: "",
     }*/
 
-   {
-    title: "Evaluación de un RAG",
-    date: "12-11-2025 15:00",
-    location: "NB4302DL",
-    speaker: "Emilio Sansano",
-    speakerUrl: "",
-    image: "rag.webp",
-  },
-  {
+{
     title: "Comparing Human and Model Perceptual Sensitivity to Rotation",
     date: "05-11-2025",
     location: "NB4302DL",
