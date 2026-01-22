@@ -24,7 +24,7 @@ export const SEMINARS = [
     image: "",
   },
   {
-    title: "la generativa : generació d’imatges",
+    title: "IA generativa : generació d’imatges",
     date: "26-11-2025 15:00",
     location: "NB4302DL",
     speaker: "Marina Martinez",
