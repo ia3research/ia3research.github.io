@@ -72,7 +72,7 @@ export const SEMINARS = [
     image: "wam011025.webp",
    },
   {
-    title: "Introducción a la IA generativa",
+    title: "Generative AI",
     date: "24-09-2025 15:05",
     location: "NB4302DL",
     speaker: "Emilio Sansano",
