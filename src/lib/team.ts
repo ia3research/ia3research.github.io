@@ -107,6 +107,14 @@ export const TEAM = [
         "https://portalcientific.uji.es/investigadores/2337674/detalle",
     },
   },
+    {
+    name: "Alba Ramos Montañes",
+    role: "Researcher",
+    image: "alba-ramos.webp",
+    address: "Mrs.",
+    email: "mmontane@uji.es AT uji DOT es",
+    socials: ""
+  },
   {
     name: "Alejandro Carda Cerguta",
     role: "Student",
