@@ -34,6 +34,18 @@ export const PUBLICATIONS = [
         line: "aai",
   },
   {
+        title: "Perceptual Sensitivity to Rotation and Noise in Natural Images",
+        authors: "David Agost-Beltran, Paula Daudén-Oliver, Jesús Malo, Valero Laparra, Marina Martínez-García, Raúl Montoliu1, & Emilio Sansano-Sansano",
+        doi: "",
+        year: 2026,
+        publisher: "11th International Congress on Information and Communication Technology ",
+        quarter: "International",
+        type: "Conference",
+        slug: "ICICT 2026",
+        line: "aai",
+  },
+
+    {
         title: "Are pre-competition mood states predictors of individual and collective performance in amateur women's basketball during a relegation phase?",
         authors: "A. Batalla-Gavalda, J.V. Beltran-Garrido, R. Montoliu-Colás, A. Reina-Gómez, F. Corbi, & G. Daza-Sobrino",
         doi: "",
