@@ -1,6 +1,8 @@
 ---
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
+
+const year = new Date().getFullYear();
 ---
 
 <Layout
@@ -22,7 +24,7 @@ import Layout from "../layouts/Layout.astro";
   <div class='absolute bottom-10 left-0 w-full grid place-items-center'>
     <p
       class='text-black text-sm bg-blue-200 py-1 px-3 rounded-lg shadow-md select-none'>
-      © 2025 IA³ research group
+      © {year} IA³ research group
     </p>
   </div>
 </Layout>
