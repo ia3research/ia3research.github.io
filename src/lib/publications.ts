@@ -11,6 +11,39 @@ export const PUBLICATIONS = [
         line: "",
     }*/
 
+{
+        title: "Ecological Validity of Maximal Exercise Tests to Simulate Competitive Demands in Amateur Female Handball",
+        authors: "A. Batalla-Gavalda, J.V. Beltran-Garrido, R. Montoliu-Colás, A. Reina-Gómez, F. Corbi, & G. Daza-Sobrino",
+        doi: "https://doi.org/10.51371/issn.1840-2976.651",
+        year: 2026,
+        publisher: "Acta Kinesiologica",
+        quarter: "Q3",
+        type: "Journal",
+        slug: "AK",
+        line: "aai",
+  },
+  {
+        title: "Hybridizing Collaborative Filtering and Knowledge: How do they work together? - A Scoping Review",
+        authors: "Alex Martínez-Martínez, Raul Montoliu, Inmaculada Remolar",
+        doi: "",
+        year: 2026,
+        publisher: "International Journal of Advanced Computer Science and Applications",
+        quarter: "Q3",
+        type: "Journal",
+        slug: "IJACSA",
+        line: "aai",
+  },
+  {
+        title: "Are pre-competition mood states predictors of individual and collective performance in amateur women's basketball during a relegation phase?",
+        authors: "A. Batalla-Gavalda, J.V. Beltran-Garrido, R. Montoliu-Colás, A. Reina-Gómez, F. Corbi, & G. Daza-Sobrino",
+        doi: "",
+        year: 2026,
+        publisher: "Journal of Sport and Health Research",
+        quarter: "Q3",
+        type: "Journal",
+        slug: "JSHR",
+        line: "aai",
+  },
 
 {
         title: "RAID-Dataset: human responses to affine image distortions and Gaussian noise",
