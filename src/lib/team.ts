@@ -129,6 +129,27 @@ export const TEAM = [
     address: "Mr.",
     email: "al448489 AT uji DOT es",
   },
+    {
+    name: "Luis Crespo Mejias",
+    role: "Student",
+    image: "luis-crespo.webp",
+    address: "Mr.",
+    email: "al425987 AT uji DOT es",
+  },
+    {
+    name: "Lucas Freitas Souza",
+    role: "Student",
+    image: "lucas-freitas.webp",
+    address: "Mr.",
+    email: "al240265 AT uji DOT es",
+  },
+    {
+    name: "Miguel Díaz Samper",
+    role: "Student",
+    image: "miguel-diaz.webp",
+    address: "Mr.",
+    email: "al426021 AT uji DOT es",
+  },
 ];
 
 export const PAST_MEMBERS = [
