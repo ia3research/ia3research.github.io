@@ -15,6 +15,9 @@ import Header from "../../components/Header.astro";
         <p class="text-sm text-gray-500 mt-2">
           Calculate and visualize a time series with actual and estimated values.
         </p>
+        <p class="text-sm text-gray-500 mt-1">
+          Tip: use the mouse wheel to zoom.
+        </p>
       </div>
 
       <div class="bg-white rounded-lg shadow p-6">
@@ -64,7 +67,7 @@ import Header from "../../components/Header.astro";
           <button
             id="confiaCalcular"
             type="button"
-            class="w-full md:w-auto inline-flex items-center justify-center rounded-md border border-blue-800 px-6 py-2 text-blue-900 hover:bg-blue-200 transition-all duration-300">
+            class="w-full md:w-72 inline-flex items-center justify-center rounded-md border border-blue-800 px-6 py-2 text-blue-900 hover:bg-blue-200 transition-all duration-300 cursor-pointer disabled:cursor-not-allowed">
             Calculate
           </button>
           <span id="confiaEstado" class="text-sm text-gray-500"></span>
