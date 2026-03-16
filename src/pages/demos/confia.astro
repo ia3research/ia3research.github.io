@@ -1,0 +1,83 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+---
+
+<Layout
+  title="ConfIA Demo IA³ | Forecast"
+  description="ConfIA project demo with actual and estimated values.">
+  <Header currentPage="demos" />
+
+  <main class="w-full flex items-start justify-center py-12 px-4">
+    <div class="max-w-5xl w-full">
+      <div class="mb-8 text-center">
+        <h1 class="text-2xl font-semibold">ConfIA — Project demonstration</h1>
+        <p class="text-sm text-gray-500 mt-2">
+          Calculate and visualize a time series with actual and estimated values.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Company</label>
+            <input
+              id="confiaEmpresa"
+              class="mt-1 w-full rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-gray-900"
+              type="text"
+              readonly
+              value="Empresa 4601" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Account</label>
+            <input
+              id="confiaCuenta"
+              class="mt-1 w-full rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-gray-900"
+              type="text"
+              readonly
+              value="1007501" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Start Date</label>
+            <input
+              id="confiaFechaInicio"
+              class="mt-1 w-full rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-gray-900"
+              type="text"
+              readonly
+              value="01/01/2025" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700">End Date</label>
+            <input
+              id="confiaFechaFin"
+              class="mt-1 w-full rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-gray-900"
+              type="text"
+              readonly
+              value="01/03/2025" />
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-col items-center justify-center gap-2">
+          <button
+            id="confiaCalcular"
+            type="button"
+            class="w-full md:w-auto inline-flex items-center justify-center rounded-md border border-blue-800 px-6 py-2 text-blue-900 hover:bg-blue-200 transition-all duration-300">
+            Calculate
+          </button>
+          <span id="confiaEstado" class="text-sm text-gray-500"></span>
+        </div>
+
+        <div id="confiaChartWrap" class="mt-6" style="display: none; height: 360px;">
+          <canvas id="confiaChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Chart.js (CDN) + demo script -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+  <script src="/demos/confia/confia.js" defer></script>
+</Layout>

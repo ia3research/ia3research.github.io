@@ -6,6 +6,13 @@ export const DEMOS = [
     image: "",
     }*/
   {
+    name: "ConfIA",
+    description:
+      "Time-series visualization with real (green) and estimated (blue) values.",
+    link: "/demos/confia",
+    image: "confia.svg",
+  },
+  {
     name: "Adagio",
     description:
       "The Speech-to-Text application for persons with speech impairments.",
