@@ -99,15 +99,50 @@
 
   const getColorForType = (type) => (type === "real" ? REAL_COLOR : ESTIMADO_COLOR);
 
-  const latestValue = (rows, keyReal, keyEst) => {
-    for (let i = rows.length - 1; i >= 0; i--) {
-      const r = rows[i];
-      const vEst = r?.[keyEst];
-      if (vEst !== null && vEst !== undefined && Number.isFinite(vEst)) return vEst;
-      const vReal = r?.[keyReal];
-      if (vReal !== null && vReal !== undefined && Number.isFinite(vReal)) return vReal;
+  const ensureBasePointSettings = (dataset) => {
+    if (!dataset || typeof dataset !== "object") return;
+    if (!Object.hasOwn(dataset, "__confiaBasePointRadius")) {
+      dataset.__confiaBasePointRadius = dataset.pointRadius;
     }
-    return null;
+    if (!Object.hasOwn(dataset, "__confiaBasePointHoverRadius")) {
+      dataset.__confiaBasePointHoverRadius = dataset.pointHoverRadius;
+    }
+  };
+
+  const setReferencePoints = (chart, enabled) => {
+    if (!chart?.data?.datasets) return;
+
+    for (const ds of chart.data.datasets) {
+      ensureBasePointSettings(ds);
+      ds.pointRadius = enabled ? 2 : (ds.__confiaBasePointRadius ?? 0);
+      ds.pointHoverRadius = enabled ? 5 : (ds.__confiaBasePointHoverRadius ?? 4);
+      ds.pointHitRadius = enabled ? 14 : 10;
+    }
+  };
+
+  const syncReferencePointsFromState = (chart) => {
+    let isZoomedOrPanned = false;
+    if (typeof chart?.isZoomedOrPanned === "function") {
+      isZoomedOrPanned = chart.isZoomedOrPanned();
+    } else if (typeof chart?.getZoomLevel === "function") {
+      isZoomedOrPanned = chart.getZoomLevel() > 1.01;
+    }
+
+    setReferencePoints(chart, isZoomedOrPanned);
+  };
+
+  const wireDoubleClickResetZoom = (canvas, chart) => {
+    if (!canvas || !chart) return;
+    if (canvas.__confiaDblClickWired) return;
+    canvas.__confiaDblClickWired = true;
+
+    canvas.addEventListener("dblclick", () => {
+      if (typeof chart.resetZoom === "function") {
+        chart.resetZoom("none");
+        setReferencePoints(chart, false);
+        chart.update("none");
+      }
+    });
   };
 
   const buildKpiSeries = (rows, keyReal, keyEst) => {
@@ -147,7 +182,7 @@
             data: realData,
             borderColor: REAL_COLOR,
             backgroundColor: "rgba(34, 197, 94, 0.08)",
-            tension: 0,
+            tension: 0.35,
             spanGaps: false,
             fill: false,
             pointRadius: 0,
@@ -159,7 +194,7 @@
             data: estData,
             borderColor: ESTIMADO_COLOR,
             backgroundColor: "rgba(37, 99, 235, 0.08)",
-            tension: 0,
+            tension: 0.35,
             spanGaps: false,
             fill: false,
             pointRadius: 0,
@@ -174,6 +209,34 @@
         interaction: { mode: "nearest", intersect: false },
         plugins: {
           legend: { display: false },
+          zoom: {
+            limits: {
+              x: { min: 0, max: Math.max(0, labels.length - 1) },
+            },
+            pan: {
+              enabled: true,
+              mode: "x",
+              modifierKey: "ctrl",
+              onPan: ({ chart }) => {
+                syncReferencePointsFromState(chart);
+              },
+              onPanComplete: ({ chart }) => {
+                syncReferencePointsFromState(chart);
+              },
+            },
+            zoom: {
+              mode: "x",
+              wheel: { enabled: true },
+              pinch: { enabled: true },
+              drag: { enabled: true, modifierKey: "shift" },
+              onZoom: ({ chart }) => {
+                syncReferencePointsFromState(chart);
+              },
+              onZoomComplete: ({ chart }) => {
+                syncReferencePointsFromState(chart);
+              },
+            },
+          },
           tooltip: {
             callbacks: {
               title: (items) => {
@@ -202,6 +265,10 @@
     });
 
     canvas.__confiaChart = chart;
+
+    // Keep clean by default; show reference points once zoomed/panned.
+    setReferencePoints(chart, false);
+    wireDoubleClickResetZoom(canvas, chart);
   };
 
   const buildChart = (canvas, series) => {
@@ -224,7 +291,7 @@
             data,
             parsing: false,
             borderWidth: 2,
-            tension: 0,
+            tension: 0.35,
             // Hide points until hover
             pointRadius: 0,
             pointHoverRadius: 5,
@@ -258,6 +325,34 @@
         interaction: { intersect: false, mode: "nearest" },
         plugins: {
           legend: { display: false },
+          zoom: {
+            limits: {
+              x: { min: 0, max: Math.max(0, labels.length - 1) },
+            },
+            pan: {
+              enabled: true,
+              mode: "x",
+              modifierKey: "ctrl",
+              onPan: ({ chart }) => {
+                syncReferencePointsFromState(chart);
+              },
+              onPanComplete: ({ chart }) => {
+                syncReferencePointsFromState(chart);
+              },
+            },
+            zoom: {
+              mode: "x",
+              wheel: { enabled: true },
+              pinch: { enabled: true },
+              drag: { enabled: true, modifierKey: "shift" },
+              onZoom: ({ chart }) => {
+                syncReferencePointsFromState(chart);
+              },
+              onZoomComplete: ({ chart }) => {
+                syncReferencePointsFromState(chart);
+              },
+            },
+          },
           tooltip: {
             callbacks: {
               title: (items) => {
@@ -278,12 +373,16 @@
         scales: {
           x: {
             type: "category",
+            title: {
+              display: true,
+              text: "2025",
+            },
             ticks: {
               maxRotation: 0,
               autoSkip: true,
               maxTicksLimit: 8,
               callback: (value, index) => {
-                const label = labels[index];
+                const label = typeof value === "string" ? value : labels[value] ?? labels[index];
                 // Show DD/MM
                 const [, m, d] = String(label).split("-");
                 if (!d || !m) return label;
@@ -302,6 +401,10 @@
     });
 
     canvas.__confiaChart = chart;
+
+    // Keep clean by default; show reference points once zoomed/panned.
+    setReferencePoints(chart, false);
+    wireDoubleClickResetZoom(canvas, chart);
   };
 
   const setBusy = (btn, statusEl, busy) => {
