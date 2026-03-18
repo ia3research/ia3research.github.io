@@ -40,7 +40,7 @@ export const SEMINARS = [
     image: "wam140126.webp",
   },
   {
-    title: "Image Generation II",
+    title: "Image Generation I",
     date: "26-11-2025 15:00",
     location: "NB4302DL",
     speaker: "Marina Martinez",
