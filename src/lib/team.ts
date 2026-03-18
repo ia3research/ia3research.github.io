@@ -150,6 +150,13 @@ export const TEAM = [
     address: "Mr.",
     email: "al426021 AT uji DOT es",
   },
+      {
+    name: "Marc Castillo Porfilio",
+    role: "Student",
+    image: "marc-castillo.webp",
+    address: "Mr.",
+    email: "porfilio AT uji DOT es",
+  },
 ];
 
 export const PAST_MEMBERS = [
