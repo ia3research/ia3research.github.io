@@ -7,6 +7,22 @@ export const SEMINARS = [
     speakerUrl: "",
     image: "",
     }*/
+  {
+    title: "Image Generation III",
+    date: "18-03-2026 15:00",
+    location: "NB4302DL",
+    speaker: "Marina Martinez",
+    speakerUrl: "",
+    image: "wam240925.webp",
+  },
+   {
+    title: "Physics-Informed Neural Networks",
+    date: "18-02-2026 15:00",
+    location: "NB4302DL",
+    speaker: "Raúl Montoliu",
+    speakerUrl: "",
+    image: "wam180226.webp",
+  },
  {
     title: "Image Generation II",
     date: "21-01-2026 15:00",
