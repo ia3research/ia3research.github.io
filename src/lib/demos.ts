@@ -6,6 +6,12 @@ export const DEMOS = [
     image: "",
     }*/
   {
+    name: "CrimeSolver",
+    description: "LLM Simulation Engine for criminology students.",
+    link: "/demos/crimesolver",
+    image: "llmcrimesolver.webp",
+  },
+  {
     name: "ConfIA",
     description:
       "Time-series visualization with real (green) and estimated (blue) values.",

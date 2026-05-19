@@ -1,0 +1,50 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+---
+
+<Layout
+  title='Demo LLM Crime Solver'
+  description='Demostración de juego educativo para estudiantes de criminología.'>
+  <Header currentPage='demos' />
+
+  <main class='w-full flex items-start justify-center py-12 px-4'>
+    <div class='max-w-5xl w-full'>
+      <div class='mb-8 text-center'>
+        <h1 class='text-2xl font-semibold'>CrimeSolver demonstration</h1>
+        <p class='text-sm text-gray-500 mt-2'>
+          An LLM-powered simulation engine for criminology students.
+        </p>
+      </div>
+
+      <div
+        class='bg-white rounded-lg shadow p-6 justify-center items-center flex flex-col gap-2'>
+        <div class='w-full h-full'>
+        <!--   <video
+            class='w-full h-auto rounded-lg shadow-sm'
+            src='https://drive.google.com/file/d/1RPyeoOGWRCysxDI8Ztt03-rLKYMtbP30/view?usp=sharing'
+            controls></video> -->
+          <iframe
+            src='https://drive.google.com/file/d/1RPyeoOGWRCysxDI8Ztt03-rLKYMtbP30/preview'
+            class='w-full aspect-video rounded-lg shadow-sm'
+            allow='autoplay'
+            allowfullscreen>
+          </iframe>
+        </div>
+        <a
+          href='https://github.com/IA3-Research/CrimeSolver'
+          target='_blank'
+          rel='noopener noreferrer'
+          class='bg-blue-400 text-white px-4 py-2 rounded-lg'>
+          Download Build
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Optional small demo CSS to support minor transitions and rich markup -->
+  <link rel='stylesheet' href='/demos/rag/styles.css' />
+
+  <!-- Load demo script (runs on client) -->
+  <script src='/demos/rag/improven.js' defer></script>
+</Layout>
