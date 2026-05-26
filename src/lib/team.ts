@@ -107,13 +107,13 @@ export const TEAM = [
         "https://portalcientific.uji.es/investigadores/2337674/detalle",
     },
   },
-    {
+  {
     name: "Alba Ramos Montañes",
     role: "Researcher",
     image: "alba-ramos.webp",
     address: "Mrs.",
     email: "mmontane@uji.es AT uji DOT es",
-    socials: ""
+    socials: "",
   },
   {
     name: "Alejandro Carda Cerguta",
@@ -129,33 +129,54 @@ export const TEAM = [
     address: "Mr.",
     email: "al448489 AT uji DOT es",
   },
-    {
+  {
     name: "Luis Crespo Mejias",
     role: "Student",
     image: "luis-crespo.webp",
     address: "Mr.",
     email: "al425987 AT uji DOT es",
   },
-    {
+  {
     name: "Lucas Freitas Souza",
     role: "Student",
     image: "lucas-freitas.webp",
     address: "Mr.",
     email: "al240265 AT uji DOT es",
   },
-    {
+  {
     name: "Miguel Díaz Samper",
     role: "Student",
     image: "miguel-diaz.webp",
     address: "Mr.",
     email: "al426021 AT uji DOT es",
   },
-      {
+  {
     name: "Marc Castillo Porfilio",
     role: "Student",
     image: "marc-castillo.webp",
     address: "Mr.",
     email: "porfilio AT uji DOT es",
+  },
+  {
+    name: "Alberto Martí Llorens",
+    role: "Student",
+    image: "alberto-marti.webp",
+    address: "Mr.",
+    email: "allloren AT uji DOT es",
+  },
+  {
+    name: "Rafael Dinica",
+    role: "Student",
+    image: "rafael-dinica.webp",
+    address: "Mr.",
+    email: "dinica AT uji DOT es",
+  },
+  {
+    name: "Diego Gil Molés",
+    role: "Student",
+    image: "diego-gil.webp",
+    address: "Mr.",
+    email: "gil AT uji DOT es",
   },
 ];
 
@@ -175,10 +196,6 @@ export const PAST_MEMBERS = [
   {
     name: "Javier Gaviña",
     image: "javier-gavina.webp",
-  },
-  {
-    name: "Alberto Martí",
-    image: "alberto-marti.webp",
   },
   {
     name: "Ramón Martí",
