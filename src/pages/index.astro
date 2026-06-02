@@ -6,15 +6,16 @@ const year = new Date().getFullYear();
 ---
 
 <Layout
-  title="IA³ UJI — Inteligencia Artificial Aplicada y Algoritmos"
+  title="IA³ UJI — Applied Artificial Intelligence and Data Analysis"
   description="Grupo IA³ (UJI): aprendizaje automático, inteligencia artificial aplicada, LLMs, agentes, RAG y fairness en IA. Research on machine learning, applied AI, LLMs, agents, RAG, AI fairness.">
   <Header currentPage='home' />
   <div
-    class='py-2 px-6 rounded-md absolute top-0 left-0 right-0 bottom-0 h-fit w-fit m-auto'>
-    <h1
-      class='text-2xl md:text-6xl font-bold text-black mb-4 max-w-3xl text-center leading-tight'>
-      IA³: Applied Artificial Intelligence & Data Analysis
-    </h1>
+    class='py-2 px-6 rounded-md absolute top-0 left-0 right-0 bottom-0 h-fit w-fit m-auto flex flex-col items-end justify-center gap-10 md:gap-22'>
+    <div
+      class='text-2xl md:text-6xl font-bold text-black max-w-3xl text-center leading-tight'>
+      <!-- IA³: Applied Artificial Intelligence & Data Analysis -->
+       <img src="/logo-long.png" alt="IA3 Logo" class="w-full"/>
+    </div>
     <img
       src='/init.webp'
       alt='IA³ research group'
@@ -23,8 +24,8 @@ const year = new Date().getFullYear();
   </div>
   <div class='absolute bottom-10 left-0 w-full grid place-items-center'>
     <p
-      class='text-black text-sm bg-blue-200 py-1 px-3 rounded-lg shadow-md select-none'>
-      © {year} IA³ research group
+      class='text-black text-sm bg-blue-200 py-2 px-4 rounded-lg shadow-md select-none flex items-center justify-center'>
+      © {year} <span><img src="/logo.png" alt="" class="w-12 mr-2 ml-2"/></span> research group
     </p>
   </div>
 </Layout>

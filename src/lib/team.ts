@@ -86,16 +86,6 @@ export const TEAM = [
     },
   },
   {
-    name: "Héctor Rubio Rico",
-    role: "Researcher",
-    image: "hector-rubio.webp",
-    address: "Mr.",
-    email: "rubioh AT uji DOT es",
-    socials: {
-      orcid: "https://orcid.org/0009-0001-6909-352X",
-    },
-  },
-  {
     name: "Silvia Franch Ventura",
     role: "Researcher",
     image: "silvia-franch.webp",
@@ -106,56 +96,6 @@ export const TEAM = [
       scienceportal:
         "https://portalcientific.uji.es/investigadores/2337674/detalle",
     },
-  },
-  {
-    name: "Alba Ramos Montañes",
-    role: "Researcher",
-    image: "alba-ramos.webp",
-    address: "Mrs.",
-    email: "mmontane@uji.es AT uji DOT es",
-    socials: "",
-  },
-  {
-    name: "Alejandro Carda Cerguta",
-    role: "Student",
-    image: "alejandro-carda.webp",
-    address: "Mr.",
-    email: "al446484 AT uji DOT es",
-  },
-  {
-    name: "Miguel Angel Lira Mijares",
-    role: "Student",
-    image: "miguel-lira.webp",
-    address: "Mr.",
-    email: "al448489 AT uji DOT es",
-  },
-  {
-    name: "Luis Crespo Mejias",
-    role: "Student",
-    image: "luis-crespo.webp",
-    address: "Mr.",
-    email: "al425987 AT uji DOT es",
-  },
-  {
-    name: "Lucas Freitas Souza",
-    role: "Student",
-    image: "lucas-freitas.webp",
-    address: "Mr.",
-    email: "al240265 AT uji DOT es",
-  },
-  {
-    name: "Miguel Díaz Samper",
-    role: "Student",
-    image: "miguel-diaz.webp",
-    address: "Mr.",
-    email: "al426021 AT uji DOT es",
-  },
-  {
-    name: "Marc Castillo Porfilio",
-    role: "Student",
-    image: "marc-castillo.webp",
-    address: "Mr.",
-    email: "porfilio AT uji DOT es",
   },
   {
     name: "Alberto Martí Llorens",
@@ -171,16 +111,13 @@ export const TEAM = [
     address: "Mr.",
     email: "dinica AT uji DOT es",
   },
-  {
-    name: "Diego Gil Molés",
-    role: "Student",
-    image: "diego-gil.webp",
-    address: "Mr.",
-    email: "gil AT uji DOT es",
-  },
 ];
 
 export const PAST_MEMBERS = [
+  {
+    name: "Héctor Rubio",
+    image: "hector-rubio.webp",
+  },
   {
     name: "Ignasi Tormo",
     image: "ignasi-tormo.webp",
@@ -188,6 +125,38 @@ export const PAST_MEMBERS = [
   {
     name: "Nadia Montaña",
     image: "nadia-montana.webp",
+  },
+  {
+    name: "Alba Ramos",
+    image: "alba-ramos.webp",
+  },
+  {
+    name: "Marc Castillo",
+    image: "marc-castillo.webp",
+  },
+  {
+    name: "Diego Gil",
+    image: "diego-gil.webp",
+  },
+  {
+    name: "Alejandro Carda",
+    image: "alejandro-carda.webp",
+  },
+  {
+    name: "Miguel Lira",
+    image: "miguel-lira.webp",
+  },
+  {
+    name: "Luis Crespo",
+    image: "luis-crespo.webp",
+  },
+  {
+    name: "Lucas Freitas ",
+    image: "lucas-freitas.webp",
+  },
+  {
+    name: "Miguel Díaz",
+    image: "miguel-diaz.webp",
   },
   {
     name: "Gonzalo Ramia",

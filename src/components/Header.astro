@@ -17,7 +17,6 @@ const navItems = [
   { name: "Seminars", slug: "seminars" },
   { name: "Demos", slug: "demos" },
   { name: "Contact", slug: "contact" },
-
 ];
 
 const activeClassWeb =
@@ -39,12 +38,14 @@ const isActiveMobile = (item: string) => {
   <div
     class='max-w-6xl h-8 px-8 flex flex-row md:gap-0 items-center justify-between m-auto gap-4'>
     <div class='text-3xl font-bold decoration-none hidden md:block'>
-      <a href='/'>IA³</a>
+      <!-- <a href='/'>IA³</a> -->
+      <a href='/'><img src='/logo.png' alt='IA3 Logo' class='w-20' /></a>
     </div>
 
     <div
       class='text-3xl font-bold decoration-none relative flex items-center justify-between w-full md:hidden'>
-      <a href='/'>IA³</a>
+      <!-- <a href='/'>IA³</a> -->
+      <a href='/'><img src='/logo.png' alt='IA3 Logo' class='w-20' /></a>
       <button
         id='mobile-menu-button'
         class='md:hidden flex flex-col justify-center items-center space-y-1.5 cursor-pointer z-[60]'>
