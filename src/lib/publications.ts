@@ -25,7 +25,7 @@ export const PUBLICATIONS = [
   {
         title: "Hybridizing Collaborative Filtering and Knowledge: How do they work together? - A Scoping Review",
         authors: "Alex Martínez-Martínez, Raul Montoliu, Inmaculada Remolar",
-        doi: "",
+        doi: "https://dx.doi.org/10.14569/IJACSA.2026.0170304",
         year: 2026,
         publisher: "International Journal of Advanced Computer Science and Applications",
         quarter: "Q3",
