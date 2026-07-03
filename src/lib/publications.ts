@@ -12,6 +12,18 @@ export const PUBLICATIONS = [
     }*/
 
 {
+        title: "Exploring Rating of Perceived Exertion in Amateur Female Handball Players After Competition: What factors influence it?",
+        authors: "A. Batalla-Gavalda, J.V. Beltran-Garrido, R. Montoliu-Colás, A. Reina-Gómez, F. Corbi, & G. Daza-Sobrino",
+        doi: "",
+        year: 2026,
+        publisher: "Journal of Human Kinetics",
+        quarter: "Q1",
+        type: "Journal",
+        slug: "JHK",
+        line: "aai",
+  },
+
+{
         title: "Ecological Validity of Maximal Exercise Tests to Simulate Competitive Demands in Amateur Female Handball",
         authors: "A. Batalla-Gavalda, J.V. Beltran-Garrido, R. Montoliu-Colás, A. Reina-Gómez, F. Corbi, & G. Daza-Sobrino",
         doi: "https://doi.org/10.51371/issn.1840-2976.651",
