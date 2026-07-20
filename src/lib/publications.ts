@@ -11,6 +11,30 @@ export const PUBLICATIONS = [
         line: "",
     }*/
 
+    {
+        title: "Warbringers.py: a wargame simulator for testing AI agents",
+        authors: "Xavier Garcia Rodríguez and Raúl Montoliu",
+        doi: "",
+        year: 2026,
+        publisher: "5th Congreso Español de Videojuegos",
+        quarter: "International",
+        type: "Conference",
+        slug: "ICICT 2026",
+        line: "aai",
+  },
+
+    {
+        title: "Decoding the Suspect: Developing an LLM-Powered Criminal Interrogation Educational Game",
+        authors: "Alex Martínez-Martínez, Marc Castillo, Luis Crespo, Miguel Díaz, Lucas Freitas, Juan José Periago-Morant, Andrea Planchadell-Gargallo, Marina Martínez-Garcia, Emilio Sansano-Sansano and Raul Montoliu",
+        doi: "",
+        year: 2026,
+        publisher: "5th Congreso Español de Videojuegos",
+        quarter: "National",
+        type: "Conference",
+        slug: "CEV 2026",
+        line: "aai",
+  },
+
 {
         title: "Exploring Rating of Perceived Exertion in Amateur Female Handball Players After Competition: What factors influence it?",
         authors: "A. Batalla-Gavalda, J.V. Beltran-Garrido, R. Montoliu-Colás, A. Reina-Gómez, F. Corbi, & G. Daza-Sobrino",
@@ -47,7 +71,7 @@ export const PUBLICATIONS = [
   },
   {
         title: "Perceptual Sensitivity to Rotation and Noise in Natural Images",
-        authors: "David Agost-Beltran, Paula Daudén-Oliver, Jesús Malo, Valero Laparra, Marina Martínez-García, Raúl Montoliu1, & Emilio Sansano-Sansano",
+        authors: "David Agost-Beltran, Paula Daudén-Oliver, Jesús Malo, Valero Laparra, Marina Martínez-García, Raúl Montoliu, & Emilio Sansano-Sansano",
         doi: "",
         year: 2026,
         publisher: "11th International Congress on Information and Communication Technology ",
