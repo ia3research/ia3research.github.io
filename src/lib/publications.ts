@@ -17,7 +17,7 @@ export const PUBLICATIONS = [
         doi: "",
         year: 2026,
         publisher: "5th Congreso Español de Videojuegos",
-        quarter: "International",
+        quarter: "National",
         type: "Conference",
         slug: "ICICT 2026",
         line: "aai",
