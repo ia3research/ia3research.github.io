@@ -19,7 +19,7 @@ export const PUBLICATIONS = [
         publisher: "5th Congreso Español de Videojuegos",
         quarter: "National",
         type: "Conference",
-        slug: "ICICT 2026",
+        slug: "CEV 2026b",
         line: "aai",
   },
 
@@ -31,7 +31,7 @@ export const PUBLICATIONS = [
         publisher: "5th Congreso Español de Videojuegos",
         quarter: "National",
         type: "Conference",
-        slug: "CEV 2026",
+        slug: "CEV 2026a",
         line: "aai",
   },
 
