@@ -34,6 +34,17 @@ export const PUBLICATIONS = [
         slug: "CEV 2026a",
         line: "aai",
   },
+      {
+        title: "Inteligencia artificial generativa y entornos híbridos en educación superior: evaluación de un modelo innovador para el emprendimiento social en el proyecto SEEN",
+        authors: "Silvia Franch-Ventura, Raul Montoliu, Ruben García-Vidal",
+        doi: "",
+        year: 2026,
+        publisher: "XXIX Congreso Internacional de Tecnología Educativa",
+        quarter: "National",
+        type: "Conference",
+        slug: "EDUTEC",
+        line: "aai",
+  },
 
 {
         title: "Exploring Rating of Perceived Exertion in Amateur Female Handball Players After Competition: What factors influence it?",
@@ -56,6 +67,17 @@ export const PUBLICATIONS = [
         quarter: "Q3",
         type: "Journal",
         slug: "AK",
+        line: "aai",
+  },
+      {
+        title: "Inteligencia artificial generativa y aprendizaje híbrido para la enseñanza del emprendimiento social: una propuesta de innovación docente del proyecto SEEN",
+        authors: "Silvia Franch-Ventura, Raul Montoliu, Ruben García-Vidal",
+        doi: "",
+        year: 2026,
+        publisher: "III Seminario de Jóvenes Investigadores ECN – Emprendimiento ACEDE",
+        quarter: "National",
+        type: "Conference",
+        slug: "ECN",
         line: "aai",
   },
   {
