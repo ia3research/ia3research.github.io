@@ -11,6 +11,19 @@ export const PUBLICATIONS = [
         line: "",
     }*/
 
+
+    {
+        title: "UVIndoorLoc-RTT: A New Multi-Scenario Dataset for Wi-Fi Fine Time Measurements Indoor Localization Problems",
+        authors: "Miguel Matey-Sanz, Sara Martín-Frechina, Juan Carlos Santamaría-Pedrón, Ignacio  Miralles, Esther Dura, Jose M. Claver, Raul Montoliu, Antoni Pérez-Navarro, Joaquín Torres-Sospedra",
+        doi: "",
+        year: 2026,
+        publisher: "16th International Conference on Indoor Positioning and Indoor Navigation",
+        quarter: "International",
+        type: "Conference",
+        slug: "IPIN 2026",
+        line: "aai",
+  },
+
     {
         title: "Warbringers.py: a wargame simulator for testing AI agents",
         authors: "Xavier Garcia Rodríguez and Raúl Montoliu",
