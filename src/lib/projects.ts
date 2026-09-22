@@ -33,6 +33,21 @@ export const PROJECTS = [
     line: "aai"
   },
   {
+    startdate: "01-09-2024",
+    enddate: "31-08-2028",
+    call: "CIPROM-2023-48",
+    shortname: "PROMETEO",
+    name: "[PROMETEO-EASIER] Interacción social aumentada a través de las realidades extendidas",
+    grant: 102500,
+    link: "https://aplicat.upv.es/exploraupv/ficha-proyecto/proyecto/20240714",
+    image: "prometeo.webp",
+    funder: "Valencian Government",
+    line: "aai",
+  },
+];
+
+export const PAST_PROJECTS = [
+  {
     startdate: "01-02-2025",
     enddate: "28-02-2026",
     call: "INREIA/2024/30",
@@ -56,22 +71,6 @@ export const PROJECTS = [
     funder: "European Comission",
     line: "dam",
   },
-  {
-    startdate: "01-09-2024",
-    enddate: "31-08-2028",
-    call: "CIPROM-2023-48",
-    shortname: "PROMETEO",
-    name: "[PROMETEO-EASIER] Interacción social aumentada a través de las realidades extendidas",
-    grant: 102500,
-    link: "https://aplicat.upv.es/exploraupv/ficha-proyecto/proyecto/20240714",
-    image: "prometeo.webp",
-    funder: "Valencian Government",
-    line: "aai",
-  },
-];
-
-export const PAST_PROJECTS = [
-
   {
     startdate: "01-07-2025",
     enddate: "31-12-2025",
