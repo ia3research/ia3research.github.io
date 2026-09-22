@@ -86,34 +86,32 @@ export const TEAM = [
     },
   },
   {
-    name: "Silvia Franch Ventura",
-    role: "Researcher",
-    image: "silvia-franch.webp",
-    address: "Mrs.",
-    email: "sfranch AT uji DOT es",
-    socials: {
-      orcid: "https://orcid.org/0009-0003-1899-7611",
-      scienceportal:
-        "https://portalcientific.uji.es/investigadores/2337674/detalle",
-    },
+    name: "Diego Pérez",
+    role: "Ph.D. Student",
   },
   {
-    name: "Alberto Martí Llorens",
-    role: "Student",
-    image: "alberto-marti.webp",
-    address: "Mr.",
-    email: "allloren AT uji DOT es",
+    name: "Xavier García",
+    role: "Ph.D. Student",
   },
-  {
-    name: "Rafael Dinica",
-    role: "Student",
-    image: "rafael-dinica.webp",
-    address: "Mr.",
-    email: "dinica AT uji DOT es",
+    {
+    name: "Mustafa Hussein",
+    role: "Ph.D. Student",
   },
 ];
 
 export const PAST_MEMBERS = [
+    {
+    name: "Silvia Franch",
+    image: "silvia-franch.webp",
+  },
+    {
+    name: "Alberto Martí",
+    image: "alberto-marti.webp",
+  },
+    {
+    name: "Rafael Dinica",
+    image: "rafael-dinica.webp",
+  },
   {
     name: "Héctor Rubio",
     image: "hector-rubio.webp",
