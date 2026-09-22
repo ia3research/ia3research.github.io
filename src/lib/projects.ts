@@ -9,6 +9,18 @@ export const FUNDERS = [
 
 export const PROJECTS = [
   {
+    startdate: "01-09-2026",
+    enddate: "01-09-2030",
+    call: "PID2025-168024OB-C42",
+    shortname: "COLOBO",
+    name: "Colobo",
+    grant: 118000,
+    link: "",
+    image: "project.webp",
+    funder: "Spanish Government",
+    line: "aai",
+  },
+  {
     startdate: "01-02-2025",
     enddate: "28-02-2026",
     call: "INREIA/2024/30",

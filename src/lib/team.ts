@@ -88,15 +88,20 @@ export const TEAM = [
   {
     name: "Diego Pérez",
     role: "Ph.D. Student",
-    image: "diego-perez.webp"
+    image: "diego-perez.webp",
+    address: "Mr."
   },
   {
     name: "Xavier García",
     role: "Ph.D. Student",
+    image: "person.webp",
+    address: "Mr."
   },
-    {
+  {
     name: "Mustafa Hussein",
     role: "Ph.D. Student",
+    image: "person.webp",
+    address: "Mr."
   },
 ];
 
