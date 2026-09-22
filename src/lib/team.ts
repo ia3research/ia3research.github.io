@@ -88,6 +88,7 @@ export const TEAM = [
   {
     name: "Diego Pérez",
     role: "Ph.D. Student",
+    image: "diego-perez.webp"
   },
   {
     name: "Xavier García",
