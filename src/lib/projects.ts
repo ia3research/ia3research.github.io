@@ -22,7 +22,7 @@ export const PROJECTS = [
   },
   {
     startdate: "01-09-2026",
-    enddate: "01-09-2028",
+    enddate: "01-09-2029",
     call: "2026-1-RO01-KA220-HED-000455526",
     shortname: "BRIDGE-AI",
     name: "Bridging the Gap: Digital Competences and AI Literacy in Higher Education",
