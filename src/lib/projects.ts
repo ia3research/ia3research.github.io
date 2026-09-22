@@ -20,6 +20,18 @@ export const PROJECTS = [
     funder: "Spanish Government",
     line: "aai",
   },
+    {
+    startdate: "01-09-2026",
+    enddate: "01-09-2028",
+    call: "2026-1-RO01-KA220-HED-000455526",
+    shortname: "BRIDGE-AI",
+    name: "Bridging the Gap: Digital Competences and AI Literacy in Higher Education",
+    grant: 92500,
+    link: "",
+    image: "project.webp",
+    funder: "European Comission",
+    line: "aai",
+  },
   {
     startdate: "01-02-2025",
     enddate: "28-02-2026",
