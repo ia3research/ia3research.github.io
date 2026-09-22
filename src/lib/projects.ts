@@ -20,7 +20,7 @@ export const PROJECTS = [
     funder: "Spanish Government",
     line: "aai",
   },
-    {
+  {
     startdate: "01-09-2026",
     enddate: "01-09-2028",
     call: "2026-1-RO01-KA220-HED-000455526",
@@ -30,7 +30,7 @@ export const PROJECTS = [
     link: "",
     image: "project.webp",
     funder: "European Comission",
-    line: "aai",
+    line: "aai"
   },
   {
     startdate: "01-02-2025",
