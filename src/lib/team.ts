@@ -94,14 +94,18 @@ export const TEAM = [
   {
     name: "Xavier García",
     role: "Ph.D. Student",
-    image: "person.webp",
+    image: "xavier-garcia.webp",
     address: "Mr."
   },
   {
-    name: "Mustafa Hussein",
+    name: "Mustafa Hussein Mohammed",
     role: "Ph.D. Student",
-    image: "person.webp",
-    address: "Mr."
+    image: "mohamed-hussein.webp",
+    address: "Mr.",
+    socials: {
+      scholar: "https://scholar.google.com/citations?user=skCoPBEAAAAJ&hl=en",
+      orcid: "https://orcid.org/0009-0005-8193-2495",
+    },
   },
 ];
 
