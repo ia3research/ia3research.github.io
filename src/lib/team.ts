@@ -107,7 +107,15 @@ export const TEAM = [
       orcid: "https://orcid.org/0009-0005-8193-2495",
     },
   },
+  {
+    name: "María Ortiz",
+    role: "Ph.D. Student",
+    image: "maria-ortiz.webp",
+    address: "Ms."
+  },
 ];
+
+
 
 export const PAST_MEMBERS = [
     {
