@@ -11,6 +11,29 @@ export const PUBLICATIONS = [
         line: "",
     }*/
 
+    {
+        title: "A Comparative Study of RTT and RSSI Stability for Wi-Fi-based Indoor Localization",
+        authors: "Raul Montoliu, Paolo Barsocchi, Francesco Furfari, Gisuseppe Lombardi, Antonino Crivello, Miguel Matey-Sanz, Antoni Perez-Navarro, Joaquín Torres-Sospedra",
+        doi: "",
+        year: 2026,
+        publisher: "1st IEEE Navigation Conference",
+        quarter: "International",
+        type: "Conference",
+        slug: "NAVICON 2026a",
+        line: "aai",
+  },
+
+      {
+        title: "A Wi-Fi RTT and RSSI as Positioning Observables Across Multiple Estimation Methods",
+        authors: "Miguel Matey-Sanz, Ignacion Miralles, Raul Montoliu, Antoni Perez-Navarro, Joaquín Torres-Sospedra",
+        doi: "",
+        year: 2026,
+        publisher: "1st IEEE Navigation Conference",
+        quarter: "International",
+        type: "Conference",
+        slug: "NAVICON 2026b",
+        line: "aai",
+  },
 
     {
         title: "UVIndoorLoc-RTT: A New Multi-Scenario Dataset for Wi-Fi Fine Time Measurements Indoor Localization Problems",
