@@ -12,6 +12,18 @@ export const PUBLICATIONS = [
     }*/
 
     {
+        title: "A first step toward structured educational recommendations:knowledge graph embeddings in partially ordered graphs",
+        authors: "Alex MArtínez-Martínez, Raul Montoliu, Inmaculada Remolar",
+        doi: "https://doi.org/10.1007/s10489-026-07576-5",
+        year: 2026,
+        publisher: "Applied Intelligence",
+        quarter: "Q2",
+        type: "Journal",
+        slug: "AI",
+        line: "aai",
+  },
+
+    {
         title: "A Comparative Study of RTT and RSSI Stability for Wi-Fi-based Indoor Localization",
         authors: "Raul Montoliu, Paolo Barsocchi, Francesco Furfari, Gisuseppe Lombardi, Antonino Crivello, Miguel Matey-Sanz, Antoni Perez-Navarro, Joaquín Torres-Sospedra",
         doi: "",
