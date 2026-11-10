@@ -12,8 +12,20 @@ export const PUBLICATIONS = [
     }*/
 
     {
+        title: "A Sensor-Error Correction Framework for Wi-Fi RTT-Based Indoor Localization",
+        authors: "Raul Montoliu, Paolo Barsocchi, Alex Martínez-Martínez, Francesco Furfari, Gisuseppe Lombardi, Antonino Crivello, Miguel Matey-Sanz, Antoni Perez-Navarro, Joaquín Torres-Sospedra",
+        doi: "",
+        year: 2026,
+        publisher: "18th International Congress on Ultra Modern Telecommunications and Control Systems",
+        quarter: "International",
+        type: "Conference",
+        slug: " ICUMT 2026",
+        line: "aai",
+  },
+
+    {
         title: "A first step toward structured educational recommendations:knowledge graph embeddings in partially ordered graphs",
-        authors: "Alex MArtínez-Martínez, Raul Montoliu, Inmaculada Remolar",
+        authors: "Alex Martínez-Martínez, Raul Montoliu, Inmaculada Remolar",
         doi: "https://doi.org/10.1007/s10489-026-07576-5",
         year: 2026,
         publisher: "Applied Intelligence",
