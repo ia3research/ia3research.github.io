@@ -13,7 +13,7 @@ export const PUBLICATIONS = [
 
     {
         title: "A Sensor-Error Correction Framework for Wi-Fi RTT-Based Indoor Localization",
-        authors: "Raul Montoliu, Paolo Barsocchi, Alex Martínez-Martínez, Francesco Furfari, Gisuseppe Lombardi, Antonino Crivello, Miguel Matey-Sanz, Antoni Perez-Navarro, Joaquín Torres-Sospedra",
+        authors: "Raul Montoliu, Paolo Barsocchi, Alex Martínez-Martínez, Francesco Furfari, Gisuseppe Lombardi, Antonino Crivello, Miguel Matey-Sanz, Joaquín Torres-Sospedra",
         doi: "",
         year: 2026,
         publisher: "18th International Congress on Ultra Modern Telecommunications and Control Systems",
